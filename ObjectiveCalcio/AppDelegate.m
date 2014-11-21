@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "MatchesViewController.h"
+#import "MatchesViewModel.h"
+#import "APIClient.h"
 
 @interface AppDelegate ()
 
@@ -14,8 +17,15 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    MatchesViewController *matchesViewController = (MatchesViewController *)navigationController.topViewController;
+
+    APIClient *apiClient = [[APIClient alloc] init];
+    MatchesViewModel *matchesViewModel = [[MatchesViewModel alloc] initWithAPIClient:apiClient];
+    matchesViewController.viewModel = matchesViewModel;
+
     return YES;
 }
 

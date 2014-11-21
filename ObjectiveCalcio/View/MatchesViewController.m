@@ -8,27 +8,32 @@
 
 #import "MatchesViewController.h"
 #import "MatchCell.h"
-#import "MatchesViewModel.h"
+#import <libextobjc/EXTScope.h>
 
 static NSString * const MatchCellIdentifier = @"MatchCell";
 
 @interface MatchesViewController ()
 
-@property (nonatomic, strong) MatchesViewModel *viewModel;
-
 @end
 
 @implementation MatchesViewController
 
-#pragma mark - Lifecycle
+#pragma mark - View Lifecycle
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if (!self) return nil;
+- (void)viewDidLoad {
+    [super viewDidLoad];
 
-    _viewModel = [[MatchesViewModel alloc] init];
+    @weakify(self);
+    [self.viewModel.updatedContentSignal subscribeNext:^(id _) {
+        @strongify(self);
+        [self.tableView reloadData];
+    }];
+}
 
-    return self;
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
+    self.viewModel.active = YES;
 }
 
 #pragma mark - UITableViewDataSource

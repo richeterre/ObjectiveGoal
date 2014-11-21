@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0F05D80B1A1FE1D700083EC6 /* MatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F05D80A1A1FE1D700083EC6 /* MatchesViewController.m */; };
 		0F05D80E1A1FECFA00083EC6 /* MatchesViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F05D80D1A1FECFA00083EC6 /* MatchesViewModel.m */; };
+		0FA2ADE01A1FFEC7002801D2 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADDF1A1FFEC7002801D2 /* APIClient.m */; };
 		0FDBE03F1A1FD9F5001CA0ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBE03E1A1FD9F5001CA0ED /* main.m */; };
 		0FDBE0421A1FD9F5001CA0ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBE0411A1FD9F5001CA0ED /* AppDelegate.m */; };
 		0FDBE0481A1FD9F5001CA0ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FDBE0461A1FD9F5001CA0ED /* Main.storyboard */; };
@@ -35,6 +36,8 @@
 		0F05D80A1A1FE1D700083EC6 /* MatchesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchesViewController.m; sourceTree = "<group>"; };
 		0F05D80C1A1FECFA00083EC6 /* MatchesViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchesViewModel.h; sourceTree = "<group>"; };
 		0F05D80D1A1FECFA00083EC6 /* MatchesViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchesViewModel.m; sourceTree = "<group>"; };
+		0FA2ADDE1A1FFEC7002801D2 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
+		0FA2ADDF1A1FFEC7002801D2 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
 		0FDBE0391A1FD9F5001CA0ED /* ObjectiveCalcio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjectiveCalcio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FDBE03D1A1FD9F5001CA0ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FDBE03E1A1FD9F5001CA0ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -74,6 +77,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0FA2ADDD1A1FFE90002801D2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0FA2ADDE1A1FFEC7002801D2 /* APIClient.h */,
+				0FA2ADDF1A1FFEC7002801D2 /* APIClient.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		0FDBE0301A1FD9F5001CA0ED = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +117,7 @@
 				0FDBE0621A1FDA14001CA0ED /* Model */,
 				0FDBE0631A1FDA1D001CA0ED /* View */,
 				0FDBE0641A1FDA2D001CA0ED /* ViewModel */,
+				0FA2ADDD1A1FFE90002801D2 /* Helpers */,
 				0FDBE03C1A1FD9F5001CA0ED /* Supporting Files */,
 			);
 			path = ObjectiveCalcio;
@@ -318,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FDCB2A11A1FF44D00656AF2 /* MatchCell.m in Sources */,
+				0FA2ADE01A1FFEC7002801D2 /* APIClient.m in Sources */,
 				0FDBE0421A1FD9F5001CA0ED /* AppDelegate.m in Sources */,
 				0FDBE03F1A1FD9F5001CA0ED /* main.m in Sources */,
 				0FDCB2A41A1FF58400656AF2 /* Match.m in Sources */,

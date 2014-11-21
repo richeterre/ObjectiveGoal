@@ -6,9 +6,15 @@
 //  Copyright (c) 2014 Martin Richter. All rights reserved.
 //
 
-#import "RVMViewModel.h"
+#import "APIClient.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <ReactiveViewModel/ReactiveViewModel.h>
 
 @interface MatchesViewModel : RVMViewModel
+
+@property (nonatomic, strong, readonly) RACSignal *updatedContentSignal;
+
+- (instancetype)initWithAPIClient:(APIClient *)apiClient;
 
 - (NSInteger)numberOfSections;
 - (NSInteger)numberOfItemsInSection:(NSInteger)section;

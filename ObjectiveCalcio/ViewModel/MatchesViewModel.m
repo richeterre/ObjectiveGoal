@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MatchesViewModel.h"
 #import "Match.h"
+#import <libextobjc/EXTScope.h>
 
 @interface MatchesViewModel ()
 
@@ -18,14 +19,17 @@
 
 @implementation MatchesViewModel
 
-- (instancetype)init {
+- (instancetype)initWithAPIClient:(APIClient *)apiClient {
     self = [super init];
     if (!self) return nil;
 
-    _matches = @[
-        [[Match alloc] initWithHomePlayers:@"Alice & Bob" awayPlayers:@"Charlie & Dora" homeGoals:3 awayGoals:2],
-        [[Match alloc] initWithHomePlayers:@"Charlie & Bob" awayPlayers:@"Alice & Dora" homeGoals:0 awayGoals:2]
-    ];
+    @weakify(self);
+    [self.didBecomeActiveSignal subscribeNext:^(id _) {
+        @strongify(self);
+        RAC(self, matches) = [apiClient fetchMatches];
+    }];
+
+    _updatedContentSignal = [RACObserve(self, matches) mapReplace:@(YES)];
 
     return self;
 }

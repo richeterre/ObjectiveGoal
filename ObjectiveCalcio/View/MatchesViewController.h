@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MatchesViewModel.h"
 
 @interface MatchesViewController : UITableViewController
+
+@property (nonatomic, strong) MatchesViewModel *viewModel;
 
 @end
