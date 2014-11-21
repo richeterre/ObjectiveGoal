@@ -1,451 +1,991 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		0FDBE03F1A1FD9F5001CA0ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBE03E1A1FD9F5001CA0ED /* main.m */; };
-		0FDBE0421A1FD9F5001CA0ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBE0411A1FD9F5001CA0ED /* AppDelegate.m */; };
-		0FDBE0451A1FD9F5001CA0ED /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBE0441A1FD9F5001CA0ED /* ViewController.m */; };
-		0FDBE0481A1FD9F5001CA0ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FDBE0461A1FD9F5001CA0ED /* Main.storyboard */; };
-		0FDBE04A1A1FD9F5001CA0ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FDBE0491A1FD9F5001CA0ED /* Images.xcassets */; };
-		0FDBE04D1A1FD9F5001CA0ED /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FDBE04B1A1FD9F5001CA0ED /* LaunchScreen.xib */; };
-		0FDBE0591A1FD9F5001CA0ED /* ObjectiveCalcioTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBE0581A1FD9F5001CA0ED /* ObjectiveCalcioTests.m */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		0FDBE0531A1FD9F5001CA0ED /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0FDBE0311A1FD9F5001CA0ED /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0FDBE0381A1FD9F5001CA0ED;
-			remoteInfo = ObjectiveCalcio;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		0FDBE0391A1FD9F5001CA0ED /* ObjectiveCalcio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjectiveCalcio.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0FDBE03D1A1FD9F5001CA0ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0FDBE03E1A1FD9F5001CA0ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		0FDBE0401A1FD9F5001CA0ED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		0FDBE0411A1FD9F5001CA0ED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0FDBE0431A1FD9F5001CA0ED /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ObjectiveCalcio/ViewController.h; sourceTree = SOURCE_ROOT; };
-		0FDBE0441A1FD9F5001CA0ED /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ObjectiveCalcio/ViewController.m; sourceTree = SOURCE_ROOT; };
-		0FDBE0471A1FD9F5001CA0ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0FDBE0491A1FD9F5001CA0ED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		0FDBE04C1A1FD9F5001CA0ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		0FDBE0521A1FD9F5001CA0ED /* ObjectiveCalcioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjectiveCalcioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0FDBE0571A1FD9F5001CA0ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0FDBE0581A1FD9F5001CA0ED /* ObjectiveCalcioTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjectiveCalcioTests.m; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		0FDBE0361A1FD9F5001CA0ED /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0FDBE04F1A1FD9F5001CA0ED /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		0FDBE0301A1FD9F5001CA0ED = {
-			isa = PBXGroup;
-			children = (
-				0FDBE03B1A1FD9F5001CA0ED /* ObjectiveCalcio */,
-				0FDBE0551A1FD9F5001CA0ED /* ObjectiveCalcioTests */,
-				0FDBE03A1A1FD9F5001CA0ED /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		0FDBE03A1A1FD9F5001CA0ED /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				0FDBE0391A1FD9F5001CA0ED /* ObjectiveCalcio.app */,
-				0FDBE0521A1FD9F5001CA0ED /* ObjectiveCalcioTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		0FDBE03B1A1FD9F5001CA0ED /* ObjectiveCalcio */ = {
-			isa = PBXGroup;
-			children = (
-				0FDBE0401A1FD9F5001CA0ED /* AppDelegate.h */,
-				0FDBE0411A1FD9F5001CA0ED /* AppDelegate.m */,
-				0FDBE0461A1FD9F5001CA0ED /* Main.storyboard */,
-				0FDBE0491A1FD9F5001CA0ED /* Images.xcassets */,
-				0FDBE04B1A1FD9F5001CA0ED /* LaunchScreen.xib */,
-				0FDBE0431A1FD9F5001CA0ED /* ViewController.h */,
-				0FDBE0441A1FD9F5001CA0ED /* ViewController.m */,
-				0FDBE0621A1FDA14001CA0ED /* Model */,
-				0FDBE0631A1FDA1D001CA0ED /* View */,
-				0FDBE0641A1FDA2D001CA0ED /* ViewModel */,
-				0FDBE03C1A1FD9F5001CA0ED /* Supporting Files */,
-			);
-			path = ObjectiveCalcio;
-			sourceTree = "<group>";
-		};
-		0FDBE03C1A1FD9F5001CA0ED /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				0FDBE03D1A1FD9F5001CA0ED /* Info.plist */,
-				0FDBE03E1A1FD9F5001CA0ED /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		0FDBE0551A1FD9F5001CA0ED /* ObjectiveCalcioTests */ = {
-			isa = PBXGroup;
-			children = (
-				0FDBE0581A1FD9F5001CA0ED /* ObjectiveCalcioTests.m */,
-				0FDBE0561A1FD9F5001CA0ED /* Supporting Files */,
-			);
-			path = ObjectiveCalcioTests;
-			sourceTree = "<group>";
-		};
-		0FDBE0561A1FD9F5001CA0ED /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				0FDBE0571A1FD9F5001CA0ED /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		0FDBE0621A1FDA14001CA0ED /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		0FDBE0631A1FDA1D001CA0ED /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		0FDBE0641A1FDA2D001CA0ED /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		0FDBE0381A1FD9F5001CA0ED /* ObjectiveCalcio */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0FDBE05C1A1FD9F5001CA0ED /* Build configuration list for PBXNativeTarget "ObjectiveCalcio" */;
-			buildPhases = (
-				0FDBE0351A1FD9F5001CA0ED /* Sources */,
-				0FDBE0361A1FD9F5001CA0ED /* Frameworks */,
-				0FDBE0371A1FD9F5001CA0ED /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ObjectiveCalcio;
-			productName = ObjectiveCalcio;
-			productReference = 0FDBE0391A1FD9F5001CA0ED /* ObjectiveCalcio.app */;
-			productType = "com.apple.product-type.application";
-		};
-		0FDBE0511A1FD9F5001CA0ED /* ObjectiveCalcioTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0FDBE05F1A1FD9F5001CA0ED /* Build configuration list for PBXNativeTarget "ObjectiveCalcioTests" */;
-			buildPhases = (
-				0FDBE04E1A1FD9F5001CA0ED /* Sources */,
-				0FDBE04F1A1FD9F5001CA0ED /* Frameworks */,
-				0FDBE0501A1FD9F5001CA0ED /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0FDBE0541A1FD9F5001CA0ED /* PBXTargetDependency */,
-			);
-			name = ObjectiveCalcioTests;
-			productName = ObjectiveCalcioTests;
-			productReference = 0FDBE0521A1FD9F5001CA0ED /* ObjectiveCalcioTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		0FDBE0311A1FD9F5001CA0ED /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastUpgradeCheck = 0610;
-				ORGANIZATIONNAME = "Martin Richter";
-				TargetAttributes = {
-					0FDBE0381A1FD9F5001CA0ED = {
-						CreatedOnToolsVersion = 6.1;
-					};
-					0FDBE0511A1FD9F5001CA0ED = {
-						CreatedOnToolsVersion = 6.1;
-						TestTargetID = 0FDBE0381A1FD9F5001CA0ED;
-					};
-				};
-			};
-			buildConfigurationList = 0FDBE0341A1FD9F5001CA0ED /* Build configuration list for PBXProject "ObjectiveCalcio" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = 0FDBE0301A1FD9F5001CA0ED;
-			productRefGroup = 0FDBE03A1A1FD9F5001CA0ED /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				0FDBE0381A1FD9F5001CA0ED /* ObjectiveCalcio */,
-				0FDBE0511A1FD9F5001CA0ED /* ObjectiveCalcioTests */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		0FDBE0371A1FD9F5001CA0ED /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0FDBE0481A1FD9F5001CA0ED /* Main.storyboard in Resources */,
-				0FDBE04D1A1FD9F5001CA0ED /* LaunchScreen.xib in Resources */,
-				0FDBE04A1A1FD9F5001CA0ED /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0FDBE0501A1FD9F5001CA0ED /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		0FDBE0351A1FD9F5001CA0ED /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0FDBE0451A1FD9F5001CA0ED /* ViewController.m in Sources */,
-				0FDBE0421A1FD9F5001CA0ED /* AppDelegate.m in Sources */,
-				0FDBE03F1A1FD9F5001CA0ED /* main.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0FDBE04E1A1FD9F5001CA0ED /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0FDBE0591A1FD9F5001CA0ED /* ObjectiveCalcioTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		0FDBE0541A1FD9F5001CA0ED /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0FDBE0381A1FD9F5001CA0ED /* ObjectiveCalcio */;
-			targetProxy = 0FDBE0531A1FD9F5001CA0ED /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		0FDBE0461A1FD9F5001CA0ED /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0FDBE0471A1FD9F5001CA0ED /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		0FDBE04B1A1FD9F5001CA0ED /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0FDBE04C1A1FD9F5001CA0ED /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		0FDBE05A1A1FD9F5001CA0ED /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-			};
-			name = Debug;
-		};
-		0FDBE05B1A1FD9F5001CA0ED /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		0FDBE05D1A1FD9F5001CA0ED /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = ObjectiveCalcio/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		0FDBE05E1A1FD9F5001CA0ED /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = ObjectiveCalcio/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		0FDBE0601A1FD9F5001CA0ED /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ObjectiveCalcioTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ObjectiveCalcio.app/ObjectiveCalcio";
-			};
-			name = Debug;
-		};
-		0FDBE0611A1FD9F5001CA0ED /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ObjectiveCalcioTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ObjectiveCalcio.app/ObjectiveCalcio";
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		0FDBE0341A1FD9F5001CA0ED /* Build configuration list for PBXProject "ObjectiveCalcio" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0FDBE05A1A1FD9F5001CA0ED /* Debug */,
-				0FDBE05B1A1FD9F5001CA0ED /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0FDBE05C1A1FD9F5001CA0ED /* Build configuration list for PBXNativeTarget "ObjectiveCalcio" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0FDBE05D1A1FD9F5001CA0ED /* Debug */,
-				0FDBE05E1A1FD9F5001CA0ED /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		0FDBE05F1A1FD9F5001CA0ED /* Build configuration list for PBXNativeTarget "ObjectiveCalcioTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0FDBE0601A1FD9F5001CA0ED /* Debug */,
-				0FDBE0611A1FD9F5001CA0ED /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = 0FDBE0311A1FD9F5001CA0ED /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>0FDBE0301A1FD9F5001CA0ED</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>0FDBE03B1A1FD9F5001CA0ED</string>
+				<string>0FDBE0551A1FD9F5001CA0ED</string>
+				<string>0FDBE03A1A1FD9F5001CA0ED</string>
+				<string>A33FDEBEA48F2A252A987CAE</string>
+				<string>91B4C2309C46874506002994</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0FDBE0311A1FD9F5001CA0ED</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastUpgradeCheck</key>
+				<string>0610</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>Martin Richter</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>0FDBE0381A1FD9F5001CA0ED</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>6.1</string>
+					</dict>
+					<key>0FDBE0511A1FD9F5001CA0ED</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>6.1</string>
+						<key>TestTargetID</key>
+						<string>0FDBE0381A1FD9F5001CA0ED</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>0FDBE0341A1FD9F5001CA0ED</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+				<string>Base</string>
+			</array>
+			<key>mainGroup</key>
+			<string>0FDBE0301A1FD9F5001CA0ED</string>
+			<key>productRefGroup</key>
+			<string>0FDBE03A1A1FD9F5001CA0ED</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>0FDBE0381A1FD9F5001CA0ED</string>
+				<string>0FDBE0511A1FD9F5001CA0ED</string>
+			</array>
+		</dict>
+		<key>0FDBE0341A1FD9F5001CA0ED</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>0FDBE05A1A1FD9F5001CA0ED</string>
+				<string>0FDBE05B1A1FD9F5001CA0ED</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>0FDBE0351A1FD9F5001CA0ED</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>0FDBE0451A1FD9F5001CA0ED</string>
+				<string>0FDBE0421A1FD9F5001CA0ED</string>
+				<string>0FDBE03F1A1FD9F5001CA0ED</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>0FDBE0361A1FD9F5001CA0ED</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>8E5EFD81D2FAF39B2E41089C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>0FDBE0371A1FD9F5001CA0ED</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>0FDBE0481A1FD9F5001CA0ED</string>
+				<string>0FDBE04D1A1FD9F5001CA0ED</string>
+				<string>0FDBE04A1A1FD9F5001CA0ED</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>0FDBE0381A1FD9F5001CA0ED</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>0FDBE05C1A1FD9F5001CA0ED</string>
+			<key>buildPhases</key>
+			<array>
+				<string>19FB4C02D92E40D829288EB3</string>
+				<string>0FDBE0351A1FD9F5001CA0ED</string>
+				<string>0FDBE0361A1FD9F5001CA0ED</string>
+				<string>0FDBE0371A1FD9F5001CA0ED</string>
+				<string>FAECDA5CD005B4B2E3335A58</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>ObjectiveCalcio</string>
+			<key>productName</key>
+			<string>ObjectiveCalcio</string>
+			<key>productReference</key>
+			<string>0FDBE0391A1FD9F5001CA0ED</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>0FDBE0391A1FD9F5001CA0ED</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>ObjectiveCalcio.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>0FDBE03A1A1FD9F5001CA0ED</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>0FDBE0391A1FD9F5001CA0ED</string>
+				<string>0FDBE0521A1FD9F5001CA0ED</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0FDBE03B1A1FD9F5001CA0ED</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>0FDBE0401A1FD9F5001CA0ED</string>
+				<string>0FDBE0411A1FD9F5001CA0ED</string>
+				<string>0FDBE0461A1FD9F5001CA0ED</string>
+				<string>0FDBE0491A1FD9F5001CA0ED</string>
+				<string>0FDBE04B1A1FD9F5001CA0ED</string>
+				<string>0FDBE0431A1FD9F5001CA0ED</string>
+				<string>0FDBE0441A1FD9F5001CA0ED</string>
+				<string>0FDBE0621A1FDA14001CA0ED</string>
+				<string>0FDBE0631A1FDA1D001CA0ED</string>
+				<string>0FDBE0641A1FDA2D001CA0ED</string>
+				<string>0FDBE03C1A1FD9F5001CA0ED</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>ObjectiveCalcio</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0FDBE03C1A1FD9F5001CA0ED</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>0FDBE03D1A1FD9F5001CA0ED</string>
+				<string>0FDBE03E1A1FD9F5001CA0ED</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0FDBE03D1A1FD9F5001CA0ED</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0FDBE03E1A1FD9F5001CA0ED</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>main.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0FDBE03F1A1FD9F5001CA0ED</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0FDBE03E1A1FD9F5001CA0ED</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0FDBE0401A1FD9F5001CA0ED</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>AppDelegate.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0FDBE0411A1FD9F5001CA0ED</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>AppDelegate.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0FDBE0421A1FD9F5001CA0ED</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0FDBE0411A1FD9F5001CA0ED</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0FDBE0431A1FD9F5001CA0ED</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>ViewController.h</string>
+			<key>path</key>
+			<string>ObjectiveCalcio/ViewController.h</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+		</dict>
+		<key>0FDBE0441A1FD9F5001CA0ED</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>ViewController.m</string>
+			<key>path</key>
+			<string>ObjectiveCalcio/ViewController.m</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+		</dict>
+		<key>0FDBE0451A1FD9F5001CA0ED</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0FDBE0441A1FD9F5001CA0ED</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0FDBE0461A1FD9F5001CA0ED</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>0FDBE0471A1FD9F5001CA0ED</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0FDBE0471A1FD9F5001CA0ED</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0FDBE0481A1FD9F5001CA0ED</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0FDBE0461A1FD9F5001CA0ED</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0FDBE0491A1FD9F5001CA0ED</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Images.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0FDBE04A1A1FD9F5001CA0ED</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0FDBE0491A1FD9F5001CA0ED</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0FDBE04B1A1FD9F5001CA0ED</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>0FDBE04C1A1FD9F5001CA0ED</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>LaunchScreen.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0FDBE04C1A1FD9F5001CA0ED</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/LaunchScreen.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0FDBE04D1A1FD9F5001CA0ED</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0FDBE04B1A1FD9F5001CA0ED</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0FDBE04E1A1FD9F5001CA0ED</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>0FDBE0591A1FD9F5001CA0ED</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>0FDBE04F1A1FD9F5001CA0ED</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>0FDBE0501A1FD9F5001CA0ED</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>0FDBE0511A1FD9F5001CA0ED</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>0FDBE05F1A1FD9F5001CA0ED</string>
+			<key>buildPhases</key>
+			<array>
+				<string>0FDBE04E1A1FD9F5001CA0ED</string>
+				<string>0FDBE04F1A1FD9F5001CA0ED</string>
+				<string>0FDBE0501A1FD9F5001CA0ED</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>0FDBE0541A1FD9F5001CA0ED</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>ObjectiveCalcioTests</string>
+			<key>productName</key>
+			<string>ObjectiveCalcioTests</string>
+			<key>productReference</key>
+			<string>0FDBE0521A1FD9F5001CA0ED</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.unit-test</string>
+		</dict>
+		<key>0FDBE0521A1FD9F5001CA0ED</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>ObjectiveCalcioTests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>0FDBE0531A1FD9F5001CA0ED</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>0FDBE0311A1FD9F5001CA0ED</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>0FDBE0381A1FD9F5001CA0ED</string>
+			<key>remoteInfo</key>
+			<string>ObjectiveCalcio</string>
+		</dict>
+		<key>0FDBE0541A1FD9F5001CA0ED</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>0FDBE0381A1FD9F5001CA0ED</string>
+			<key>targetProxy</key>
+			<string>0FDBE0531A1FD9F5001CA0ED</string>
+		</dict>
+		<key>0FDBE0551A1FD9F5001CA0ED</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>0FDBE0581A1FD9F5001CA0ED</string>
+				<string>0FDBE0561A1FD9F5001CA0ED</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>ObjectiveCalcioTests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0FDBE0561A1FD9F5001CA0ED</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>0FDBE0571A1FD9F5001CA0ED</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0FDBE0571A1FD9F5001CA0ED</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0FDBE0581A1FD9F5001CA0ED</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>ObjectiveCalcioTests.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0FDBE0591A1FD9F5001CA0ED</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0FDBE0581A1FD9F5001CA0ED</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0FDBE05A1A1FD9F5001CA0ED</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.1</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>0FDBE05B1A1FD9F5001CA0ED</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.1</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>0FDBE05C1A1FD9F5001CA0ED</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>0FDBE05D1A1FD9F5001CA0ED</string>
+				<string>0FDBE05E1A1FD9F5001CA0ED</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>0FDBE05D1A1FD9F5001CA0ED</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>2692499FEB482F27B78A3370</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>INFOPLIST_FILE</key>
+				<string>ObjectiveCalcio/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>0FDBE05E1A1FD9F5001CA0ED</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>1C23ACBCB23DE5A03B6EDACA</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>INFOPLIST_FILE</key>
+				<string>ObjectiveCalcio/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>0FDBE05F1A1FD9F5001CA0ED</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>0FDBE0601A1FD9F5001CA0ED</string>
+				<string>0FDBE0611A1FD9F5001CA0ED</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>0FDBE0601A1FD9F5001CA0ED</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>INFOPLIST_FILE</key>
+				<string>ObjectiveCalcioTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/ObjectiveCalcio.app/ObjectiveCalcio</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>0FDBE0611A1FD9F5001CA0ED</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>INFOPLIST_FILE</key>
+				<string>ObjectiveCalcioTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/ObjectiveCalcio.app/ObjectiveCalcio</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>0FDBE0621A1FDA14001CA0ED</key>
+		<dict>
+			<key>children</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Model</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0FDBE0631A1FDA1D001CA0ED</key>
+		<dict>
+			<key>children</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>View</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0FDBE0641A1FDA2D001CA0ED</key>
+		<dict>
+			<key>children</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>ViewModel</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>19FB4C02D92E40D829288EB3</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>1C23ACBCB23DE5A03B6EDACA</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-ObjectiveCalcio.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-ObjectiveCalcio/Pods-ObjectiveCalcio.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2692499FEB482F27B78A3370</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-ObjectiveCalcio.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-ObjectiveCalcio/Pods-ObjectiveCalcio.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8E5EFD81D2FAF39B2E41089C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F160C69ACB51B6DF23B51940</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>91B4C2309C46874506002994</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>F160C69ACB51B6DF23B51940</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A33FDEBEA48F2A252A987CAE</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>2692499FEB482F27B78A3370</string>
+				<string>1C23ACBCB23DE5A03B6EDACA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F160C69ACB51B6DF23B51940</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-ObjectiveCalcio.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>FAECDA5CD005B4B2E3335A58</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-ObjectiveCalcio/Pods-ObjectiveCalcio-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>0FDBE0311A1FD9F5001CA0ED</string>
+</dict>
+</plist>
