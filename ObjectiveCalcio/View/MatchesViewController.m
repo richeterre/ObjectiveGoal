@@ -32,18 +32,20 @@ static NSString * const EditMatchSegueIdentifier = @"EditMatch";
         @strongify(self);
         [self.tableView reloadData];
     }];
-}
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+    RACSignal *presented = [RACSignal
+        merge:@[
+            [[self rac_signalForSelector:@selector(viewWillAppear:)] mapReplace:@(YES)],
+            [[self rac_signalForSelector:@selector(viewWillDisappear:)] mapReplace:@(NO)]
+        ]];
 
-    self.viewModel.active = YES;
-}
+    RACSignal *appActive = [[RACSignal
+        merge:@[
+            [[NSNotificationCenter.defaultCenter rac_addObserverForName:UIApplicationDidBecomeActiveNotification object:nil] mapReplace:@(YES)],
+            [[NSNotificationCenter.defaultCenter rac_addObserverForName:UIApplicationWillResignActiveNotification object:nil] mapReplace:@(NO)]
+        ]] startWith:@(YES)];
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-
-    self.viewModel.active = NO;
+    RAC(self.viewModel, active) = [[RACSignal combineLatest:@[presented, appActive]] and];
 }
 
 #pragma mark - UITableViewDataSource
