@@ -15,9 +15,9 @@
 		0FDBE0481A1FD9F5001CA0ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FDBE0461A1FD9F5001CA0ED /* Main.storyboard */; };
 		0FDBE04A1A1FD9F5001CA0ED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FDBE0491A1FD9F5001CA0ED /* Images.xcassets */; };
 		0FDBE04D1A1FD9F5001CA0ED /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FDBE04B1A1FD9F5001CA0ED /* LaunchScreen.xib */; };
-		0FDBE0591A1FD9F5001CA0ED /* ObjectiveCalcioTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBE0581A1FD9F5001CA0ED /* ObjectiveCalcioTests.m */; };
 		0FDCB2A11A1FF44D00656AF2 /* MatchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDCB2A01A1FF44D00656AF2 /* MatchCell.m */; };
 		0FDCB2A41A1FF58400656AF2 /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDCB2A31A1FF58400656AF2 /* Match.m */; };
+		0FDCB2A61A1FFC0900656AF2 /* MatchesViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDCB2A51A1FFC0900656AF2 /* MatchesViewModelTests.m */; };
 		8E5EFD81D2FAF39B2E41089C /* libPods-ObjectiveCalcio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F160C69ACB51B6DF23B51940 /* libPods-ObjectiveCalcio.a */; };
 /* End PBXBuildFile section */
 
@@ -48,11 +48,11 @@
 		0FDBE04C1A1FD9F5001CA0ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		0FDBE0521A1FD9F5001CA0ED /* ObjectiveCalcioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjectiveCalcioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FDBE0571A1FD9F5001CA0ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0FDBE0581A1FD9F5001CA0ED /* ObjectiveCalcioTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjectiveCalcioTests.m; sourceTree = "<group>"; };
 		0FDCB29F1A1FF44D00656AF2 /* MatchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchCell.h; sourceTree = "<group>"; };
 		0FDCB2A01A1FF44D00656AF2 /* MatchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchCell.m; sourceTree = "<group>"; };
 		0FDCB2A21A1FF58400656AF2 /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Match.h; sourceTree = "<group>"; };
 		0FDCB2A31A1FF58400656AF2 /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Match.m; sourceTree = "<group>"; };
+		0FDCB2A51A1FFC0900656AF2 /* MatchesViewModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchesViewModelTests.m; sourceTree = "<group>"; };
 		1C23ACBCB23DE5A03B6EDACA /* Pods-ObjectiveCalcio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjectiveCalcio.release.xcconfig"; path = "Pods/Target Support Files/Pods-ObjectiveCalcio/Pods-ObjectiveCalcio.release.xcconfig"; sourceTree = "<group>"; };
 		2692499FEB482F27B78A3370 /* Pods-ObjectiveCalcio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjectiveCalcio.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ObjectiveCalcio/Pods-ObjectiveCalcio.debug.xcconfig"; sourceTree = "<group>"; };
 		F160C69ACB51B6DF23B51940 /* libPods-ObjectiveCalcio.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ObjectiveCalcio.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,7 +135,7 @@
 		0FDBE0551A1FD9F5001CA0ED /* ObjectiveCalcioTests */ = {
 			isa = PBXGroup;
 			children = (
-				0FDBE0581A1FD9F5001CA0ED /* ObjectiveCalcioTests.m */,
+				0FDCB2A51A1FFC0900656AF2 /* MatchesViewModelTests.m */,
 				0FDBE0561A1FD9F5001CA0ED /* Supporting Files */,
 			);
 			path = ObjectiveCalcioTests;
@@ -344,7 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FDBE0591A1FD9F5001CA0ED /* ObjectiveCalcioTests.m in Sources */,
+				0FDCB2A61A1FFC0900656AF2 /* MatchesViewModelTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,6 +478,7 @@
 		};
 		0FDBE0601A1FD9F5001CA0ED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2692499FEB482F27B78A3370 /* Pods-ObjectiveCalcio.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
