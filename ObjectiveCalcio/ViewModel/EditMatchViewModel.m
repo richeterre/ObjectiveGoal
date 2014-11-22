@@ -7,16 +7,25 @@
 //
 
 #import "EditMatchViewModel.h"
+#import "APIClient.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
+
+@interface EditMatchViewModel ()
+
+@property (nonatomic, strong) APIClient *apiClient;
+
+@end
 
 @implementation EditMatchViewModel
 
 #pragma mark - Lifecycle
 
-- (instancetype)init
+- (instancetype)initWithAPIClient:(APIClient *)apiClient
 {
     self = [super init];
     if (!self) return nil;
+
+    _apiClient = apiClient;
 
     _name = @"New Match";
 
@@ -28,6 +37,10 @@
     RAC(self, awayGoalsString) = [RACObserve(self, awayGoals) map:formatGoalsBlock];
 
     return self;
+}
+
+- (void)willDismiss {
+    [self.apiClient createMatchWithHomePlayers:@"Home" awayPlayers:@"Away" homeGoals:self.homeGoals awayGoals:self.awayGoals];
 }
 
 @end

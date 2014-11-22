@@ -10,12 +10,16 @@
 #import "EditMatchViewModel.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
+static NSString * const UnwindToMatchesSegueIdentifier = @"UnwindToMatches";
+
 @interface EditMatchViewController ()
 
 @property (nonatomic, weak) IBOutlet UILabel *homeGoalsLabel;
 @property (nonatomic, weak) IBOutlet UILabel *awayGoalsLabel;
 @property (nonatomic, weak) IBOutlet UIStepper *homeGoalsStepper;
 @property (nonatomic, weak) IBOutlet UIStepper *awayGoalsStepper;
+
+- (IBAction)saveButtonTapped:(id)sender;
 
 @end
 
@@ -41,6 +45,13 @@
     RAC(self.viewModel, awayGoals) = [[self.awayGoalsStepper
         rac_signalForControlEvents:UIControlEventValueChanged]
         map:stepperValueBlock];
+}
+
+#pragma mark - User Interaction
+
+- (IBAction)saveButtonTapped:(id)sender {
+    [self.viewModel willDismiss];
+    [self performSegueWithIdentifier:UnwindToMatchesSegueIdentifier sender:self];
 }
 
 @end

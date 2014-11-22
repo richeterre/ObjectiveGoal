@@ -40,6 +40,12 @@ static NSString * const EditMatchSegueIdentifier = @"EditMatch";
     self.viewModel.active = YES;
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+
+    self.viewModel.active = NO;
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

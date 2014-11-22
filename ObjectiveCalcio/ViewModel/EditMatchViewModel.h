@@ -8,7 +8,11 @@
 
 #import "RVMViewModel.h"
 
+@class APIClient;
+
 @interface EditMatchViewModel : RVMViewModel
+
+- (instancetype)initWithAPIClient:(APIClient *)apiClient;
 
 @property (nonatomic, readonly) NSString *name;
 
@@ -17,5 +21,7 @@
 
 @property (nonatomic, readonly) NSString *homeGoalsString;
 @property (nonatomic, readonly) NSString *awayGoalsString;
+
+- (void)willDismiss;
 
 @end

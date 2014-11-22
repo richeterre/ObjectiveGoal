@@ -15,6 +15,7 @@
 
 @interface MatchesViewModel ()
 
+@property (nonatomic, strong) APIClient *apiClient;
 @property (nonatomic, strong) NSArray *matches;
 
 @end
@@ -26,6 +27,8 @@
 - (instancetype)initWithAPIClient:(APIClient *)apiClient {
     self = [super init];
     if (!self) return nil;
+
+    _apiClient = apiClient;
 
     @weakify(self);
     [self.didBecomeActiveSignal subscribeNext:^(id _) {
@@ -66,7 +69,7 @@
 #pragma mark - View Models
 
 - (EditMatchViewModel *)editViewModelForNewMatch {
-    return [[EditMatchViewModel alloc] init];
+    return [[EditMatchViewModel alloc] initWithAPIClient:self.apiClient];
 }
 
 #pragma mark - Internal Helpers

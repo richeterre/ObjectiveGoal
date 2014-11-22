@@ -189,7 +189,12 @@
                     <navigationItem key="navigationItem" id="2vO-lb-8Ip">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="hq2-rI-xOs">
                             <connections>
-                                <segue destination="WDc-Gy-6fM" kind="unwind" unwindAction="unwindToMatches:" id="xIP-gI-ggG"/>
+                                <segue destination="WDc-Gy-6fM" kind="unwind" identifier="UnwindToMatches" unwindAction="unwindToMatches:" id="xIP-gI-ggG"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="tfq-Sm-7dn">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="Wwf-zy-vPE" id="TVw-96-agA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
