@@ -39,6 +39,10 @@
     return self;
 }
 
+- (instancetype)init {
+    return [self initWithAPIClient:nil];
+}
+
 - (void)willDismiss {
     [self.apiClient createMatchWithHomePlayers:@"Home" awayPlayers:@"Away" homeGoals:self.homeGoals awayGoals:self.awayGoals];
 }

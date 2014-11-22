@@ -24,8 +24,7 @@
 
 - (void)setUp {
     [super setUp];
-    APIClient *apiClient = [[APIClient alloc] init]; // TODO: Replace by proper mock
-    self.sut = [[MatchesViewModel alloc] initWithAPIClient:apiClient];
+    self.sut = [[MatchesViewModel alloc] init];
 }
 
 - (void)tearDown {

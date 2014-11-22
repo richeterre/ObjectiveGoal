@@ -41,6 +41,10 @@
     return self;
 }
 
+- (instancetype)init {
+    return [self initWithAPIClient:nil];
+}
+
 #pragma mark - Content
 
 - (NSInteger)numberOfSections {
