@@ -18,6 +18,7 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window.tintColor = [UIColor colorWithRed:0.22 green:0.58 blue:0.29 alpha:1]; // <3
 
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     MatchesViewController *matchesViewController = (MatchesViewController *)navigationController.topViewController;
