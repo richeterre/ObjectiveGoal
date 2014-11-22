@@ -29,7 +29,7 @@
         RAC(self, matches) = [apiClient fetchMatches];
     }];
 
-    _updatedContentSignal = [RACObserve(self, matches) mapReplace:@(YES)];
+    _updatedContentSignal = [[RACObserve(self, matches) ignore:nil] mapReplace:@(YES)];
 
     return self;
 }

@@ -99,6 +99,25 @@
     XCTAssertNotNil(self.sut.updatedContentSignal);
 }
 
+- (void)testThatUpdatedContentSignalSendsNext {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"updatedContentSignalExpectation"];
+
+    id mockAPIClient = [self mockAPIClientReturningObject:[NSObject new]];
+    self.sut = [[MatchesViewModel alloc] initWithAPIClient:mockAPIClient];
+
+    RACDisposable *disposable = [self.sut.updatedContentSignal subscribeNext:^(id x) {
+        [expectation fulfill];
+
+        XCTAssertEqual(x, @(YES));
+    }];
+
+    self.sut.active = YES;
+
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        [disposable dispose];
+    }];
+}
+
 #pragma mark - Internal Helpers
 
 - (OCMockObject *)mockAPIClientReturningObject:(id)object {
