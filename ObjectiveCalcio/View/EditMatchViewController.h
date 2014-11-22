@@ -10,7 +10,7 @@
 
 @class EditMatchViewModel;
 
-@interface EditMatchViewController : UITableViewController
+@interface EditMatchViewController : UIViewController
 
 @property (nonatomic, strong) EditMatchViewModel *viewModel;
 

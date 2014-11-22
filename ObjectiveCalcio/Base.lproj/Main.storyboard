@@ -110,7 +110,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="HXp-U0-Czm" kind="relationship" relationship="rootViewController" id="8ta-sI-FUt"/>
+                        <segue destination="Wwf-zy-vPE" kind="relationship" relationship="rootViewController" id="Amz-Q5-bkU"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jev-94-JJC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -118,38 +118,30 @@
             <point key="canvasLocation" x="1035" y="-477"/>
         </scene>
         <!--Edit Match View Controller-->
-        <scene sceneID="fML-qr-CwB">
+        <scene sceneID="uaX-nk-kvV">
             <objects>
-                <tableViewController id="HXp-U0-Czm" customClass="EditMatchViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="2Wc-q5-2WG">
+                <viewController id="Wwf-zy-vPE" customClass="EditMatchViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y0y-dj-qCx"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Ib-Uf-XQW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="d3V-8r-hPx">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qEA-Si-cfk">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qEA-Si-cfk" id="00Y-am-GkZ">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="HXp-U0-Czm" id="RiB-yp-1Ms"/>
-                            <outlet property="delegate" destination="HXp-U0-Czm" id="NWX-g9-haA"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="yQP-wJ-4MX">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pqH-od-D7G">
+                    </view>
+                    <navigationItem key="navigationItem" id="2vO-lb-8Ip">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="hq2-rI-xOs">
                             <connections>
-                                <segue destination="jJS-QB-OXZ" kind="unwind" unwindAction="unwindToMatches:" id="jMj-sj-9vp"/>
+                                <segue destination="WDc-Gy-6fM" kind="unwind" unwindAction="unwindToMatches:" id="xIP-gI-ggG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MZZ-tr-FuL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="jJS-QB-OXZ" userLabel="Exit" sceneMemberID="exit"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JKi-kH-mLX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="WDc-Gy-6fM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1755" y="-477"/>
+            <point key="canvasLocation" x="1735" y="-477"/>
         </scene>
     </scenes>
 </document>
