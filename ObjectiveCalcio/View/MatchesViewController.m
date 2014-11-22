@@ -59,4 +59,10 @@ static NSString * const MatchCellIdentifier = @"MatchCell";
     return cell;
 }
 
+#pragma mark - Segues
+
+- (IBAction)unwindToMatches:(UIStoryboardSegue *)unwindSegue {
+
+}
+
 @end

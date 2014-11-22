@@ -72,12 +72,42 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Matches" id="vJb-hb-WgN">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="lHe-km-Rt0"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="lHe-km-Rt0">
+                            <connections>
+                                <segue destination="WUo-XS-Xxh" kind="presentation" id="GMA-7H-Wbq"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ORB-IH-zDh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="319" y="61"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="WWa-wS-foq">
+            <objects>
+                <viewController id="mx4-uW-Gck" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RcL-B2-aDt"/>
+                        <viewControllerLayoutGuide type="bottom" id="gO1-jx-8oa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PzE-FQ-v0k">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="mth-QY-Mrz">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Z3s-c5-gz4">
+                            <connections>
+                                <segue destination="HLO-bm-QqN" kind="unwind" unwindAction="unwindToMatches:" id="5IE-Gx-1KV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M48-KZ-Zzv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="HLO-bm-QqN" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1781" y="-477"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ayb-Ci-h7B">
@@ -94,6 +124,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ybu-eQ-M6J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-369" y="62"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eSS-zj-aHk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WUo-XS-Xxh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dz9-bU-fmS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mx4-uW-Gck" kind="relationship" relationship="rootViewController" id="VKt-1q-kuL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jev-94-JJC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1035" y="-477"/>
         </scene>
     </scenes>
 </document>
