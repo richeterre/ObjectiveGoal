@@ -8,6 +8,6 @@ target 'ObjectiveCalcio' do
 end
 
 target 'ObjectiveCalcioTests' do
-
+  pod 'OCMock'
 end
 
