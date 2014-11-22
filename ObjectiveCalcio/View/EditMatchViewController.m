@@ -31,16 +31,16 @@
     RAC(self.homeGoalsLabel, text) = RACObserve(self.viewModel, homeGoalsString);
     RAC(self.awayGoalsLabel, text) = RACObserve(self.viewModel, awayGoalsString);
 
+    NSNumber *(^stepperValueBlock)(UIStepper *) = ^(UIStepper *stepper){
+        return @(stepper.value);
+    };
+
     RAC(self.viewModel, homeGoals) = [[self.homeGoalsStepper
         rac_signalForControlEvents:UIControlEventValueChanged]
-        map:^(UIStepper *stepper) {
-            return @(stepper.value);
-        }];
+        map:stepperValueBlock];
     RAC(self.viewModel, awayGoals) = [[self.awayGoalsStepper
         rac_signalForControlEvents:UIControlEventValueChanged]
-        map:^(UIStepper *stepper) {
-            return @(stepper.value);
-        }];
+        map:stepperValueBlock];
 }
 
 @end

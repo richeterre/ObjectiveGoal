@@ -20,13 +20,12 @@
 
     _name = @"New Match";
 
-    RAC(self, homeGoalsString) = [RACObserve(self, homeGoals) map:^(NSNumber *goals) {
+    NSString *(^formatGoalsBlock)(NSNumber *) = ^(NSNumber *goals){
         return [NSString stringWithFormat:@"%lu", (unsigned long)goals.unsignedIntegerValue];
-    }];
+    };
 
-    RAC(self, awayGoalsString) = [RACObserve(self, awayGoals) map:^(NSNumber *goals) {
-        return [NSString stringWithFormat:@"%lu", (unsigned long)goals.unsignedIntegerValue];
-    }];
+    RAC(self, homeGoalsString) = [RACObserve(self, homeGoals) map:formatGoalsBlock];
+    RAC(self, awayGoalsString) = [RACObserve(self, awayGoals) map:formatGoalsBlock];
 
     return self;
 }
