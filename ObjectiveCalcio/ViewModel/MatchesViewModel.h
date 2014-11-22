@@ -6,9 +6,10 @@
 //  Copyright (c) 2014 Martin Richter. All rights reserved.
 //
 
-#import "APIClient.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveViewModel/ReactiveViewModel.h>
+
+@class APIClient, EditMatchViewModel;
 
 @interface MatchesViewModel : RVMViewModel
 
@@ -21,5 +22,7 @@
 - (NSString *)homePlayersAtRow:(NSInteger)row inSection:(NSInteger)section;
 - (NSString *)awayPlayersAtRow:(NSInteger)row inSection:(NSInteger)section;
 - (NSString *)resultAtRow:(NSInteger)row inSection:(NSInteger)section;
+
+- (EditMatchViewModel *)editViewModelForNewMatch;
 
 @end

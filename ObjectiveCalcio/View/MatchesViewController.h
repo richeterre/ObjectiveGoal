@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MatchesViewModel.h"
+
+@class MatchesViewModel;
 
 @interface MatchesViewController : UITableViewController
 

@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "Match.h"
 #import "MatchesViewModel.h"
+#import "EditMatchViewModel.h"
 #import "APIClient.h"
 #import <OCMock/OCMock.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
@@ -116,6 +117,11 @@
     [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
         [disposable dispose];
     }];
+}
+
+- (void)testEditViewModelForNewMatch {
+    id editViewModel = [self.sut editViewModelForNewMatch];
+    XCTAssertTrue([editViewModel isKindOfClass:EditMatchViewModel.class]);
 }
 
 #pragma mark - Internal Helpers

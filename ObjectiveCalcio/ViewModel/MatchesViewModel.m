@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "MatchesViewModel.h"
 #import "Match.h"
+#import "EditMatchViewModel.h"
+#import "APIClient.h"
 #import <libextobjc/EXTScope.h>
 
 @interface MatchesViewModel ()
@@ -18,6 +20,8 @@
 @end
 
 @implementation MatchesViewModel
+
+#pragma mark - Lifecycle
 
 - (instancetype)initWithAPIClient:(APIClient *)apiClient {
     self = [super init];
@@ -33,6 +37,8 @@
 
     return self;
 }
+
+#pragma mark - Content
 
 - (NSInteger)numberOfSections {
     return 1;
@@ -55,6 +61,12 @@
 - (NSString *)resultAtRow:(NSInteger)row inSection:(NSInteger)section {
     Match *match = [self matchAtRow:row inSection:section];
     return [NSString stringWithFormat:@"%lu:%lu", (unsigned long)match.homeGoals, (unsigned long)match.awayGoals];
+}
+
+#pragma mark - View Models
+
+- (EditMatchViewModel *)editViewModelForNewMatch {
+    return [[EditMatchViewModel alloc] init];
 }
 
 #pragma mark - Internal Helpers

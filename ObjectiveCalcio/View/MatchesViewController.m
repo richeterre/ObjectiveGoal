@@ -8,9 +8,13 @@
 
 #import "MatchesViewController.h"
 #import "MatchCell.h"
+#import "EditMatchViewController.h"
+#import "MatchesViewModel.h"
+#import "EditMatchViewModel.h"
 #import <libextobjc/EXTScope.h>
 
 static NSString * const MatchCellIdentifier = @"MatchCell";
+static NSString * const EditMatchSegueIdentifier = @"EditMatch";
 
 @interface MatchesViewController ()
 
@@ -59,10 +63,15 @@ static NSString * const MatchCellIdentifier = @"MatchCell";
     return cell;
 }
 
-#pragma mark - Segues
+#pragma mark - Navigation
 
-- (IBAction)unwindToMatches:(UIStoryboardSegue *)unwindSegue {
-
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:EditMatchSegueIdentifier]) {
+        EditMatchViewController *editMatchViewController = (EditMatchViewController *)[segue.destinationViewController topViewController];
+        editMatchViewController.viewModel = [self.viewModel editViewModelForNewMatch];
+    }
 }
+
+- (IBAction)unwindToMatches:(UIStoryboardSegue *)unwindSegue {}
 
 @end
