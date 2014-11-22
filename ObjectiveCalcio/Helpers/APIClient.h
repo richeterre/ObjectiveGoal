@@ -13,4 +13,9 @@
 
 - (RACSignal *)fetchMatches;
 
+- (void)createMatchWithHomePlayers:(NSString *)homePlayers
+                       awayPlayers:(NSString *)awayPlayers
+                         homeGoals:(NSUInteger)homeGoals
+                         awayGoals:(NSUInteger)awayGoals;
+
 @end
