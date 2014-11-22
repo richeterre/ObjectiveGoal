@@ -12,6 +12,11 @@
 
 @interface EditMatchViewController ()
 
+@property (nonatomic, weak) IBOutlet UILabel *homeGoalsLabel;
+@property (nonatomic, weak) IBOutlet UILabel *awayGoalsLabel;
+@property (nonatomic, weak) IBOutlet UIStepper *homeGoalsStepper;
+@property (nonatomic, weak) IBOutlet UIStepper *awayGoalsStepper;
+
 @end
 
 @implementation EditMatchViewController
@@ -22,6 +27,20 @@
     [super viewDidLoad];
 
     RAC(self, title) = RACObserve(self.viewModel, name);
+
+    RAC(self.homeGoalsLabel, text) = RACObserve(self.viewModel, homeGoalsString);
+    RAC(self.awayGoalsLabel, text) = RACObserve(self.viewModel, awayGoalsString);
+
+    RAC(self.viewModel, homeGoals) = [[self.homeGoalsStepper
+        rac_signalForControlEvents:UIControlEventValueChanged]
+        map:^(UIStepper *stepper) {
+            return @(stepper.value);
+        }];
+    RAC(self.viewModel, awayGoals) = [[self.awayGoalsStepper
+        rac_signalForControlEvents:UIControlEventValueChanged]
+        map:^(UIStepper *stepper) {
+            return @(stepper.value);
+        }];
 }
 
 @end

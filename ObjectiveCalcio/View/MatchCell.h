@@ -10,8 +10,8 @@
 
 @interface MatchCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *homePlayersLabel;
-@property (weak, nonatomic) IBOutlet UILabel *awayPlayersLabel;
-@property (weak, nonatomic) IBOutlet UILabel *resultLabel;
+@property (nonatomic, weak) IBOutlet UILabel *homePlayersLabel;
+@property (nonatomic, weak) IBOutlet UILabel *awayPlayersLabel;
+@property (nonatomic, weak) IBOutlet UILabel *resultLabel;
 
 @end

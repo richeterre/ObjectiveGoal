@@ -7,6 +7,7 @@
 //
 
 #import "EditMatchViewModel.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @implementation EditMatchViewModel
 
@@ -18,6 +19,14 @@
     if (!self) return nil;
 
     _name = @"New Match";
+
+    RAC(self, homeGoalsString) = [RACObserve(self, homeGoals) map:^(NSNumber *goals) {
+        return [NSString stringWithFormat:@"%lu", (unsigned long)goals.unsignedIntegerValue];
+    }];
+
+    RAC(self, awayGoalsString) = [RACObserve(self, awayGoals) map:^(NSNumber *goals) {
+        return [NSString stringWithFormat:@"%lu", (unsigned long)goals.unsignedIntegerValue];
+    }];
 
     return self;
 }

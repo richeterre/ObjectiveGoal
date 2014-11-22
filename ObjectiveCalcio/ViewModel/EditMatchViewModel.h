@@ -10,6 +10,12 @@
 
 @interface EditMatchViewModel : RVMViewModel
 
-@property (nonatomic, weak, readonly) NSString *name;
+@property (nonatomic, readonly) NSString *name;
+
+@property (nonatomic, assign) NSUInteger homeGoals;
+@property (nonatomic, assign) NSUInteger awayGoals;
+
+@property (nonatomic, readonly) NSString *homeGoalsString;
+@property (nonatomic, readonly) NSString *awayGoalsString;
 
 @end
