@@ -1,4 +1,5 @@
 PODS:
+  - JGProgressHUD (1.2.2)
   - libextobjc (0.4.1):
     - libextobjc/EXTADT (= 0.4.1)
     - libextobjc/EXTConcreteProtocol (= 0.4.1)
@@ -46,12 +47,14 @@ PODS:
     - ReactiveCocoa (~> 2.1)
 
 DEPENDENCIES:
+  - JGProgressHUD
   - libextobjc
   - OCMock
   - ReactiveCocoa
   - ReactiveViewModel
 
 SPEC CHECKSUMS:
+  JGProgressHUD: a7c58f711eec0b67f257a0821c0bac9194c72398
   libextobjc: d6146fce3ebea986b7f75fcb4c967639200b88b0
   OCMock: f6cb8c162ab9d5620dddf411282c7b2c0ee78854
   ReactiveCocoa: dca75777b9d18990c8714a3a6f2149f29b4d1462

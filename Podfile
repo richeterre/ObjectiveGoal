@@ -2,6 +2,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
 target 'ObjectiveCalcio' do
+  pod 'JGProgressHUD'
   pod 'libextobjc'
   pod 'ReactiveCocoa'
   pod 'ReactiveViewModel'
