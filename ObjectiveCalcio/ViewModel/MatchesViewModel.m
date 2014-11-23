@@ -30,13 +30,21 @@
 
     _apiClient = apiClient;
 
+    RACSignal *refreshSignal = self.didBecomeActiveSignal;
+
+    _updatedContentSignal = [[RACObserve(self, matches) ignore:nil] mapReplace:@(YES)];
+
+    _progressIndicatorVisibleSignal = [RACSignal
+        merge:@[
+            [refreshSignal mapReplace:@(YES)],
+            [_updatedContentSignal mapReplace:@(NO)]
+        ]];
+
     @weakify(self);
-    [self.didBecomeActiveSignal subscribeNext:^(id _) {
+    [refreshSignal subscribeNext:^(id _) {
         @strongify(self);
         RAC(self, matches) = [apiClient fetchMatches];
     }];
-
-    _updatedContentSignal = [[RACObserve(self, matches) ignore:nil] mapReplace:@(YES)];
 
     return self;
 }

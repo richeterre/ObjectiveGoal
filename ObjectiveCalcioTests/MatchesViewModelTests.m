@@ -118,6 +118,29 @@
     }];
 }
 
+- (void)testProgressIndicatorVisibleSignal {
+    XCTestExpectation *visibleExpectation = [self expectationWithDescription:@"progressIndicatorVisibleExpectation"];
+    XCTestExpectation *hiddenExpectation = [self expectationWithDescription:@"progressIndicatorHiddenExpectation"];
+
+    id mockAPIClient = [self mockAPIClientReturningObject:[NSObject new]];
+    self.sut = [[MatchesViewModel alloc] initWithAPIClient:mockAPIClient];
+
+    RACDisposable *disposable = [self.sut.progressIndicatorVisibleSignal subscribeNext:^(NSNumber *visible) {
+        XCTAssertTrue([visible isKindOfClass:NSNumber.class]);
+        if (visible.boolValue) {
+            [visibleExpectation fulfill];
+        } else {
+            [hiddenExpectation fulfill];
+        }
+    }];
+
+    self.sut.active = YES;
+
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        [disposable dispose];
+    }];
+}
+
 - (void)testEditViewModelForNewMatch {
     id editViewModel = [self.sut editViewModelForNewMatch];
     XCTAssertTrue([editViewModel isKindOfClass:EditMatchViewModel.class]);

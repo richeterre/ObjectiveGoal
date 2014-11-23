@@ -13,6 +13,7 @@
 
 @interface MatchesViewModel : RVMViewModel
 
+@property (nonatomic, strong, readonly) RACSignal *progressIndicatorVisibleSignal;
 @property (nonatomic, strong, readonly) RACSignal *updatedContentSignal;
 
 - (instancetype)initWithAPIClient:(APIClient *)apiClient;
