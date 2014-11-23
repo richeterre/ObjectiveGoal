@@ -20,7 +20,15 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.window.tintColor = [UIColor colorWithRed:0.22 green:0.58 blue:0.29 alpha:1]; // <3
+    UIColor *tintColor = [UIColor colorWithRed:0.22 green:0.58 blue:0.29 alpha:1]; // <3
+    self.window.tintColor = tintColor;
+    [UINavigationBar appearance].barTintColor = tintColor;
+    [UINavigationBar appearance].tintColor = [UIColor whiteColor];
+    [UINavigationBar appearance].translucent = NO;
+    [UINavigationBar appearance].titleTextAttributes = @{
+        NSFontAttributeName: [UIFont fontWithName:@"OpenSans-Semibold" size:20],
+        NSForegroundColorAttributeName: [UIColor whiteColor]
+    };
 
     self.apiClient = [[APIClient alloc] init];
 
