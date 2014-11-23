@@ -24,7 +24,7 @@ static NSString * const APIClientUserDefaultsKeyMatches = @"Matches";
     self = [super init];
     if (!self) return nil;
 
-    _matches = [self persistedMatches] ?: @[];
+    _matches = [self persistedMatches];
 
     return self;
 }
@@ -52,7 +52,7 @@ static NSString * const APIClientUserDefaultsKeyMatches = @"Matches";
     NSData *archivedMatches = [userDefaults objectForKey:APIClientUserDefaultsKeyMatches];
     return (archivedMatches
             ? [NSKeyedUnarchiver unarchiveObjectWithData:archivedMatches]
-            : nil);
+            : @[]);
 }
 
 @end
