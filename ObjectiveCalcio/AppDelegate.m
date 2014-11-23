@@ -20,8 +20,11 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Customize appearance
+
     UIColor *tintColor = [UIColor colorWithRed:0.22 green:0.58 blue:0.29 alpha:1]; // <3
     self.window.tintColor = tintColor;
+
     [UINavigationBar appearance].barTintColor = tintColor;
     [UINavigationBar appearance].tintColor = [UIColor whiteColor];
     [UINavigationBar appearance].translucent = NO;
@@ -29,6 +32,15 @@
         NSFontAttributeName: [UIFont fontWithName:@"OpenSans-Semibold" size:20],
         NSForegroundColorAttributeName: [UIColor whiteColor]
     };
+
+    [[UIBarButtonItem
+        appearanceWhenContainedIn:[UINavigationBar class], nil]
+        setTitleTextAttributes:@{
+            NSFontAttributeName:[UIFont fontWithName:@"OpenSans" size:17]
+        }
+        forState:UIControlStateNormal];
+
+    // Set up view model for initial controller
 
     self.apiClient = [[APIClient alloc] init];
 
