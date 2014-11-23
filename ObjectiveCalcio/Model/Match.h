@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Mantle/Mantle.h>
 
-@interface Match : NSObject
+@interface Match : MTLModel
 
 @property (nonatomic, copy) NSString *homePlayers;
 @property (nonatomic, copy) NSString *awayPlayers;

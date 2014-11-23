@@ -18,4 +18,6 @@
                          homeGoals:(NSUInteger)homeGoals
                          awayGoals:(NSUInteger)awayGoals;
 
+- (void)persist;
+
 @end

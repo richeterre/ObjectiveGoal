@@ -13,6 +13,8 @@
 
 @interface AppDelegate ()
 
+@property (nonatomic, strong) APIClient *apiClient;
+
 @end
 
 @implementation AppDelegate
@@ -20,14 +22,19 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window.tintColor = [UIColor colorWithRed:0.22 green:0.58 blue:0.29 alpha:1]; // <3
 
+    self.apiClient = [[APIClient alloc] init];
+
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     MatchesViewController *matchesViewController = (MatchesViewController *)navigationController.topViewController;
 
-    APIClient *apiClient = [[APIClient alloc] init];
-    MatchesViewModel *matchesViewModel = [[MatchesViewModel alloc] initWithAPIClient:apiClient];
+    MatchesViewModel *matchesViewModel = [[MatchesViewModel alloc] initWithAPIClient:self.apiClient];
     matchesViewController.viewModel = matchesViewModel;
 
     return YES;
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    [self.apiClient persist];
 }
 
 @end
