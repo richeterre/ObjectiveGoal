@@ -34,7 +34,7 @@ static NSString * const APIClientUserDefaultsKeyMatches = @"Matches";
 #pragma mark - Matches
 
 - (RACSignal *)fetchMatches {
-    return [[RACSignal return:self.matches] delay:1];
+    return [[RACSignal return:self.matches] delay:0.5];
 }
 
 - (void)createMatchWithHomePlayers:(NSString *)homePlayers awayPlayers:(NSString *)awayPlayers homeGoals:(NSUInteger)homeGoals awayGoals:(NSUInteger)awayGoals {
@@ -46,7 +46,7 @@ static NSString * const APIClientUserDefaultsKeyMatches = @"Matches";
 
 - (RACSignal *)fetchPlayers {
     NSArray *players = @[@"Alice", @"Bob", @"Charlie", @"Dora"];
-    return [[RACSignal return:players] delay:1];
+    return [[RACSignal return:players] delay:0.5];
 }
 
 #pragma mark - Persistence
