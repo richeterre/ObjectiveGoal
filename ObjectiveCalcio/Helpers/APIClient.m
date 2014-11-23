@@ -22,10 +22,7 @@
     self = [super init];
     if (!self) return nil;
 
-    _matches = @[
-        [[Match alloc] initWithHomePlayers:@"Alice & Bob" awayPlayers:@"Charlie & Dora" homeGoals:3 awayGoals:2],
-        [[Match alloc] initWithHomePlayers:@"Charlie & Bob" awayPlayers:@"Alice & Dora" homeGoals:0 awayGoals:2]
-    ];
+    _matches = @[];
 
     return self;
 }
