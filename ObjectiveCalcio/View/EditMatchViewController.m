@@ -21,6 +21,8 @@ static NSString * const SelectAwayPlayersSegueIdentifier = @"SelectAwayPlayers";
 @property (nonatomic, weak) IBOutlet UILabel *awayGoalsLabel;
 @property (nonatomic, weak) IBOutlet UIStepper *homeGoalsStepper;
 @property (nonatomic, weak) IBOutlet UIStepper *awayGoalsStepper;
+@property (nonatomic, weak) IBOutlet UIButton *homePlayersButton;
+@property (nonatomic, weak) IBOutlet UIButton *awayPlayersButton;
 
 - (IBAction)saveButtonTapped:(id)sender;
 
@@ -37,6 +39,11 @@ static NSString * const SelectAwayPlayersSegueIdentifier = @"SelectAwayPlayers";
 
     RAC(self.homeGoalsLabel, text) = RACObserve(self.viewModel, homeGoalsString);
     RAC(self.awayGoalsLabel, text) = RACObserve(self.viewModel, awayGoalsString);
+
+    [self.homePlayersButton rac_liftSelector:@selector(setTitle:forState:) withSignalsFromArray:@[
+        RACObserve(self.viewModel, homePlayersString),
+        [RACSignal return:UIControlStateNormal]
+    ]];
 
     NSNumber *(^stepperValueBlock)(UIStepper *) = ^(UIStepper *stepper){
         return @(stepper.value);

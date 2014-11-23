@@ -18,11 +18,13 @@
 
 @property (nonatomic, assign) NSUInteger homeGoals;
 @property (nonatomic, assign) NSUInteger awayGoals;
-@property (nonatomic, strong) NSArray *homePlayers;
-@property (nonatomic, strong) NSArray *awayPlayers;
+@property (nonatomic, strong) NSSet *homePlayers;
+@property (nonatomic, strong) NSSet *awayPlayers;
 
 @property (nonatomic, readonly) NSString *homeGoalsString;
 @property (nonatomic, readonly) NSString *awayGoalsString;
+@property (nonatomic, readonly) NSString *homePlayersString;
+@property (nonatomic, readonly) NSString *awayPlayersString;
 
 - (void)willDismiss;
 

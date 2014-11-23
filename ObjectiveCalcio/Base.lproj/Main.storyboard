@@ -215,8 +215,10 @@
                     <connections>
                         <outlet property="awayGoalsLabel" destination="pDw-ge-R6d" id="BpC-Dc-vht"/>
                         <outlet property="awayGoalsStepper" destination="jFA-Fn-4Is" id="0VY-zJ-ddG"/>
+                        <outlet property="awayPlayersButton" destination="iYX-TE-Mzn" id="QgR-Ca-aG9"/>
                         <outlet property="homeGoalsLabel" destination="5jw-gX-Lj6" id="YBB-uL-4ly"/>
                         <outlet property="homeGoalsStepper" destination="pms-VH-yO6" id="uMf-cD-Qkz"/>
+                        <outlet property="homePlayersButton" destination="pWV-DT-Y0Z" id="7bd-c5-1Yg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JKi-kH-mLX" userLabel="First Responder" sceneMemberID="firstResponder"/>

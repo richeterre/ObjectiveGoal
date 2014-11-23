@@ -31,8 +31,8 @@
     _name = @"New Match";
     _homeGoals = 0;
     _awayGoals = 0;
-    _homePlayers = @[];
-    _awayPlayers = @[];
+    _homePlayers = [NSSet set];
+    _awayPlayers = [NSSet set];
 
     NSString *(^formatGoalsBlock)(NSNumber *) = ^(NSNumber *goals){
         return [NSString stringWithFormat:@"%lu", (unsigned long)goals.unsignedIntegerValue];
@@ -40,6 +40,16 @@
 
     RAC(self, homeGoalsString) = [RACObserve(self, homeGoals) map:formatGoalsBlock];
     RAC(self, awayGoalsString) = [RACObserve(self, awayGoals) map:formatGoalsBlock];
+
+    NSString *(^formatPlayersBlock)(NSSet *) = ^(NSSet *players){
+        if (players.count > 0) {
+            return [[players allObjects] componentsJoinedByString:@", "];
+        }
+        return @"Set Players";
+    };
+
+    RAC(self, homePlayersString) = [RACObserve(self, homePlayers) map:formatPlayersBlock];
+    RAC(self, awayPlayersString) = [RACObserve(self, awayPlayers) map:formatPlayersBlock];
 
     return self;
 }
