@@ -31,4 +31,24 @@
     XCTAssertEqualObjects(self.sut.name, @"New Match");
 }
 
+- (void)testHomeGoalsString {
+    self.sut.homeGoals = 1;
+    XCTAssertEqualObjects(self.sut.homeGoalsString, @"1");
+}
+
+- (void)testAwayGoalsString {
+    self.sut.awayGoals = 1;
+    XCTAssertEqualObjects(self.sut.awayGoalsString, @"1");
+}
+
+- (void)testHomePlayersString {
+    self.sut.homePlayers = [NSSet setWithArray:@[@"B", @"A"]];
+    XCTAssertEqualObjects(self.sut.homePlayersString, @"A, B");
+}
+
+- (void)testAwayPlayersString {
+    self.sut.awayPlayers = [NSSet setWithArray:@[@"B", @"A"]];
+    XCTAssertEqualObjects(self.sut.awayPlayersString, @"A, B");
+}
+
 @end

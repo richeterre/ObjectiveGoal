@@ -42,9 +42,13 @@
     RAC(self, awayGoalsString) = [RACObserve(self, awayGoals) map:formatGoalsBlock];
 
     NSString *(^formatPlayersBlock)(NSSet *) = ^(NSSet *players){
-        return (players.count > 0
-                ? [[players allObjects] componentsJoinedByString:@", "]
-                : @"Set Players");
+        if (players.count > 0) {
+            NSArray *sortedPlayers = [[players allObjects]
+                sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+            return [sortedPlayers componentsJoinedByString:@", "];
+        } else {
+            return @"Set Players";
+        }
     };
 
     RAC(self, homePlayersString) = [RACObserve(self, homePlayers) map:formatPlayersBlock];
