@@ -3,6 +3,7 @@ platform :ios, '8.0'
 
 target 'ObjectiveCalcio' do
   pod 'BlocksKit'
+  pod 'DZNEmptyDataSet'
   pod 'JGProgressHUD'
   pod 'libextobjc'
   pod 'Mantle'

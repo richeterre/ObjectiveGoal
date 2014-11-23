@@ -14,6 +14,7 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
+  - DZNEmptyDataSet (1.4.1)
   - JGProgressHUD (1.2.2)
   - libextobjc (0.4.1):
     - libextobjc/EXTADT (= 0.4.1)
@@ -66,6 +67,7 @@ PODS:
 
 DEPENDENCIES:
   - BlocksKit
+  - DZNEmptyDataSet
   - JGProgressHUD
   - libextobjc
   - Mantle
@@ -75,6 +77,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   BlocksKit: 4439e7f30a9f90743462ca63545a15c1f4304cef
+  DZNEmptyDataSet: 381e880cb3bb2d33885cb0325218443df265bc98
   JGProgressHUD: a7c58f711eec0b67f257a0821c0bac9194c72398
   libextobjc: d6146fce3ebea986b7f75fcb4c967639200b88b0
   Mantle: d7c5ac734579ec751c58fecbf56189853056c58c
