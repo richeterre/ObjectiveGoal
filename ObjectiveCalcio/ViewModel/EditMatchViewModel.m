@@ -62,7 +62,7 @@
 }
 
 - (void)willDismiss {
-    [self.apiClient createMatchWithHomePlayers:@"Home" awayPlayers:@"Away" homeGoals:self.homeGoals awayGoals:self.awayGoals];
+    [self.apiClient createMatchWithHomePlayers:self.homePlayers awayPlayers:self.awayPlayers homeGoals:self.homeGoals awayGoals:self.awayGoals];
 }
 
 #pragma mark - View Models

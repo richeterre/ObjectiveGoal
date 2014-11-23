@@ -11,13 +11,13 @@
 
 @interface Match : MTLModel
 
-@property (nonatomic, copy) NSString *homePlayers;
-@property (nonatomic, copy) NSString *awayPlayers;
+@property (nonatomic, copy) NSSet *homePlayers;
+@property (nonatomic, copy) NSSet *awayPlayers;
 @property (nonatomic, assign) NSUInteger homeGoals;
 @property (nonatomic, assign) NSUInteger awayGoals;
 
-- (instancetype)initWithHomePlayers:(NSString *)homePlayers
-                        awayPlayers:(NSString *)awayPlayers
+- (instancetype)initWithHomePlayers:(NSSet *)homePlayers
+                        awayPlayers:(NSSet *)awayPlayers
                           homeGoals:(NSUInteger)homeGoals
                           awayGoals:(NSUInteger)awayGoals;
 

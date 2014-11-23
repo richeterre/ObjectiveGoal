@@ -37,7 +37,7 @@ static NSString * const APIClientUserDefaultsKeyMatches = @"Matches";
     return [[RACSignal return:self.matches] delay:0.5];
 }
 
-- (void)createMatchWithHomePlayers:(NSString *)homePlayers awayPlayers:(NSString *)awayPlayers homeGoals:(NSUInteger)homeGoals awayGoals:(NSUInteger)awayGoals {
+- (void)createMatchWithHomePlayers:(NSSet *)homePlayers awayPlayers:(NSSet *)awayPlayers homeGoals:(NSUInteger)homeGoals awayGoals:(NSUInteger)awayGoals {
     Match *newMatch = [[Match alloc] initWithHomePlayers:homePlayers awayPlayers:awayPlayers homeGoals:homeGoals awayGoals:awayGoals];
     self.matches = [self.matches arrayByAddingObject:newMatch];
 }

@@ -65,12 +65,12 @@
 
 - (NSString *)homePlayersAtRow:(NSInteger)row inSection:(NSInteger)section {
     Match *match = [self matchAtRow:row inSection:section];
-    return match.homePlayers;
+    return [self sortedNamesForPlayers:match.homePlayers];
 }
 
 - (NSString *)awayPlayersAtRow:(NSInteger)row inSection:(NSInteger)section {
     Match *match = [self matchAtRow:row inSection:section];
-    return match.awayPlayers;
+    return [self sortedNamesForPlayers:match.awayPlayers];
 }
 
 - (NSString *)resultAtRow:(NSInteger)row inSection:(NSInteger)section {
@@ -88,6 +88,12 @@
 
 - (Match *)matchAtRow:(NSInteger)row inSection:(NSInteger)section {
     return self.matches[row];
+}
+
+- (NSString *)sortedNamesForPlayers:(NSSet *)players {
+    NSArray *sortedPlayers = [[players allObjects]
+        sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    return [sortedPlayers componentsJoinedByString:@", "];
 }
 
 @end

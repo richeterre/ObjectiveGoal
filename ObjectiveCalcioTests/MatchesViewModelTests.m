@@ -58,8 +58,8 @@
     XCTAssertEqual([self.sut numberOfItemsInSection:0], 1);
 }
 
-- (void)testHomePlayers {
-    NSString *homePlayers = @"Home Players";
+- (void)testHomePlayersAreShownAlphabetically {
+    NSSet *homePlayers = [NSSet setWithArray:@[@"C", @"A", @"B"]];
     id mockMatch = [OCMockObject mockForClass:Match.class];
     [[[mockMatch expect] andReturn:homePlayers] homePlayers];
 
@@ -67,11 +67,11 @@
 
     self.sut = [[MatchesViewModel alloc] initWithAPIClient:mockAPIClient];
     self.sut.active = YES;
-    XCTAssertEqual([self.sut homePlayersAtRow:0 inSection:0], homePlayers);
+    XCTAssertEqualObjects([self.sut homePlayersAtRow:0 inSection:0], @"A, B, C");
 }
 
-- (void)testAwayPlayers {
-    NSString *awayPlayers = @"Away Players";
+- (void)testAwayPlayersAreShownAlphabetically {
+    NSSet *awayPlayers = [NSSet setWithArray:@[@"C", @"A", @"B"]];
     id mockMatch = [OCMockObject mockForClass:Match.class];
     [[[mockMatch expect] andReturn:awayPlayers] awayPlayers];
 
@@ -79,7 +79,7 @@
 
     self.sut = [[MatchesViewModel alloc] initWithAPIClient:mockAPIClient];
     self.sut.active = YES;
-    XCTAssertEqual([self.sut awayPlayersAtRow:0 inSection:0], awayPlayers);
+    XCTAssertEqualObjects([self.sut awayPlayersAtRow:0 inSection:0], @"A, B, C");
 }
 
 - (void)testResult {

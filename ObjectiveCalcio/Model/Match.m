@@ -12,12 +12,12 @@
 
 #pragma mark - Lifecycle
 
-- (instancetype)initWithHomePlayers:(NSString *)homePlayers awayPlayers:(NSString *)awayPlayers homeGoals:(NSUInteger)homeGoals awayGoals:(NSUInteger)awayGoals {
+- (instancetype)initWithHomePlayers:(NSSet *)homePlayers awayPlayers:(NSSet *)awayPlayers homeGoals:(NSUInteger)homeGoals awayGoals:(NSUInteger)awayGoals {
     self = [super init];
     if (!self) return nil;
 
-    _homePlayers = homePlayers;
-    _awayPlayers = awayPlayers;
+    _homePlayers = [homePlayers copy];
+    _awayPlayers = [awayPlayers copy];
     _homeGoals = homeGoals;
     _awayGoals = awayGoals;
 

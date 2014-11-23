@@ -12,8 +12,8 @@
 @interface APIClient : NSObject
 
 - (RACSignal *)fetchMatches;
-- (void)createMatchWithHomePlayers:(NSString *)homePlayers
-                       awayPlayers:(NSString *)awayPlayers
+- (void)createMatchWithHomePlayers:(NSSet *)homePlayers
+                       awayPlayers:(NSSet *)awayPlayers
                          homeGoals:(NSUInteger)homeGoals
                          awayGoals:(NSUInteger)awayGoals;
 
