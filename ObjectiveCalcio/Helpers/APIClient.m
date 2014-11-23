@@ -8,6 +8,7 @@
 
 #import "APIClient.h"
 #import "Match.h"
+#import "Player.h"
 
 static NSString * const APIClientUserDefaultsKeyMatches = @"Matches";
 static NSTimeInterval const APIClientFakeLatency = 0.5;
@@ -48,7 +49,12 @@ static NSTimeInterval const APIClientFakeLatency = 0.5;
 #pragma mark - Players
 
 - (RACSignal *)fetchPlayers {
-    NSArray *players = @[@"Alice", @"Bob", @"Charlie", @"Dora"];
+    NSArray *players = @[
+        [[Player alloc] initWithIdentifier:[NSUUID UUID].UUIDString name:@"Alice"],
+        [[Player alloc] initWithIdentifier:[NSUUID UUID].UUIDString name:@"Bob"],
+        [[Player alloc] initWithIdentifier:[NSUUID UUID].UUIDString name:@"Charlie"],
+        [[Player alloc] initWithIdentifier:[NSUUID UUID].UUIDString name:@"Dora"]
+    ];
     return [[RACSignal return:players] delay:APIClientFakeLatency];
 }
 

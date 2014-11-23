@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "Match.h"
+#import "Player.h"
 #import "MatchesViewModel.h"
 #import "EditMatchViewModel.h"
 #import "APIClient.h"
@@ -60,7 +61,11 @@
 }
 
 - (void)testHomePlayersAreShownAlphabetically {
-    NSSet *homePlayers = [NSSet setWithArray:@[@"C", @"A", @"B"]];
+    NSSet *homePlayers = [NSSet setWithArray:@[
+        [[Player alloc] initWithIdentifier:nil name:@"C"],
+        [[Player alloc] initWithIdentifier:nil name:@"A"],
+        [[Player alloc] initWithIdentifier:nil name:@"B"]
+    ]];
     id mockMatch = [OCMockObject mockForClass:Match.class];
     [[[mockMatch expect] andReturn:homePlayers] homePlayers];
 
@@ -72,7 +77,11 @@
 }
 
 - (void)testAwayPlayersAreShownAlphabetically {
-    NSSet *awayPlayers = [NSSet setWithArray:@[@"C", @"A", @"B"]];
+    NSSet *awayPlayers = [NSSet setWithArray:@[
+        [[Player alloc] initWithIdentifier:nil name:@"C"],
+        [[Player alloc] initWithIdentifier:nil name:@"A"],
+        [[Player alloc] initWithIdentifier:nil name:@"B"]
+    ]];
     id mockMatch = [OCMockObject mockForClass:Match.class];
     [[[mockMatch expect] andReturn:awayPlayers] awayPlayers];
 

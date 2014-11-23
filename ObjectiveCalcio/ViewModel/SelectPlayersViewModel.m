@@ -7,6 +7,7 @@
 //
 
 #import "SelectPlayersViewModel.h"
+#import "Player.h"
 #import "APIClient.h"
 #import <libextobjc/EXTScope.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
@@ -62,37 +63,38 @@
 }
 
 - (NSString *)playerNameAtRow:(NSInteger)row inSection:(NSInteger)section {
-    return [self playerAtRow:row inSection:section];
+    Player *player = [self playerAtRow:row inSection:section];
+    return player.name;
 }
 
 - (BOOL)playerSelectedAtRow:(NSInteger)row inSection:(NSInteger)section {
-    NSString *player = [self playerAtRow:row inSection:section];
+    Player *player = [self playerAtRow:row inSection:section];
     return [self.selectedPlayers containsObject:player];
 }
 
 #pragma mark - Player Selection
 
 - (void)selectPlayerAtRow:(NSInteger)row inSection:(NSInteger)section {
-    NSString *player = [self playerAtRow:row inSection:section];
+    Player *player = [self playerAtRow:row inSection:section];
     [self selectPlayer:player];
 }
 
 - (void)deselectPlayerAtRow:(NSInteger)row inSection:(NSInteger)section {
-    NSString *player = [self playerAtRow:row inSection:section];
+    Player *player = [self playerAtRow:row inSection:section];
     [self deselectPlayer:player];
 }
 
 #pragma mark - Internal Helpers
 
-- (NSString *)playerAtRow:(NSInteger)row inSection:(NSInteger)section {
+- (Player *)playerAtRow:(NSInteger)row inSection:(NSInteger)section {
     return self.players[row];
 }
 
-- (void)selectPlayer:(NSString *)player {
+- (void)selectPlayer:(Player *)player {
     self.selectedPlayers = [self.selectedPlayers setByAddingObject:player];
 }
 
-- (void)deselectPlayer:(NSString *)player {
+- (void)deselectPlayer:(Player *)player {
     NSMutableSet *mutableSelectedPlayers = [self.selectedPlayers mutableCopy];
     [mutableSelectedPlayers removeObject:player];
     self.selectedPlayers = [mutableSelectedPlayers copy];

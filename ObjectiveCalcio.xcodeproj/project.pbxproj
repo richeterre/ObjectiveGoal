@@ -23,6 +23,7 @@
 		0FA2AE031A228F79002801D2 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FA2AE001A228F79002801D2 /* OpenSans-Regular.ttf */; };
 		0FA2AE041A228F79002801D2 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FA2AE011A228F79002801D2 /* OpenSans-Semibold.ttf */; };
 		0FC0BFE71A229D45006A6695 /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC0BFE61A229D45006A6695 /* PlayerCell.m */; };
+		0FC0BFEA1A22A25C006A6695 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC0BFE91A22A25C006A6695 /* Player.m */; };
 		0FDBE03F1A1FD9F5001CA0ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBE03E1A1FD9F5001CA0ED /* main.m */; };
 		0FDBE0421A1FD9F5001CA0ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBE0411A1FD9F5001CA0ED /* AppDelegate.m */; };
 		0FDBE0481A1FD9F5001CA0ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FDBE0461A1FD9F5001CA0ED /* Main.storyboard */; };
@@ -70,6 +71,8 @@
 		0FA2AE011A228F79002801D2 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		0FC0BFE51A229D45006A6695 /* PlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerCell.h; sourceTree = "<group>"; };
 		0FC0BFE61A229D45006A6695 /* PlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCell.m; sourceTree = "<group>"; };
+		0FC0BFE81A22A25C006A6695 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		0FC0BFE91A22A25C006A6695 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		0FDBE0391A1FD9F5001CA0ED /* ObjectiveCalcio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjectiveCalcio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FDBE03D1A1FD9F5001CA0ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FDBE03E1A1FD9F5001CA0ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -207,6 +210,8 @@
 			children = (
 				0FDCB2A21A1FF58400656AF2 /* Match.h */,
 				0FDCB2A31A1FF58400656AF2 /* Match.m */,
+				0FC0BFE81A22A25C006A6695 /* Player.h */,
+				0FC0BFE91A22A25C006A6695 /* Player.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -443,6 +448,7 @@
 				0F05D80E1A1FECFA00083EC6 /* MatchesViewModel.m in Sources */,
 				0FA2ADE31A21317C002801D2 /* EditMatchViewController.m in Sources */,
 				0F05D80B1A1FE1D700083EC6 /* MatchesViewController.m in Sources */,
+				0FC0BFEA1A22A25C006A6695 /* Player.m in Sources */,
 				0FA2ADEF1A22202B002801D2 /* SelectPlayersViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

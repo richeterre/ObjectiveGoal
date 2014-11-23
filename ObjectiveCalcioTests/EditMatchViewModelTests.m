@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "EditMatchViewModel.h"
+#import "Player.h"
 #import "APIClient.h"
 #import <OCMock/OCMock.h>
 
@@ -44,12 +45,18 @@
 }
 
 - (void)testHomePlayersString {
-    self.sut.homePlayers = [NSSet setWithArray:@[@"B", @"A"]];
+    self.sut.homePlayers = [NSSet setWithArray:@[
+        [[Player alloc] initWithIdentifier:nil name:@"B"],
+        [[Player alloc] initWithIdentifier:nil name:@"A"]
+    ]];
     XCTAssertEqualObjects(self.sut.homePlayersString, @"A, B");
 }
 
 - (void)testAwayPlayersString {
-    self.sut.awayPlayers = [NSSet setWithArray:@[@"B", @"A"]];
+    self.sut.awayPlayers = [NSSet setWithArray:@[
+        [[Player alloc] initWithIdentifier:nil name:@"B"],
+        [[Player alloc] initWithIdentifier:nil name:@"A"]
+    ]];
     XCTAssertEqualObjects(self.sut.awayPlayersString, @"A, B");
 }
 
@@ -59,8 +66,14 @@
 // * Save button enabled when neither team is empty
 
 - (void)testTappingSaveButtonCreatesMatch {
-    NSSet *homePlayers = [NSSet setWithArray:@[@"A", @"B"]];
-    NSSet *awayPlayers = [NSSet setWithArray:@[@"C", @"D"]];
+    NSSet *homePlayers = [NSSet setWithArray:@[
+        [[Player alloc] initWithIdentifier:nil name:@"A"],
+        [[Player alloc] initWithIdentifier:nil name:@"B"]
+    ]];
+    NSSet *awayPlayers = [NSSet setWithArray:@[
+        [[Player alloc] initWithIdentifier:nil name:@"C"],
+        [[Player alloc] initWithIdentifier:nil name:@"D"]
+    ]];
     NSUInteger homeGoals = 1;
     NSUInteger awayGoals = 0;
 

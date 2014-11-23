@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MatchesViewModel.h"
 #import "Match.h"
+#import "Player.h"
 #import "EditMatchViewModel.h"
 #import "APIClient.h"
 #import <libextobjc/EXTScope.h>
@@ -65,12 +66,12 @@
 
 - (NSString *)homePlayersAtRow:(NSInteger)row inSection:(NSInteger)section {
     Match *match = [self matchAtRow:row inSection:section];
-    return [self sortedNamesForPlayers:match.homePlayers];
+    return [self namesOfPlayers:match.homePlayers];
 }
 
 - (NSString *)awayPlayersAtRow:(NSInteger)row inSection:(NSInteger)section {
     Match *match = [self matchAtRow:row inSection:section];
-    return [self sortedNamesForPlayers:match.awayPlayers];
+    return [self namesOfPlayers:match.awayPlayers];
 }
 
 - (NSString *)resultAtRow:(NSInteger)row inSection:(NSInteger)section {
@@ -90,10 +91,9 @@
     return self.matches[row];
 }
 
-- (NSString *)sortedNamesForPlayers:(NSSet *)players {
-    NSArray *sortedPlayers = [[players allObjects]
-        sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
-    return [sortedPlayers componentsJoinedByString:@", "];
+- (NSString *)namesOfPlayers:(NSSet *)players {
+    NSArray *sortedPlayerNames = [Player sortedPlayerNamesFromPlayers:players];
+    return [sortedPlayerNames componentsJoinedByString:@", "];
 }
 
 @end

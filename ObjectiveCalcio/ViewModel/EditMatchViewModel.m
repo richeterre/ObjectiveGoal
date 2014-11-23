@@ -7,6 +7,7 @@
 //
 
 #import "EditMatchViewModel.h"
+#import "Player.h"
 #import "SelectPlayersViewModel.h"
 #import "APIClient.h"
 #import <libextobjc/EXTScope.h>
@@ -61,9 +62,7 @@
 
     NSString *(^formatPlayersBlock)(NSSet *) = ^(NSSet *players){
         if (players.count > 0) {
-            NSArray *sortedPlayers = [[players allObjects]
-                sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-            return [sortedPlayers componentsJoinedByString:@", "];
+            return [[Player sortedPlayerNamesFromPlayers:players] componentsJoinedByString:@", "];
         } else {
             return @"Set Players";
         }
