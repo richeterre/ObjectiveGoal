@@ -11,12 +11,16 @@
 #import "EditMatchViewController.h"
 #import "MatchesViewModel.h"
 #import "EditMatchViewModel.h"
+#import <JGProgressHUD/JGProgressHUD.h>
+#import <JGProgressHUDFadeZoomAnimation.h>
 #import <libextobjc/EXTScope.h>
 
 static NSString * const MatchCellIdentifier = @"MatchCell";
 static NSString * const EditMatchSegueIdentifier = @"EditMatch";
 
 @interface MatchesViewController ()
+
+@property (nonatomic, strong) JGProgressHUD *progressHUD;
 
 @end
 
@@ -27,10 +31,23 @@ static NSString * const EditMatchSegueIdentifier = @"EditMatch";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.progressHUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
+    self.progressHUD.animation = [JGProgressHUDFadeZoomAnimation animation];
+
     @weakify(self);
+
     [self.viewModel.updatedContentSignal subscribeNext:^(id _) {
         @strongify(self);
         [self.tableView reloadData];
+    }];
+
+    [self.viewModel.progressIndicatorVisibleSignal subscribeNext:^(NSNumber *visible) {
+        @strongify(self);
+        if (visible.boolValue) {
+            [self.progressHUD showInView:self.navigationController.view];
+        } else {
+            [self.progressHUD dismiss];
+        }
     }];
 
     RACSignal *presented = [RACSignal
