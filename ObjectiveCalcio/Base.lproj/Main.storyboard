@@ -4,6 +4,17 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+            <string>OpenSans</string>
+        </mutableArray>
+        <mutableArray key="OpenSans-Semibold.ttf">
+            <string>OpenSans-Semibold</string>
+            <string>OpenSans-Semibold</string>
+            <string>OpenSans-Semibold</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Matches-->
         <scene sceneID="cxy-Go-KWb">
@@ -130,28 +141,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5jw-gX-Lj6">
-                                <rect key="frame" x="152" y="214" width="120" height="72"/>
+                                <rect key="frame" x="152" y="209" width="120" height="82"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="72" id="419-4h-mGK"/>
+                                    <constraint firstAttribute="height" constant="82" id="419-4h-mGK"/>
                                     <constraint firstAttribute="width" constant="120" id="k0p-sM-NU2"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="60"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pDw-ge-R6d">
-                                <rect key="frame" x="328" y="214" width="120" height="72"/>
+                                <rect key="frame" x="328" y="209" width="120" height="82"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="hXe-PT-dOa"/>
-                                    <constraint firstAttribute="height" constant="72" id="o7t-bC-cxx"/>
+                                    <constraint firstAttribute="height" constant="82" id="o7t-bC-cxx"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="60"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4z-eR-8A7">
-                                <rect key="frame" x="292" y="214" width="16" height="72"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <rect key="frame" x="292" y="209" width="16.5" height="82"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="60"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -162,7 +173,8 @@
                                 <rect key="frame" x="328" y="294" width="94" height="29"/>
                             </stepper>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWV-DT-Y0Z">
-                                <rect key="frame" x="134" y="363" width="138" height="30"/>
+                                <rect key="frame" x="133" y="363" width="139" height="33"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
                                 <state key="normal" title="[Pick Home Players]">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -171,7 +183,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iYX-TE-Mzn">
-                                <rect key="frame" x="328" y="363" width="134" height="30"/>
+                                <rect key="frame" x="328" y="363" width="133" height="33"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
                                 <state key="normal" title="[Pick Away Players]">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -185,7 +198,7 @@
                             <constraint firstItem="pWV-DT-Y0Z" firstAttribute="top" secondItem="pms-VH-yO6" secondAttribute="bottom" constant="40" id="2aC-iB-QSD"/>
                             <constraint firstItem="pDw-ge-R6d" firstAttribute="leading" secondItem="k4z-eR-8A7" secondAttribute="trailing" constant="20" id="9Kb-tp-CfK"/>
                             <constraint firstItem="iYX-TE-Mzn" firstAttribute="top" secondItem="jFA-Fn-4Is" secondAttribute="bottom" constant="40" id="BpI-yw-WSa"/>
-                            <constraint firstItem="jFA-Fn-4Is" firstAttribute="top" secondItem="pDw-ge-R6d" secondAttribute="bottom" constant="8" symbolic="YES" id="Jgn-jp-WpO"/>
+                            <constraint firstItem="jFA-Fn-4Is" firstAttribute="top" secondItem="pDw-ge-R6d" secondAttribute="bottom" constant="3" id="Jgn-jp-WpO"/>
                             <constraint firstItem="pWV-DT-Y0Z" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="d3V-8r-hPx" secondAttribute="leadingMargin" constant="5" id="VQH-m6-YKU"/>
                             <constraint firstAttribute="centerY" secondItem="k4z-eR-8A7" secondAttribute="centerY" constant="50" id="VrE-52-zGa"/>
                             <constraint firstItem="pms-VH-yO6" firstAttribute="trailing" secondItem="5jw-gX-Lj6" secondAttribute="trailing" id="cmr-Fv-Urh"/>
@@ -197,7 +210,7 @@
                             <constraint firstItem="iYX-TE-Mzn" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="d3V-8r-hPx" secondAttribute="trailingMargin" constant="-5" id="nOn-pF-eoA"/>
                             <constraint firstItem="pDw-ge-R6d" firstAttribute="leading" secondItem="iYX-TE-Mzn" secondAttribute="leading" id="s7A-Lz-lpP"/>
                             <constraint firstItem="k4z-eR-8A7" firstAttribute="baseline" secondItem="5jw-gX-Lj6" secondAttribute="baseline" id="tgC-x3-Jwm"/>
-                            <constraint firstItem="pms-VH-yO6" firstAttribute="top" secondItem="5jw-gX-Lj6" secondAttribute="bottom" constant="8" symbolic="YES" id="ytP-je-zjc"/>
+                            <constraint firstItem="pms-VH-yO6" firstAttribute="top" secondItem="5jw-gX-Lj6" secondAttribute="bottom" constant="3" id="ytP-je-zjc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2vO-lb-8Ip">
