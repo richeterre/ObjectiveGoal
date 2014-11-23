@@ -1,4 +1,19 @@
 PODS:
+  - BlocksKit (2.2.5):
+    - BlocksKit/All (= 2.2.5)
+  - BlocksKit/All (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.5)
+  - BlocksKit/DynamicDelegate (2.2.5)
+  - BlocksKit/MessageUI (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
   - JGProgressHUD (1.2.2)
   - libextobjc (0.4.1):
     - libextobjc/EXTADT (= 0.4.1)
@@ -50,6 +65,7 @@ PODS:
     - ReactiveCocoa (~> 2.1)
 
 DEPENDENCIES:
+  - BlocksKit
   - JGProgressHUD
   - libextobjc
   - Mantle
@@ -58,6 +74,7 @@ DEPENDENCIES:
   - ReactiveViewModel
 
 SPEC CHECKSUMS:
+  BlocksKit: 4439e7f30a9f90743462ca63545a15c1f4304cef
   JGProgressHUD: a7c58f711eec0b67f257a0821c0bac9194c72398
   libextobjc: d6146fce3ebea986b7f75fcb4c967639200b88b0
   Mantle: d7c5ac734579ec751c58fecbf56189853056c58c
