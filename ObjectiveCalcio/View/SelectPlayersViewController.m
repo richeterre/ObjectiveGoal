@@ -48,9 +48,30 @@ static NSString * const PlayerCellIdentifier = @"PlayerCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PlayerCellIdentifier forIndexPath:indexPath];
 
-    cell.textLabel.text = [self.viewModel playerNameAtRow:indexPath.row inSection:indexPath.section];
+    NSInteger row = indexPath.row;
+    NSInteger section = indexPath.section;
+
+    cell.textLabel.text = [self.viewModel playerNameAtRow:row inSection:section];
+    cell.accessoryType = ([self.viewModel playerSelectedAtRow:row inSection:section]
+                          ? UITableViewCellAccessoryCheckmark
+                          : UITableViewCellAccessoryNone);
 
     return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
+        [self.viewModel deselectPlayerAtRow:indexPath.row inSection:indexPath.section];
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    } else {
+        [self.viewModel selectPlayerAtRow:indexPath.row inSection:indexPath.section];
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
 }
 
 @end

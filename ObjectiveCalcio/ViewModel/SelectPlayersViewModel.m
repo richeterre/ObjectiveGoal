@@ -14,6 +14,7 @@
 @interface SelectPlayersViewModel ()
 
 @property (nonatomic, strong) NSArray *players;
+@property (nonatomic, copy) NSSet *selectedPlayers;
 
 @end
 
@@ -21,9 +22,12 @@
 
 #pragma mark - Lifecycle
 
-- (instancetype)initWithAPIClient:(APIClient *)apiClient selectedPlayers:(NSArray *)selectedPlayers {
+- (instancetype)initWithAPIClient:(APIClient *)apiClient initialPlayers:(NSSet *)initialPlayers {
     self = [super init];
     if (!self) return nil;
+
+    _selectedPlayers = [initialPlayers copy];
+    _selectedPlayersSignal = RACObserve(self, selectedPlayers);
 
     RACSignal *refreshSignal = self.didBecomeActiveSignal;
     _updatedContentSignal = [[RACObserve(self, players) ignore:nil] mapReplace:@(YES)];
@@ -48,7 +52,40 @@
 }
 
 - (NSString *)playerNameAtRow:(NSInteger)row inSection:(NSInteger)section {
+    return [self playerAtRow:row inSection:section];
+}
+
+- (BOOL)playerSelectedAtRow:(NSInteger)row inSection:(NSInteger)section {
+    NSString *player = [self playerAtRow:row inSection:section];
+    return [self.selectedPlayers containsObject:player];
+}
+
+#pragma mark - Player Selection
+
+- (void)selectPlayerAtRow:(NSInteger)row inSection:(NSInteger)section {
+    NSString *player = [self playerAtRow:row inSection:section];
+    [self selectPlayer:player];
+}
+
+- (void)deselectPlayerAtRow:(NSInteger)row inSection:(NSInteger)section {
+    NSString *player = [self playerAtRow:row inSection:section];
+    [self deselectPlayer:player];
+}
+
+#pragma mark - Internal Helpers
+
+- (NSString *)playerAtRow:(NSInteger)row inSection:(NSInteger)section {
     return self.players[row];
+}
+
+- (void)selectPlayer:(NSString *)player {
+    self.selectedPlayers = [self.selectedPlayers setByAddingObject:player];
+}
+
+- (void)deselectPlayer:(NSString *)player {
+    NSMutableSet *mutableSelectedPlayers = [self.selectedPlayers mutableCopy];
+    [mutableSelectedPlayers removeObject:player];
+    self.selectedPlayers = [mutableSelectedPlayers copy];
 }
 
 @end

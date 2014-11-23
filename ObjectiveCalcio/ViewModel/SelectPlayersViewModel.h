@@ -12,12 +12,17 @@
 
 @interface SelectPlayersViewModel : RVMViewModel
 
+@property (nonatomic, strong, readonly) RACSignal *selectedPlayersSignal;
 @property (nonatomic, strong, readonly) RACSignal *updatedContentSignal;
 
-- (instancetype)initWithAPIClient:(APIClient *)apiClient selectedPlayers:(NSArray *)selectedPlayers;
+- (instancetype)initWithAPIClient:(APIClient *)apiClient initialPlayers:(NSSet *)initialPlayers;
 
 - (NSInteger)numberOfSections;
 - (NSInteger)numberOfItemsInSection:(NSInteger)section;
 - (NSString *)playerNameAtRow:(NSInteger)row inSection:(NSInteger)section;
+- (BOOL)playerSelectedAtRow:(NSInteger)row inSection:(NSInteger)section;
+
+- (void)selectPlayerAtRow:(NSInteger)row inSection:(NSInteger)section;
+- (void)deselectPlayerAtRow:(NSInteger)row inSection:(NSInteger)section;
 
 @end

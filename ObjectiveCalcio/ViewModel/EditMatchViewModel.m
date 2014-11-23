@@ -65,11 +65,15 @@
 #pragma mark - View Models
 
 - (SelectPlayersViewModel *)selectHomePlayersViewModel {
-    return [[SelectPlayersViewModel alloc] initWithAPIClient:self.apiClient selectedPlayers:self.homePlayers];
+    SelectPlayersViewModel *selectHomePlayersViewModel = [[SelectPlayersViewModel alloc] initWithAPIClient:self.apiClient initialPlayers:self.homePlayers];
+    RAC(self, homePlayers) = selectHomePlayersViewModel.selectedPlayersSignal;
+    return selectHomePlayersViewModel;
 }
 
 - (SelectPlayersViewModel *)selectAwayPlayersViewModel {
-    return [[SelectPlayersViewModel alloc] initWithAPIClient:self.apiClient selectedPlayers:self.awayPlayers];
+    SelectPlayersViewModel *selectAwayPlayersViewModel = [[SelectPlayersViewModel alloc] initWithAPIClient:self.apiClient initialPlayers:self.awayPlayers];
+    RAC(self, awayPlayers) = selectAwayPlayersViewModel.selectedPlayersSignal;
+    return selectAwayPlayersViewModel;
 }
 
 @end
