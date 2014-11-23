@@ -14,6 +14,8 @@
 		0FA2ADE31A21317C002801D2 /* EditMatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADE21A21317C002801D2 /* EditMatchViewController.m */; };
 		0FA2ADE61A2131FC002801D2 /* EditMatchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADE51A2131FC002801D2 /* EditMatchViewModel.m */; };
 		0FA2ADE81A2139C8002801D2 /* EditMatchViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADE71A2139C8002801D2 /* EditMatchViewModelTests.m */; };
+		0FA2ADEC1A22191C002801D2 /* SelectPlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADEB1A22191C002801D2 /* SelectPlayersViewController.m */; };
+		0FA2ADEF1A22202B002801D2 /* SelectPlayersViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADEE1A22202B002801D2 /* SelectPlayersViewModel.m */; };
 		0FDBE03F1A1FD9F5001CA0ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBE03E1A1FD9F5001CA0ED /* main.m */; };
 		0FDBE0421A1FD9F5001CA0ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBE0411A1FD9F5001CA0ED /* AppDelegate.m */; };
 		0FDBE0481A1FD9F5001CA0ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FDBE0461A1FD9F5001CA0ED /* Main.storyboard */; };
@@ -47,6 +49,10 @@
 		0FA2ADE41A2131FC002801D2 /* EditMatchViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditMatchViewModel.h; sourceTree = "<group>"; };
 		0FA2ADE51A2131FC002801D2 /* EditMatchViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditMatchViewModel.m; sourceTree = "<group>"; };
 		0FA2ADE71A2139C8002801D2 /* EditMatchViewModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditMatchViewModelTests.m; sourceTree = "<group>"; };
+		0FA2ADEA1A22191C002801D2 /* SelectPlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectPlayersViewController.h; sourceTree = "<group>"; };
+		0FA2ADEB1A22191C002801D2 /* SelectPlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectPlayersViewController.m; sourceTree = "<group>"; };
+		0FA2ADED1A22202B002801D2 /* SelectPlayersViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectPlayersViewModel.h; sourceTree = "<group>"; };
+		0FA2ADEE1A22202B002801D2 /* SelectPlayersViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectPlayersViewModel.m; sourceTree = "<group>"; };
 		0FDBE0391A1FD9F5001CA0ED /* ObjectiveCalcio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjectiveCalcio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FDBE03D1A1FD9F5001CA0ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FDBE03E1A1FD9F5001CA0ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -181,6 +187,8 @@
 				0F05D80A1A1FE1D700083EC6 /* MatchesViewController.m */,
 				0FA2ADE11A21317C002801D2 /* EditMatchViewController.h */,
 				0FA2ADE21A21317C002801D2 /* EditMatchViewController.m */,
+				0FA2ADEA1A22191C002801D2 /* SelectPlayersViewController.h */,
+				0FA2ADEB1A22191C002801D2 /* SelectPlayersViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -192,6 +200,8 @@
 				0F05D80D1A1FECFA00083EC6 /* MatchesViewModel.m */,
 				0FA2ADE41A2131FC002801D2 /* EditMatchViewModel.h */,
 				0FA2ADE51A2131FC002801D2 /* EditMatchViewModel.m */,
+				0FA2ADED1A22202B002801D2 /* SelectPlayersViewModel.h */,
+				0FA2ADEE1A22202B002801D2 /* SelectPlayersViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -386,12 +396,14 @@
 				0FDCB2A11A1FF44D00656AF2 /* MatchCell.m in Sources */,
 				0FA2ADE01A1FFEC7002801D2 /* APIClient.m in Sources */,
 				0FDBE0421A1FD9F5001CA0ED /* AppDelegate.m in Sources */,
+				0FA2ADEC1A22191C002801D2 /* SelectPlayersViewController.m in Sources */,
 				0FA2ADE61A2131FC002801D2 /* EditMatchViewModel.m in Sources */,
 				0FDBE03F1A1FD9F5001CA0ED /* main.m in Sources */,
 				0FDCB2A41A1FF58400656AF2 /* Match.m in Sources */,
 				0F05D80E1A1FECFA00083EC6 /* MatchesViewModel.m in Sources */,
 				0FA2ADE31A21317C002801D2 /* EditMatchViewController.m in Sources */,
 				0F05D80B1A1FE1D700083EC6 /* MatchesViewController.m in Sources */,
+				0FA2ADEF1A22202B002801D2 /* SelectPlayersViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

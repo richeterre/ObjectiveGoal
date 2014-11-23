@@ -7,6 +7,7 @@
 //
 
 #import "EditMatchViewModel.h"
+#import "SelectPlayersViewModel.h"
 #import "APIClient.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
@@ -28,6 +29,10 @@
     _apiClient = apiClient;
 
     _name = @"New Match";
+    _homeGoals = 0;
+    _awayGoals = 0;
+    _homePlayers = @[];
+    _awayPlayers = @[];
 
     NSString *(^formatGoalsBlock)(NSNumber *) = ^(NSNumber *goals){
         return [NSString stringWithFormat:@"%lu", (unsigned long)goals.unsignedIntegerValue];
@@ -45,6 +50,16 @@
 
 - (void)willDismiss {
     [self.apiClient createMatchWithHomePlayers:@"Home" awayPlayers:@"Away" homeGoals:self.homeGoals awayGoals:self.awayGoals];
+}
+
+#pragma mark - View Models
+
+- (SelectPlayersViewModel *)selectHomePlayersViewModel {
+    return [[SelectPlayersViewModel alloc] initWithAPIClient:self.apiClient selectedPlayers:self.homePlayers];
+}
+
+- (SelectPlayersViewModel *)selectAwayPlayersViewModel {
+    return [[SelectPlayersViewModel alloc] initWithAPIClient:self.apiClient selectedPlayers:self.awayPlayers];
 }
 
 @end

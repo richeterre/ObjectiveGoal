@@ -8,7 +8,7 @@
 
 #import "RVMViewModel.h"
 
-@class APIClient;
+@class APIClient, SelectPlayersViewModel;
 
 @interface EditMatchViewModel : RVMViewModel
 
@@ -18,10 +18,15 @@
 
 @property (nonatomic, assign) NSUInteger homeGoals;
 @property (nonatomic, assign) NSUInteger awayGoals;
+@property (nonatomic, strong) NSArray *homePlayers;
+@property (nonatomic, strong) NSArray *awayPlayers;
 
 @property (nonatomic, readonly) NSString *homeGoalsString;
 @property (nonatomic, readonly) NSString *awayGoalsString;
 
 - (void)willDismiss;
+
+- (SelectPlayersViewModel *)selectHomePlayersViewModel;
+- (SelectPlayersViewModel *)selectAwayPlayersViewModel;
 
 @end

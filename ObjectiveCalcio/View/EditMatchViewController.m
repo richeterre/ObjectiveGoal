@@ -7,10 +7,13 @@
 //
 
 #import "EditMatchViewController.h"
+#import "SelectPlayersViewController.h"
 #import "EditMatchViewModel.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 static NSString * const UnwindToMatchesSegueIdentifier = @"UnwindToMatches";
+static NSString * const SelectHomePlayersSegueIdentifier = @"SelectHomePlayers";
+static NSString * const SelectAwayPlayersSegueIdentifier = @"SelectAwayPlayers";
 
 @interface EditMatchViewController ()
 
@@ -52,6 +55,19 @@ static NSString * const UnwindToMatchesSegueIdentifier = @"UnwindToMatches";
 - (IBAction)saveButtonTapped:(id)sender {
     [self.viewModel willDismiss];
     [self performSegueWithIdentifier:UnwindToMatchesSegueIdentifier sender:self];
+}
+
+#pragma mark - Segues
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:SelectHomePlayersSegueIdentifier]) {
+        SelectPlayersViewController *selectPlayersViewController = segue.destinationViewController;
+        selectPlayersViewController.viewModel = [self.viewModel selectHomePlayersViewModel];
+    }
+    else if ([segue.identifier isEqualToString:SelectAwayPlayersSegueIdentifier]) {
+        SelectPlayersViewController *selectPlayersViewController = segue.destinationViewController;
+        selectPlayersViewController.viewModel = [self.viewModel selectAwayPlayersViewModel];
+    }
 }
 
 @end
