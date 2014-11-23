@@ -7,6 +7,7 @@
 //
 
 #import "SelectPlayersViewController.h"
+#import "PlayerCell.h"
 #import "SelectPlayersViewModel.h"
 #import "UIViewController+Active.h"
 #import <JGProgressHUD/JGProgressHUD.h>
@@ -60,12 +61,12 @@ static NSString * const PlayerCellIdentifier = @"PlayerCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PlayerCellIdentifier forIndexPath:indexPath];
+    PlayerCell *cell = [tableView dequeueReusableCellWithIdentifier:PlayerCellIdentifier forIndexPath:indexPath];
 
     NSInteger row = indexPath.row;
     NSInteger section = indexPath.section;
 
-    cell.textLabel.text = [self.viewModel playerNameAtRow:row inSection:section];
+    cell.nameLabel.text = [self.viewModel playerNameAtRow:row inSection:section];
     cell.accessoryType = ([self.viewModel playerSelectedAtRow:row inSection:section]
                           ? UITableViewCellAccessoryCheckmark
                           : UITableViewCellAccessoryNone);

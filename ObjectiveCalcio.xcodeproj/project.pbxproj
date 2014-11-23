@@ -22,6 +22,7 @@
 		0FA2AE021A228F79002801D2 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FA2ADFF1A228F79002801D2 /* OpenSans-Light.ttf */; };
 		0FA2AE031A228F79002801D2 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FA2AE001A228F79002801D2 /* OpenSans-Regular.ttf */; };
 		0FA2AE041A228F79002801D2 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FA2AE011A228F79002801D2 /* OpenSans-Semibold.ttf */; };
+		0FC0BFE71A229D45006A6695 /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC0BFE61A229D45006A6695 /* PlayerCell.m */; };
 		0FDBE03F1A1FD9F5001CA0ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBE03E1A1FD9F5001CA0ED /* main.m */; };
 		0FDBE0421A1FD9F5001CA0ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBE0411A1FD9F5001CA0ED /* AppDelegate.m */; };
 		0FDBE0481A1FD9F5001CA0ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FDBE0461A1FD9F5001CA0ED /* Main.storyboard */; };
@@ -67,6 +68,8 @@
 		0FA2ADFF1A228F79002801D2 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
 		0FA2AE001A228F79002801D2 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		0FA2AE011A228F79002801D2 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		0FC0BFE51A229D45006A6695 /* PlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerCell.h; sourceTree = "<group>"; };
+		0FC0BFE61A229D45006A6695 /* PlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCell.m; sourceTree = "<group>"; };
 		0FDBE0391A1FD9F5001CA0ED /* ObjectiveCalcio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjectiveCalcio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FDBE03D1A1FD9F5001CA0ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FDBE03E1A1FD9F5001CA0ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -213,6 +216,8 @@
 			children = (
 				0FDCB29F1A1FF44D00656AF2 /* MatchCell.h */,
 				0FDCB2A01A1FF44D00656AF2 /* MatchCell.m */,
+				0FC0BFE51A229D45006A6695 /* PlayerCell.h */,
+				0FC0BFE61A229D45006A6695 /* PlayerCell.m */,
 				0F05D8091A1FE1D700083EC6 /* MatchesViewController.h */,
 				0F05D80A1A1FE1D700083EC6 /* MatchesViewController.m */,
 				0FA2ADE11A21317C002801D2 /* EditMatchViewController.h */,
@@ -427,6 +432,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FDCB2A11A1FF44D00656AF2 /* MatchCell.m in Sources */,
+				0FC0BFE71A229D45006A6695 /* PlayerCell.m in Sources */,
 				0FA2ADE01A1FFEC7002801D2 /* APIClient.m in Sources */,
 				0FDBE0421A1FD9F5001CA0ED /* AppDelegate.m in Sources */,
 				0FA2ADEC1A22191C002801D2 /* SelectPlayersViewController.m in Sources */,
