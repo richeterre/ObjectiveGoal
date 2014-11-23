@@ -8,8 +8,11 @@
         <mutableArray key="OpenSans-Regular.ttf">
             <string>OpenSans</string>
             <string>OpenSans</string>
+            <string>OpenSans</string>
+            <string>OpenSans</string>
         </mutableArray>
         <mutableArray key="OpenSans-Semibold.ttf">
+            <string>OpenSans-Semibold</string>
             <string>OpenSans-Semibold</string>
             <string>OpenSans-Semibold</string>
             <string>OpenSans-Semibold</string>
@@ -30,13 +33,13 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4A4-W6-CGC" id="26p-DO-VMa">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CC2-R6-5Qb" userLabel="Home Players">
-                                            <rect key="frame" x="33" y="15" width="160" height="30"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="CC2-R6-5Qb" userLabel="Home Players">
+                                            <rect key="frame" x="18" y="15" width="150" height="30"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="160" id="Nko-gR-6AB"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="150" id="FjJ-Jy-vQQ"/>
                                                 <constraint firstAttribute="height" constant="30" id="aca-Nz-O34"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="20"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -46,17 +49,17 @@
                                                 <constraint firstAttribute="height" constant="30" id="RwT-e3-YGM"/>
                                                 <constraint firstAttribute="width" constant="40" id="lVk-y8-HvP"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="20"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdL-eO-Qn2" userLabel="Away Players">
-                                            <rect key="frame" x="417" y="14" width="150" height="30"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="hdL-eO-Qn2" userLabel="Away Players">
+                                            <rect key="frame" x="432" y="14" width="150" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="BDT-3N-6NB"/>
-                                                <constraint firstAttribute="width" constant="150" id="XCw-rN-bGU"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="150" id="XCw-rN-bGU"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="20"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -64,10 +67,12 @@
                                     <constraints>
                                         <constraint firstAttribute="centerX" secondItem="nPf-h6-hsp" secondAttribute="centerX" id="2gb-Mj-QIw"/>
                                         <constraint firstAttribute="centerY" secondItem="hdL-eO-Qn2" secondAttribute="centerY" constant="0.5" id="FLa-zA-crn"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="hdL-eO-Qn2" secondAttribute="trailing" constant="25" id="VhR-UF-FWl"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="hdL-eO-Qn2" secondAttribute="trailing" constant="10" id="VhR-UF-FWl"/>
+                                        <constraint firstItem="hdL-eO-Qn2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nPf-h6-hsp" secondAttribute="trailing" constant="15" id="dM4-Gr-la0"/>
                                         <constraint firstAttribute="centerY" secondItem="nPf-h6-hsp" secondAttribute="centerY" id="dWs-ah-dwj"/>
                                         <constraint firstAttribute="centerY" secondItem="CC2-R6-5Qb" secondAttribute="centerY" id="gEU-4c-vSg"/>
-                                        <constraint firstItem="CC2-R6-5Qb" firstAttribute="leading" secondItem="26p-DO-VMa" secondAttribute="leadingMargin" constant="25" id="oWq-yK-gQj"/>
+                                        <constraint firstItem="CC2-R6-5Qb" firstAttribute="leading" secondItem="26p-DO-VMa" secondAttribute="leadingMargin" constant="10" id="oWq-yK-gQj"/>
+                                        <constraint firstItem="nPf-h6-hsp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CC2-R6-5Qb" secondAttribute="trailing" constant="15" id="rus-cQ-fyc"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
