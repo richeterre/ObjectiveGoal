@@ -4,6 +4,7 @@ platform :ios, '8.0'
 target 'ObjectiveCalcio' do
   pod 'JGProgressHUD'
   pod 'libextobjc'
+  pod 'Mantle'
   pod 'ReactiveCocoa'
   pod 'ReactiveViewModel'
 end

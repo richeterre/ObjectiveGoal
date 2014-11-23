@@ -35,6 +35,9 @@ PODS:
     - libextobjc/RuntimeExtensions
   - libextobjc/RuntimeExtensions (0.4.1)
   - libextobjc/UmbrellaHeader (0.4.1)
+  - Mantle (1.5.1):
+    - Mantle/extobjc (= 1.5.1)
+  - Mantle/extobjc (1.5.1)
   - OCMock (3.1.1)
   - ReactiveCocoa (2.3.1):
     - ReactiveCocoa/UI (= 2.3.1)
@@ -49,6 +52,7 @@ PODS:
 DEPENDENCIES:
   - JGProgressHUD
   - libextobjc
+  - Mantle
   - OCMock
   - ReactiveCocoa
   - ReactiveViewModel
@@ -56,6 +60,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   JGProgressHUD: a7c58f711eec0b67f257a0821c0bac9194c72398
   libextobjc: d6146fce3ebea986b7f75fcb4c967639200b88b0
+  Mantle: d7c5ac734579ec751c58fecbf56189853056c58c
   OCMock: f6cb8c162ab9d5620dddf411282c7b2c0ee78854
   ReactiveCocoa: dca75777b9d18990c8714a3a6f2149f29b4d1462
   ReactiveViewModel: 78387196df2e7535bb2776c41df15dbb17300f8a
