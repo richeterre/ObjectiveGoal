@@ -19,6 +19,8 @@ static NSString * const APIClientUserDefaultsKeyMatches = @"Matches";
 
 @implementation APIClient
 
+#pragma mark - Lifecycle
+
 - (instancetype)init
 {
     self = [super init];
@@ -29,6 +31,8 @@ static NSString * const APIClientUserDefaultsKeyMatches = @"Matches";
     return self;
 }
 
+#pragma mark - Matches
+
 - (RACSignal *)fetchMatches {
     return [[RACSignal return:self.matches] delay:1];
 }
@@ -36,6 +40,13 @@ static NSString * const APIClientUserDefaultsKeyMatches = @"Matches";
 - (void)createMatchWithHomePlayers:(NSString *)homePlayers awayPlayers:(NSString *)awayPlayers homeGoals:(NSUInteger)homeGoals awayGoals:(NSUInteger)awayGoals {
     Match *newMatch = [[Match alloc] initWithHomePlayers:homePlayers awayPlayers:awayPlayers homeGoals:homeGoals awayGoals:awayGoals];
     self.matches = [self.matches arrayByAddingObject:newMatch];
+}
+
+#pragma mark - Players
+
+- (RACSignal *)fetchPlayers {
+    NSArray *players = @[@"Alice", @"Bob", @"Charlie", @"Dora"];
+    return [[RACSignal return:players] delay:1];
 }
 
 #pragma mark - Persistence

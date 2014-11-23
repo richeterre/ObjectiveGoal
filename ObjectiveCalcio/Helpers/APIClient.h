@@ -12,11 +12,12 @@
 @interface APIClient : NSObject
 
 - (RACSignal *)fetchMatches;
-
 - (void)createMatchWithHomePlayers:(NSString *)homePlayers
                        awayPlayers:(NSString *)awayPlayers
                          homeGoals:(NSUInteger)homeGoals
                          awayGoals:(NSUInteger)awayGoals;
+
+- (RACSignal *)fetchPlayers;
 
 - (void)persist;
 
