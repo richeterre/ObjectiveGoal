@@ -19,6 +19,9 @@
 		0FA2ADF81A222ADE002801D2 /* UIViewController+Active.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADF71A222ADE002801D2 /* UIViewController+Active.m */; };
 		0FA2ADFA1A224631002801D2 /* SelectPlayersViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADF91A224631002801D2 /* SelectPlayersViewModelTests.m */; };
 		0FA2ADFC1A22475F002801D2 /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADFB1A22475F002801D2 /* TestHelper.m */; };
+		0FA2AE021A228F79002801D2 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FA2ADFF1A228F79002801D2 /* OpenSans-Light.ttf */; };
+		0FA2AE031A228F79002801D2 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FA2AE001A228F79002801D2 /* OpenSans-Regular.ttf */; };
+		0FA2AE041A228F79002801D2 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FA2AE011A228F79002801D2 /* OpenSans-Semibold.ttf */; };
 		0FDBE03F1A1FD9F5001CA0ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBE03E1A1FD9F5001CA0ED /* main.m */; };
 		0FDBE0421A1FD9F5001CA0ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBE0411A1FD9F5001CA0ED /* AppDelegate.m */; };
 		0FDBE0481A1FD9F5001CA0ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FDBE0461A1FD9F5001CA0ED /* Main.storyboard */; };
@@ -61,6 +64,9 @@
 		0FA2ADF91A224631002801D2 /* SelectPlayersViewModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectPlayersViewModelTests.m; sourceTree = "<group>"; };
 		0FA2ADFB1A22475F002801D2 /* TestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelper.m; sourceTree = "<group>"; };
 		0FA2ADFD1A224772002801D2 /* TestHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestHelper.h; sourceTree = "<group>"; };
+		0FA2ADFF1A228F79002801D2 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		0FA2AE001A228F79002801D2 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		0FA2AE011A228F79002801D2 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		0FDBE0391A1FD9F5001CA0ED /* ObjectiveCalcio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjectiveCalcio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FDBE03D1A1FD9F5001CA0ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FDBE03E1A1FD9F5001CA0ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -115,6 +121,16 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		0FA2ADFE1A228F79002801D2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0FA2ADFF1A228F79002801D2 /* OpenSans-Light.ttf */,
+				0FA2AE001A228F79002801D2 /* OpenSans-Regular.ttf */,
+				0FA2AE011A228F79002801D2 /* OpenSans-Semibold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		0FDBE0301A1FD9F5001CA0ED = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +171,7 @@
 		0FDBE03C1A1FD9F5001CA0ED /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0FA2ADFE1A228F79002801D2 /* Fonts */,
 				0FDBE03D1A1FD9F5001CA0ED /* Info.plist */,
 				0FDBE03E1A1FD9F5001CA0ED /* main.m */,
 			);
@@ -323,8 +340,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FA2AE041A228F79002801D2 /* OpenSans-Semibold.ttf in Resources */,
+				0FA2AE031A228F79002801D2 /* OpenSans-Regular.ttf in Resources */,
 				0FDBE0481A1FD9F5001CA0ED /* Main.storyboard in Resources */,
 				0FDBE04D1A1FD9F5001CA0ED /* LaunchScreen.xib in Resources */,
+				0FA2AE021A228F79002801D2 /* OpenSans-Light.ttf in Resources */,
 				0FDBE04A1A1FD9F5001CA0ED /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
