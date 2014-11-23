@@ -53,6 +53,11 @@
     XCTAssertEqualObjects(self.sut.awayPlayersString, @"A, B");
 }
 
+// TODO: Add tests for input validation:
+// * Save button disabled when home team is empty
+// * Save button disabled when away team is empty
+// * Save button enabled when neither team is empty
+
 - (void)testTappingSaveButtonCreatesMatch {
     NSSet *homePlayers = [NSSet setWithArray:@[@"A", @"B"]];
     NSSet *awayPlayers = [NSSet setWithArray:@[@"C", @"D"]];
