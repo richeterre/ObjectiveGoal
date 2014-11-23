@@ -9,6 +9,7 @@
 #import "EditMatchViewModel.h"
 #import "SelectPlayersViewModel.h"
 #import "APIClient.h"
+#import <libextobjc/EXTScope.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface EditMatchViewModel ()
@@ -33,6 +34,21 @@
     _awayGoals = 0;
     _homePlayers = [NSSet set];
     _awayPlayers = [NSSet set];
+
+    RACSignal *validInputSignal = [RACSignal
+        combineLatest:@[RACObserve(self, homePlayers), RACObserve(self, awayPlayers)]
+        reduce:^(NSSet *homePlayers, NSSet *awayPlayers){
+            return @(homePlayers.count > 0 && awayPlayers.count > 0);
+        }];
+
+    @weakify(self);
+
+    _saveCommand = [[RACCommand alloc]
+        initWithEnabled:validInputSignal
+        signalBlock:^RACSignal *(id _) {
+            @strongify(self);
+            return [self.apiClient createMatchWithHomePlayers:self.homePlayers awayPlayers:self.awayPlayers homeGoals:self.homeGoals awayGoals:self.awayGoals];
+        }];
 
     NSString *(^formatGoalsBlock)(NSNumber *) = ^(NSNumber *goals){
         return [NSString stringWithFormat:@"%lu", (unsigned long)goals.unsignedIntegerValue];
@@ -59,10 +75,6 @@
 
 - (instancetype)init {
     return [self initWithAPIClient:nil];
-}
-
-- (void)willDismiss {
-    [self.apiClient createMatchWithHomePlayers:self.homePlayers awayPlayers:self.awayPlayers homeGoals:self.homeGoals awayGoals:self.awayGoals];
 }
 
 #pragma mark - View Models

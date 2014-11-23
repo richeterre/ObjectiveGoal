@@ -10,6 +10,7 @@
 #import "SelectPlayersViewController.h"
 #import "EditMatchViewModel.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import <libextobjc/EXTScope.h>
 
 static NSString * const UnwindToMatchesSegueIdentifier = @"UnwindToMatches";
 static NSString * const SelectHomePlayersSegueIdentifier = @"SelectHomePlayers";
@@ -23,8 +24,7 @@ static NSString * const SelectAwayPlayersSegueIdentifier = @"SelectAwayPlayers";
 @property (nonatomic, weak) IBOutlet UIStepper *awayGoalsStepper;
 @property (nonatomic, weak) IBOutlet UIButton *homePlayersButton;
 @property (nonatomic, weak) IBOutlet UIButton *awayPlayersButton;
-
-- (IBAction)saveButtonTapped:(id)sender;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *saveButton;
 
 @end
 
@@ -36,7 +36,6 @@ static NSString * const SelectAwayPlayersSegueIdentifier = @"SelectAwayPlayers";
     [super viewDidLoad];
 
     RAC(self, title) = RACObserve(self.viewModel, name);
-
     RAC(self.homeGoalsLabel, text) = RACObserve(self.viewModel, homeGoalsString);
     RAC(self.awayGoalsLabel, text) = RACObserve(self.viewModel, awayGoalsString);
 
@@ -50,6 +49,15 @@ static NSString * const SelectAwayPlayersSegueIdentifier = @"SelectAwayPlayers";
         [RACSignal return:UIControlStateNormal]
     ]];
 
+    RACCommand *saveCommand = self.viewModel.saveCommand;
+    self.saveButton.rac_command = saveCommand;
+
+    @weakify(self);
+    [[self.viewModel.saveCommand.executionSignals flatten] subscribeNext:^(id _) {
+        @strongify(self);
+        [self performSegueWithIdentifier:UnwindToMatchesSegueIdentifier sender:self];
+    }];
+
     NSNumber *(^stepperValueBlock)(UIStepper *) = ^(UIStepper *stepper){
         return @(stepper.value);
     };
@@ -60,13 +68,6 @@ static NSString * const SelectAwayPlayersSegueIdentifier = @"SelectAwayPlayers";
     RAC(self.viewModel, awayGoals) = [[self.awayGoalsStepper
         rac_signalForControlEvents:UIControlEventValueChanged]
         map:stepperValueBlock];
-}
-
-#pragma mark - User Interaction
-
-- (IBAction)saveButtonTapped:(id)sender {
-    [self.viewModel willDismiss];
-    [self performSegueWithIdentifier:UnwindToMatchesSegueIdentifier sender:self];
 }
 
 #pragma mark - Segues

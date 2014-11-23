@@ -10,6 +10,7 @@
 #import "Match.h"
 
 static NSString * const APIClientUserDefaultsKeyMatches = @"Matches";
+static NSTimeInterval const APIClientFakeLatency = 0.5;
 
 @interface APIClient ()
 
@@ -34,19 +35,21 @@ static NSString * const APIClientUserDefaultsKeyMatches = @"Matches";
 #pragma mark - Matches
 
 - (RACSignal *)fetchMatches {
-    return [[RACSignal return:self.matches] delay:0.5];
+    return [[RACSignal return:self.matches] delay:APIClientFakeLatency];
 }
 
-- (void)createMatchWithHomePlayers:(NSSet *)homePlayers awayPlayers:(NSSet *)awayPlayers homeGoals:(NSUInteger)homeGoals awayGoals:(NSUInteger)awayGoals {
+- (RACSignal *)createMatchWithHomePlayers:(NSSet *)homePlayers awayPlayers:(NSSet *)awayPlayers homeGoals:(NSUInteger)homeGoals awayGoals:(NSUInteger)awayGoals {
     Match *newMatch = [[Match alloc] initWithHomePlayers:homePlayers awayPlayers:awayPlayers homeGoals:homeGoals awayGoals:awayGoals];
+
     self.matches = [self.matches arrayByAddingObject:newMatch];
+    return [[RACSignal return:@(YES)] delay:APIClientFakeLatency];
 }
 
 #pragma mark - Players
 
 - (RACSignal *)fetchPlayers {
     NSArray *players = @[@"Alice", @"Bob", @"Charlie", @"Dora"];
-    return [[RACSignal return:players] delay:0.5];
+    return [[RACSignal return:players] delay:APIClientFakeLatency];
 }
 
 #pragma mark - Persistence

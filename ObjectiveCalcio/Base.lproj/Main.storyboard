@@ -206,11 +206,7 @@
                                 <segue destination="WDc-Gy-6fM" kind="unwind" identifier="UnwindToMatches" unwindAction="unwindToMatches:" id="xIP-gI-ggG"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="tfq-Sm-7dn">
-                            <connections>
-                                <action selector="saveButtonTapped:" destination="Wwf-zy-vPE" id="TVw-96-agA"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="tfq-Sm-7dn"/>
                     </navigationItem>
                     <connections>
                         <outlet property="awayGoalsLabel" destination="pDw-ge-R6d" id="BpC-Dc-vht"/>
@@ -219,6 +215,7 @@
                         <outlet property="homeGoalsLabel" destination="5jw-gX-Lj6" id="YBB-uL-4ly"/>
                         <outlet property="homeGoalsStepper" destination="pms-VH-yO6" id="uMf-cD-Qkz"/>
                         <outlet property="homePlayersButton" destination="pWV-DT-Y0Z" id="7bd-c5-1Yg"/>
+                        <outlet property="saveButton" destination="tfq-Sm-7dn" id="fHn-Bp-nFw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JKi-kH-mLX" userLabel="First Responder" sceneMemberID="firstResponder"/>

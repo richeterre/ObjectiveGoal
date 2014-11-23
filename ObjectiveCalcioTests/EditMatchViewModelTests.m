@@ -53,25 +53,33 @@
     XCTAssertEqualObjects(self.sut.awayPlayersString, @"A, B");
 }
 
-- (void)testCallingWillDismissSavesMatch {
+- (void)testTappingSaveButtonCreatesMatch {
     NSSet *homePlayers = [NSSet setWithArray:@[@"A", @"B"]];
     NSSet *awayPlayers = [NSSet setWithArray:@[@"C", @"D"]];
     NSUInteger homeGoals = 1;
     NSUInteger awayGoals = 0;
 
+    XCTestExpectation *expectation = [self expectationWithDescription:@"createMatchExpectation"];
+
     id mockAPIClient = [OCMockObject mockForClass:APIClient.class];
-    [[mockAPIClient expect] createMatchWithHomePlayers:homePlayers awayPlayers:awayPlayers homeGoals:homeGoals awayGoals:awayGoals];
+    [[[mockAPIClient expect] andReturn:[RACSignal return:@(YES)]] createMatchWithHomePlayers:homePlayers awayPlayers:awayPlayers homeGoals:homeGoals awayGoals:awayGoals];
 
     self.sut = [[EditMatchViewModel alloc] initWithAPIClient:mockAPIClient];
-
     self.sut.homePlayers = homePlayers;
     self.sut.awayPlayers = awayPlayers;
     self.sut.homeGoals = homeGoals;
     self.sut.awayGoals = awayGoals;
 
-    [self.sut willDismiss];
+    RACDisposable *disposable = [[self.sut.saveCommand execute:nil] subscribeNext:^(id x) {
+        XCTAssertEqual(x, @(YES));
+        [expectation fulfill];
+    }];
 
     [mockAPIClient verify];
+
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        [disposable dispose];
+    }];
 }
 
 @end
