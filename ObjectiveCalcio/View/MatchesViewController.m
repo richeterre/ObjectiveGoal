@@ -11,6 +11,7 @@
 #import "EditMatchViewController.h"
 #import "MatchesViewModel.h"
 #import "EditMatchViewModel.h"
+#import "UIViewController+Active.h"
 #import <JGProgressHUD/JGProgressHUD.h>
 #import <JGProgressHUDFadeZoomAnimation.h>
 #import <libextobjc/EXTScope.h>
@@ -50,19 +51,7 @@ static NSString * const EditMatchSegueIdentifier = @"EditMatch";
         }
     }];
 
-    RACSignal *presented = [RACSignal
-        merge:@[
-            [[self rac_signalForSelector:@selector(viewWillAppear:)] mapReplace:@(YES)],
-            [[self rac_signalForSelector:@selector(viewWillDisappear:)] mapReplace:@(NO)]
-        ]];
-
-    RACSignal *appActive = [[RACSignal
-        merge:@[
-            [[NSNotificationCenter.defaultCenter rac_addObserverForName:UIApplicationDidBecomeActiveNotification object:nil] mapReplace:@(YES)],
-            [[NSNotificationCenter.defaultCenter rac_addObserverForName:UIApplicationWillResignActiveNotification object:nil] mapReplace:@(NO)]
-        ]] startWith:@(YES)];
-
-    RAC(self.viewModel, active) = [[RACSignal combineLatest:@[presented, appActive]] and];
+    RAC(self.viewModel, active) = self.activeSignal;
 }
 
 #pragma mark - UITableViewDataSource
