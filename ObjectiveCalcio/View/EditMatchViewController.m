@@ -45,6 +45,11 @@ static NSString * const SelectAwayPlayersSegueIdentifier = @"SelectAwayPlayers";
         [RACSignal return:UIControlStateNormal]
     ]];
 
+    [self.awayPlayersButton rac_liftSelector:@selector(setTitle:forState:) withSignalsFromArray:@[
+        RACObserve(self.viewModel, awayPlayersString),
+        [RACSignal return:UIControlStateNormal]
+    ]];
+
     NSNumber *(^stepperValueBlock)(UIStepper *) = ^(UIStepper *stepper){
         return @(stepper.value);
     };
