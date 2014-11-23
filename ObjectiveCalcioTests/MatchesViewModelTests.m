@@ -11,6 +11,7 @@
 #import "MatchesViewModel.h"
 #import "EditMatchViewModel.h"
 #import "APIClient.h"
+#import "TestHelper.h"
 #import <OCMock/OCMock.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
@@ -51,7 +52,7 @@
 }
 
 - (void)testNumberOfRowsAfterFetching {
-    id mockAPIClient = [self mockAPIClientReturningObject:[NSObject new]];
+    id mockAPIClient = [TestHelper mockAPIClientReturningMatches:[NSObject new]];
 
     self.sut = [[MatchesViewModel alloc] initWithAPIClient:mockAPIClient];
     self.sut.active = YES;
@@ -63,7 +64,7 @@
     id mockMatch = [OCMockObject mockForClass:Match.class];
     [[[mockMatch expect] andReturn:homePlayers] homePlayers];
 
-    id mockAPIClient = [self mockAPIClientReturningObject:mockMatch];
+    id mockAPIClient = [TestHelper mockAPIClientReturningMatches:mockMatch];
 
     self.sut = [[MatchesViewModel alloc] initWithAPIClient:mockAPIClient];
     self.sut.active = YES;
@@ -75,7 +76,7 @@
     id mockMatch = [OCMockObject mockForClass:Match.class];
     [[[mockMatch expect] andReturn:awayPlayers] awayPlayers];
 
-    id mockAPIClient = [self mockAPIClientReturningObject:mockMatch];
+    id mockAPIClient = [TestHelper mockAPIClientReturningMatches:mockMatch];
 
     self.sut = [[MatchesViewModel alloc] initWithAPIClient:mockAPIClient];
     self.sut.active = YES;
@@ -88,7 +89,7 @@
     [[[mockMatch expect] andReturnValue:OCMOCK_VALUE(1)] homeGoals];
     [[[mockMatch expect] andReturnValue:OCMOCK_VALUE(7)] awayGoals];
 
-    id mockAPIClient = [self mockAPIClientReturningObject:mockMatch];
+    id mockAPIClient = [TestHelper mockAPIClientReturningMatches:mockMatch];
 
     self.sut = [[MatchesViewModel alloc] initWithAPIClient:mockAPIClient];
     self.sut.active = YES;
@@ -102,7 +103,7 @@
 - (void)testThatUpdatedContentSignalSendsNext {
     XCTestExpectation *expectation = [self expectationWithDescription:@"updatedContentSignalExpectation"];
 
-    id mockAPIClient = [self mockAPIClientReturningObject:[NSObject new]];
+    id mockAPIClient = [TestHelper mockAPIClientReturningMatches:[NSObject new]];
     self.sut = [[MatchesViewModel alloc] initWithAPIClient:mockAPIClient];
 
     RACDisposable *disposable = [self.sut.updatedContentSignal subscribeNext:^(id x) {
@@ -122,7 +123,7 @@
     XCTestExpectation *visibleExpectation = [self expectationWithDescription:@"progressIndicatorVisibleExpectation"];
     XCTestExpectation *hiddenExpectation = [self expectationWithDescription:@"progressIndicatorHiddenExpectation"];
 
-    id mockAPIClient = [self mockAPIClientReturningObject:[NSObject new]];
+    id mockAPIClient = [TestHelper mockAPIClientReturningMatches:[NSObject new]];
     self.sut = [[MatchesViewModel alloc] initWithAPIClient:mockAPIClient];
 
     RACDisposable *disposable = [self.sut.progressIndicatorVisibleSignal subscribeNext:^(NSNumber *visible) {
@@ -144,15 +145,6 @@
 - (void)testEditViewModelForNewMatch {
     id editViewModel = [self.sut editViewModelForNewMatch];
     XCTAssertTrue([editViewModel isKindOfClass:EditMatchViewModel.class]);
-}
-
-#pragma mark - Internal Helpers
-
-- (OCMockObject *)mockAPIClientReturningObject:(id)object {
-    id mockAPIClient = [OCMockObject mockForClass:APIClient.class];
-    RACSignal *instantResponse = [RACSignal return:@[object]];
-    [[[mockAPIClient stub] andReturn:instantResponse] fetchMatches];
-    return mockAPIClient;
 }
 
 @end

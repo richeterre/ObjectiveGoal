@@ -32,6 +32,12 @@
     RACSignal *refreshSignal = self.didBecomeActiveSignal;
     _updatedContentSignal = [[RACObserve(self, players) ignore:nil] mapReplace:@(YES)];
 
+    _progressIndicatorVisibleSignal = [RACSignal
+        merge:@[
+            [refreshSignal mapReplace:@(YES)],
+            [_updatedContentSignal mapReplace:@(NO)]
+        ]];
+
     @weakify(self);
     [refreshSignal subscribeNext:^(id _) {
         @strongify(self);
@@ -39,6 +45,10 @@
     }];
 
     return self;
+}
+
+- (instancetype)init {
+    return [self initWithAPIClient:nil initialPlayers:nil];
 }
 
 #pragma mark - Content

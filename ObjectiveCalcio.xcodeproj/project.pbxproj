@@ -17,6 +17,8 @@
 		0FA2ADEC1A22191C002801D2 /* SelectPlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADEB1A22191C002801D2 /* SelectPlayersViewController.m */; };
 		0FA2ADEF1A22202B002801D2 /* SelectPlayersViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADEE1A22202B002801D2 /* SelectPlayersViewModel.m */; };
 		0FA2ADF81A222ADE002801D2 /* UIViewController+Active.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADF71A222ADE002801D2 /* UIViewController+Active.m */; };
+		0FA2ADFA1A224631002801D2 /* SelectPlayersViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADF91A224631002801D2 /* SelectPlayersViewModelTests.m */; };
+		0FA2ADFC1A22475F002801D2 /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADFB1A22475F002801D2 /* TestHelper.m */; };
 		0FDBE03F1A1FD9F5001CA0ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBE03E1A1FD9F5001CA0ED /* main.m */; };
 		0FDBE0421A1FD9F5001CA0ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDBE0411A1FD9F5001CA0ED /* AppDelegate.m */; };
 		0FDBE0481A1FD9F5001CA0ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FDBE0461A1FD9F5001CA0ED /* Main.storyboard */; };
@@ -56,6 +58,9 @@
 		0FA2ADEE1A22202B002801D2 /* SelectPlayersViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectPlayersViewModel.m; sourceTree = "<group>"; };
 		0FA2ADF61A222ADE002801D2 /* UIViewController+Active.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Active.h"; sourceTree = "<group>"; };
 		0FA2ADF71A222ADE002801D2 /* UIViewController+Active.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Active.m"; sourceTree = "<group>"; };
+		0FA2ADF91A224631002801D2 /* SelectPlayersViewModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectPlayersViewModelTests.m; sourceTree = "<group>"; };
+		0FA2ADFB1A22475F002801D2 /* TestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelper.m; sourceTree = "<group>"; };
+		0FA2ADFD1A224772002801D2 /* TestHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestHelper.h; sourceTree = "<group>"; };
 		0FDBE0391A1FD9F5001CA0ED /* ObjectiveCalcio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjectiveCalcio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FDBE03D1A1FD9F5001CA0ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FDBE03E1A1FD9F5001CA0ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -159,8 +164,11 @@
 		0FDBE0551A1FD9F5001CA0ED /* ObjectiveCalcioTests */ = {
 			isa = PBXGroup;
 			children = (
+				0FA2ADFD1A224772002801D2 /* TestHelper.h */,
+				0FA2ADFB1A22475F002801D2 /* TestHelper.m */,
 				0FDCB2A51A1FFC0900656AF2 /* MatchesViewModelTests.m */,
 				0FA2ADE71A2139C8002801D2 /* EditMatchViewModelTests.m */,
+				0FA2ADF91A224631002801D2 /* SelectPlayersViewModelTests.m */,
 				0FDBE0561A1FD9F5001CA0ED /* Supporting Files */,
 			);
 			path = ObjectiveCalcioTests;
@@ -418,7 +426,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FA2ADE81A2139C8002801D2 /* EditMatchViewModelTests.m in Sources */,
+				0FA2ADFA1A224631002801D2 /* SelectPlayersViewModelTests.m in Sources */,
 				0FDCB2A61A1FFC0900656AF2 /* MatchesViewModelTests.m in Sources */,
+				0FA2ADFC1A22475F002801D2 /* TestHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
