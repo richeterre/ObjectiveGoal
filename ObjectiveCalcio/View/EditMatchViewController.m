@@ -9,8 +9,10 @@
 #import "EditMatchViewController.h"
 #import "SelectPlayersViewController.h"
 #import "EditMatchViewModel.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <JGProgressHUD/JGProgressHUD.h>
+#import <JGProgressHUD/JGProgressHUDFadeZoomAnimation.h>
 #import <libextobjc/EXTScope.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 static NSString * const UnwindToMatchesSegueIdentifier = @"UnwindToMatches";
 static NSString * const SelectHomePlayersSegueIdentifier = @"SelectHomePlayers";
@@ -53,9 +55,23 @@ static NSString * const SelectAwayPlayersSegueIdentifier = @"SelectAwayPlayers";
     self.saveButton.rac_command = saveCommand;
 
     @weakify(self);
+
     [[self.viewModel.saveCommand.executionSignals flatten] subscribeNext:^(id _) {
         @strongify(self);
         [self performSegueWithIdentifier:UnwindToMatchesSegueIdentifier sender:self];
+    }];
+
+    JGProgressHUD *progressHUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
+    progressHUD.animation = [JGProgressHUDFadeZoomAnimation animation];
+    progressHUD.textLabel.text = @"Saving Match…";
+
+    [self.viewModel.progressIndicatorVisibleSignal subscribeNext:^(NSNumber *visible) {
+        @strongify(self);
+        if (visible.boolValue && progressHUD.targetView == nil) {
+            [progressHUD showInView:self.navigationController.view];
+        } else if (!visible.boolValue && progressHUD.targetView != nil) {
+            [progressHUD dismiss];
+        }
     }];
 
     NSNumber *(^stepperValueBlock)(UIStepper *) = ^(UIStepper *stepper){

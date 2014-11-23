@@ -50,6 +50,8 @@
             return [self.apiClient createMatchWithHomePlayers:self.homePlayers awayPlayers:self.awayPlayers homeGoals:self.homeGoals awayGoals:self.awayGoals];
         }];
 
+    _progressIndicatorVisibleSignal = _saveCommand.executing;
+
     NSString *(^formatGoalsBlock)(NSNumber *) = ^(NSNumber *goals){
         return [NSString stringWithFormat:@"%lu", (unsigned long)goals.unsignedIntegerValue];
     };

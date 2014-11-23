@@ -14,6 +14,8 @@
 
 - (instancetype)initWithAPIClient:(APIClient *)apiClient;
 
+@property (nonatomic, strong, readonly) RACSignal *progressIndicatorVisibleSignal;
+
 @property (nonatomic, readonly) NSString *name;
 @property (nonatomic, readonly) NSString *homeGoalsString;
 @property (nonatomic, readonly) NSString *awayGoalsString;

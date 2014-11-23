@@ -42,9 +42,9 @@ static NSString * const EditMatchSegueIdentifier = @"EditMatch";
 
     [self.viewModel.progressIndicatorVisibleSignal subscribeNext:^(NSNumber *visible) {
         @strongify(self);
-        if (visible.boolValue) {
+        if (visible.boolValue && progressHUD.targetView == nil) {
             [progressHUD showInView:self.navigationController.view];
-        } else {
+        } else if (!visible.boolValue && progressHUD.targetView != nil) {
             [progressHUD dismiss];
         }
     }];
