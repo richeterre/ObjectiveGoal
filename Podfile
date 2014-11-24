@@ -1,7 +1,7 @@
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
-target 'ObjectiveCalcio' do
+target 'ObjectiveGoal' do
   pod 'BlocksKit'
   pod 'DZNEmptyDataSet'
   pod 'JGProgressHUD'
@@ -11,7 +11,7 @@ target 'ObjectiveCalcio' do
   pod 'ReactiveViewModel'
 end
 
-target 'ObjectiveCalcioTests' do
+target 'ObjectiveGoalTests' do
   pod 'OCMock'
 end
 
