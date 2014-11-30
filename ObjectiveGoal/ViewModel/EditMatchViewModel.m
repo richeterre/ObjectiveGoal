@@ -81,13 +81,13 @@
 #pragma mark - View Models
 
 - (SelectPlayersViewModel *)selectHomePlayersViewModel {
-    SelectPlayersViewModel *selectHomePlayersViewModel = [[SelectPlayersViewModel alloc] initWithAPIClient:self.apiClient initialPlayers:self.homePlayers];
+    SelectPlayersViewModel *selectHomePlayersViewModel = [[SelectPlayersViewModel alloc] initWithAPIClient:self.apiClient initialPlayers:self.homePlayers disabledPlayers:self.awayPlayers];
     RAC(self, homePlayers) = selectHomePlayersViewModel.selectedPlayersSignal;
     return selectHomePlayersViewModel;
 }
 
 - (SelectPlayersViewModel *)selectAwayPlayersViewModel {
-    SelectPlayersViewModel *selectAwayPlayersViewModel = [[SelectPlayersViewModel alloc] initWithAPIClient:self.apiClient initialPlayers:self.awayPlayers];
+    SelectPlayersViewModel *selectAwayPlayersViewModel = [[SelectPlayersViewModel alloc] initWithAPIClient:self.apiClient initialPlayers:self.awayPlayers disabledPlayers:self.homePlayers];
     RAC(self, awayPlayers) = selectAwayPlayersViewModel.selectedPlayersSignal;
     return selectAwayPlayersViewModel;
 }

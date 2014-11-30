@@ -16,12 +16,13 @@
 @property (nonatomic, strong, readonly) RACSignal *progressIndicatorVisibleSignal;
 @property (nonatomic, strong, readonly) RACSignal *updatedContentSignal;
 
-- (instancetype)initWithAPIClient:(APIClient *)apiClient initialPlayers:(NSSet *)initialPlayers;
+- (instancetype)initWithAPIClient:(APIClient *)apiClient initialPlayers:(NSSet *)initialPlayers disabledPlayers:(NSSet *)disabledPlayers;
 
 - (NSInteger)numberOfSections;
 - (NSInteger)numberOfItemsInSection:(NSInteger)section;
 - (NSString *)playerNameAtRow:(NSInteger)row inSection:(NSInteger)section;
 - (BOOL)isPlayerSelectedAtRow:(NSInteger)row inSection:(NSInteger)section;
+- (BOOL)canSelectPlayerAtRow:(NSInteger)row inSection:(NSInteger)section;
 
 - (void)selectPlayerAtRow:(NSInteger)row inSection:(NSInteger)section;
 - (void)deselectPlayerAtRow:(NSInteger)row inSection:(NSInteger)section;

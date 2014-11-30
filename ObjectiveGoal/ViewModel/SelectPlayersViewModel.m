@@ -16,6 +16,7 @@
 
 @property (nonatomic, strong) NSArray *players;
 @property (nonatomic, copy) NSSet *selectedPlayers;
+@property (nonatomic, copy) NSSet *disabledPlayers;
 
 @end
 
@@ -23,12 +24,14 @@
 
 #pragma mark - Lifecycle
 
-- (instancetype)initWithAPIClient:(APIClient *)apiClient initialPlayers:(NSSet *)initialPlayers {
+- (instancetype)initWithAPIClient:(APIClient *)apiClient initialPlayers:(NSSet *)initialPlayers disabledPlayers:(NSSet *)disabledPlayers {
     self = [super init];
     if (!self) return nil;
 
     _selectedPlayers = [initialPlayers copy];
     _selectedPlayersSignal = RACObserve(self, selectedPlayers);
+
+    _disabledPlayers = [disabledPlayers copy];
 
     RACSignal *refreshSignal = self.didBecomeActiveSignal;
     _updatedContentSignal = [[RACObserve(self, players) ignore:nil] mapReplace:@(YES)];
@@ -49,7 +52,7 @@
 }
 
 - (instancetype)init {
-    return [self initWithAPIClient:nil initialPlayers:nil];
+    return [self initWithAPIClient:nil initialPlayers:nil disabledPlayers:nil];
 }
 
 #pragma mark - Content
@@ -70,6 +73,11 @@
 - (BOOL)isPlayerSelectedAtRow:(NSInteger)row inSection:(NSInteger)section {
     Player *player = [self playerAtRow:row inSection:section];
     return [self.selectedPlayers containsObject:player];
+}
+
+- (BOOL)canSelectPlayerAtRow:(NSInteger)row inSection:(NSInteger)section {
+    Player *player = [self playerAtRow:row inSection:section];
+    return ![self.disabledPlayers containsObject:player];
 }
 
 #pragma mark - Player Selection

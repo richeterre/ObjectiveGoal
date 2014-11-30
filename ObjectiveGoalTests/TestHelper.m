@@ -13,16 +13,16 @@
 
 @implementation TestHelper
 
-+ (OCMockObject *)mockAPIClientReturningMatches:(id)matches {
++ (OCMockObject *)mockAPIClientReturningMatches:(NSArray *)matches {
     id mockAPIClient = [OCMockObject mockForClass:APIClient.class];
-    RACSignal *instantResponse = [RACSignal return:@[matches]];
+    RACSignal *instantResponse = [RACSignal return:matches];
     [[[mockAPIClient stub] andReturn:instantResponse] fetchMatches];
     return mockAPIClient;
 }
 
-+ (OCMockObject *)mockAPIClientReturningPlayers:(id)players {
++ (OCMockObject *)mockAPIClientReturningPlayers:(NSArray *)players {
     id mockAPIClient = [OCMockObject mockForClass:APIClient.class];
-    RACSignal *instantResponse = [RACSignal return:@[players]];
+    RACSignal *instantResponse = [RACSignal return:players];
     [[[mockAPIClient stub] andReturn:instantResponse] fetchPlayers];
     return mockAPIClient;
 }

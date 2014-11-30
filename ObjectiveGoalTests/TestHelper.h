@@ -12,7 +12,7 @@
 
 @interface TestHelper : NSObject
 
-+ (OCMockObject *)mockAPIClientReturningMatches:(id)matches;
-+ (OCMockObject *)mockAPIClientReturningPlayers:(id)players;
++ (OCMockObject *)mockAPIClientReturningMatches:(NSArray *)matches;
++ (OCMockObject *)mockAPIClientReturningPlayers:(NSArray *)players;
 
 @end

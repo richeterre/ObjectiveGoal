@@ -66,6 +66,7 @@ static NSString * const PlayerCellIdentifier = @"PlayerCell";
     NSInteger row = indexPath.row;
     NSInteger section = indexPath.section;
 
+    cell.nameLabel.enabled = [self.viewModel canSelectPlayerAtRow:row inSection:section];
     cell.nameLabel.text = [self.viewModel playerNameAtRow:row inSection:section];
     cell.accessoryType = ([self.viewModel isPlayerSelectedAtRow:row inSection:section]
                           ? UITableViewCellAccessoryCheckmark
@@ -75,6 +76,12 @@ static NSString * const PlayerCellIdentifier = @"PlayerCell";
 }
 
 #pragma mark - UITableViewDelegate
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    return ([self.viewModel canSelectPlayerAtRow:indexPath.row inSection:indexPath.section]
+            ? indexPath
+            : nil);
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
