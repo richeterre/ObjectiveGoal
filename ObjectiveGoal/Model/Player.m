@@ -23,6 +23,23 @@
     return self;
 }
 
+#pragma mark - NSObject
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"%@ (%@)", self.name, self.identifier];
+}
+
+- (NSUInteger)hash {
+    return self.identifier.hash;
+}
+
+- (BOOL)isEqual:(id)object {
+    if (![object isKindOfClass:self.class]) return NO;
+
+    Player *other = (Player *)object;
+    return [self.identifier isEqualToString:other.identifier]; // nil identifiers make non-equal players
+}
+
 #pragma mark - Sorting
 
 + (NSArray *)sortedPlayerNamesFromPlayers:(NSSet *)players {
