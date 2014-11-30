@@ -242,7 +242,7 @@
             </objects>
             <point key="canvasLocation" x="1735" y="-477"/>
         </scene>
-        <!--Select Players View Controller-->
+        <!--Players-->
         <scene sceneID="O1r-sJ-wKu">
             <objects>
                 <tableViewController id="0X9-Iv-GKe" customClass="SelectPlayersViewController" sceneMemberID="viewController">
@@ -283,6 +283,7 @@
                             <outlet property="delegate" destination="0X9-Iv-GKe" id="m6W-cB-B6Q"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Players" id="aWv-Eh-Wcq"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6I3-Tv-KUn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -290,6 +291,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="b2f-f7-gSr"/>
+        <segue reference="B4C-xa-mfP"/>
     </inferredMetricsTieBreakers>
 </document>
