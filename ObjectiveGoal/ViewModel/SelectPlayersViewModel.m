@@ -67,7 +67,7 @@
     return player.name;
 }
 
-- (BOOL)playerSelectedAtRow:(NSInteger)row inSection:(NSInteger)section {
+- (BOOL)isPlayerSelectedAtRow:(NSInteger)row inSection:(NSInteger)section {
     Player *player = [self playerAtRow:row inSection:section];
     return [self.selectedPlayers containsObject:player];
 }

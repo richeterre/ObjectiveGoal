@@ -67,7 +67,7 @@ static NSString * const PlayerCellIdentifier = @"PlayerCell";
     NSInteger section = indexPath.section;
 
     cell.nameLabel.text = [self.viewModel playerNameAtRow:row inSection:section];
-    cell.accessoryType = ([self.viewModel playerSelectedAtRow:row inSection:section]
+    cell.accessoryType = ([self.viewModel isPlayerSelectedAtRow:row inSection:section]
                           ? UITableViewCellAccessoryCheckmark
                           : UITableViewCellAccessoryNone);
 
