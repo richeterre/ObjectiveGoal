@@ -283,7 +283,13 @@
                             <outlet property="delegate" destination="0X9-Iv-GKe" id="m6W-cB-B6Q"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Players" id="aWv-Eh-Wcq"/>
+                    <navigationItem key="navigationItem" title="Players" id="aWv-Eh-Wcq">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="W8P-tb-ZWz">
+                            <connections>
+                                <action selector="addPlayerButtonTapped:" destination="0X9-Iv-GKe" id="xIY-fb-Vpg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6I3-Tv-KUn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

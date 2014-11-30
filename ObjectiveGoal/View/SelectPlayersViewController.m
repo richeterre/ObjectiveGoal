@@ -19,6 +19,8 @@ static NSString * const PlayerCellIdentifier = @"PlayerCell";
 
 @interface SelectPlayersViewController ()
 
+- (IBAction)addPlayerButtonTapped:(id)sender;
+
 @end
 
 @implementation SelectPlayersViewController
@@ -50,6 +52,12 @@ static NSString * const PlayerCellIdentifier = @"PlayerCell";
     }];
 
     RAC(self.viewModel, active) = self.activeSignal;
+}
+
+#pragma mark - User Interaction
+
+- (IBAction)addPlayerButtonTapped:(id)sender {
+
 }
 
 #pragma mark - UITableViewDataSource
