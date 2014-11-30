@@ -8,6 +8,7 @@
 
 #import "SelectPlayersViewController.h"
 #import "PlayerCell.h"
+#import "NewPlayerViewController.h"
 #import "SelectPlayersViewModel.h"
 #import "UIViewController+Active.h"
 #import <JGProgressHUD/JGProgressHUD.h>
@@ -57,7 +58,8 @@ static NSString * const PlayerCellIdentifier = @"PlayerCell";
 #pragma mark - User Interaction
 
 - (IBAction)addPlayerButtonTapped:(id)sender {
-
+    NewPlayerViewController *newPlayerViewController = [NewPlayerViewController instance];
+    [self presentViewController:newPlayerViewController animated:YES completion:nil];
 }
 
 #pragma mark - UITableViewDataSource
