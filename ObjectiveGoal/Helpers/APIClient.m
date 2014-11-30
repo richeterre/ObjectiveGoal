@@ -11,11 +11,13 @@
 #import "Player.h"
 
 static NSString * const APIClientUserDefaultsKeyMatches = @"Matches";
+static NSString * const APIClientUserDefaultsKeyPlayers = @"Players";
 static NSTimeInterval const APIClientFakeLatency = 0.5;
 
 @interface APIClient ()
 
 @property (nonatomic, copy) NSArray *matches;
+@property (nonatomic, copy) NSArray *players;
 
 @end
 
@@ -29,6 +31,7 @@ static NSTimeInterval const APIClientFakeLatency = 0.5;
     if (!self) return nil;
 
     _matches = [self persistedMatches];
+    _players = [self persistedPlayers];
 
     return self;
 }
@@ -49,30 +52,46 @@ static NSTimeInterval const APIClientFakeLatency = 0.5;
 #pragma mark - Players
 
 - (RACSignal *)fetchPlayers {
-    NSArray *players = @[
-        [[Player alloc] initWithIdentifier:[NSUUID UUID].UUIDString name:@"Alice"],
-        [[Player alloc] initWithIdentifier:[NSUUID UUID].UUIDString name:@"Bob"],
-        [[Player alloc] initWithIdentifier:[NSUUID UUID].UUIDString name:@"Charlie"],
-        [[Player alloc] initWithIdentifier:[NSUUID UUID].UUIDString name:@"Dora"]
-    ];
-    return [[RACSignal return:players] delay:APIClientFakeLatency];
+    return [[RACSignal return:self.players] delay:APIClientFakeLatency];
 }
 
 #pragma mark - Persistence
 
 - (void)persist {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+
     NSData *archivedMatches = [NSKeyedArchiver archivedDataWithRootObject:self.matches];
     [userDefaults setObject:archivedMatches forKey:APIClientUserDefaultsKeyMatches];
+
+    NSData *archivedPlayers = [NSKeyedArchiver archivedDataWithRootObject:self.players];
+    [userDefaults setObject:archivedPlayers forKey:APIClientUserDefaultsKeyPlayers];
+
     [userDefaults synchronize];
 }
 
 - (NSArray *)persistedMatches {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSData *archivedMatches = [userDefaults objectForKey:APIClientUserDefaultsKeyMatches];
+
     return (archivedMatches
             ? [NSKeyedUnarchiver unarchiveObjectWithData:archivedMatches]
             : @[]);
+}
+
+- (NSArray *)persistedPlayers {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSData *archivedPlayers = [userDefaults objectForKey:APIClientUserDefaultsKeyPlayers];
+
+    if (archivedPlayers) {
+        return [NSKeyedUnarchiver unarchiveObjectWithData:archivedPlayers];
+    } else {
+        return @[
+            [[Player alloc] initWithIdentifier:[NSUUID UUID].UUIDString name:@"Alice"],
+            [[Player alloc] initWithIdentifier:[NSUUID UUID].UUIDString name:@"Bob"],
+            [[Player alloc] initWithIdentifier:[NSUUID UUID].UUIDString name:@"Charlie"],
+            [[Player alloc] initWithIdentifier:[NSUUID UUID].UUIDString name:@"Dora"]
+        ];
+    }
 }
 
 @end
