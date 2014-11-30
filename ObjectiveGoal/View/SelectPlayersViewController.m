@@ -28,6 +28,8 @@ static NSString * const PlayerCellIdentifier = @"PlayerCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.tableView.tableFooterView = [UIView new];
+
     @weakify(self);
 
     [self.viewModel.updatedContentSignal subscribeNext:^(id _) {
