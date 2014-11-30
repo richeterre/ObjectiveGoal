@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class NewPlayerViewModel;
+
 @interface NewPlayerViewController : UIAlertController
+
+@property (nonatomic, strong) NewPlayerViewModel *viewModel;
 
 + (instancetype)instance;
 

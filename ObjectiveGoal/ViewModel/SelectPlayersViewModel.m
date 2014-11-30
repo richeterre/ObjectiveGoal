@@ -8,11 +8,14 @@
 
 #import "SelectPlayersViewModel.h"
 #import "Player.h"
+#import "NewPlayerViewModel.h"
 #import "APIClient.h"
 #import <libextobjc/EXTScope.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface SelectPlayersViewModel ()
+
+@property (nonatomic, strong) APIClient *apiClient;
 
 @property (nonatomic, strong) NSArray *players;
 @property (nonatomic, copy) NSSet *selectedPlayers;
@@ -27,6 +30,8 @@
 - (instancetype)initWithAPIClient:(APIClient *)apiClient initialPlayers:(NSSet *)initialPlayers disabledPlayers:(NSSet *)disabledPlayers {
     self = [super init];
     if (!self) return nil;
+
+    _apiClient = apiClient;
 
     _selectedPlayers = [initialPlayers copy];
     _selectedPlayersSignal = RACObserve(self, selectedPlayers);
@@ -90,6 +95,12 @@
 - (void)deselectPlayerAtRow:(NSInteger)row inSection:(NSInteger)section {
     Player *player = [self playerAtRow:row inSection:section];
     [self deselectPlayer:player];
+}
+
+#pragma mark - View Models
+
+- (NewPlayerViewModel *)viewModelForNewPlayer {
+    return [[NewPlayerViewModel alloc] initWithAPIClient:self.apiClient];
 }
 
 #pragma mark - Internal Helpers

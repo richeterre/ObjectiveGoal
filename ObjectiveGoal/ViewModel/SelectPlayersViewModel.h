@@ -8,7 +8,7 @@
 
 #import "RVMViewModel.h"
 
-@class APIClient;
+@class APIClient, NewPlayerViewModel;
 
 @interface SelectPlayersViewModel : RVMViewModel
 
@@ -26,5 +26,7 @@
 
 - (void)selectPlayerAtRow:(NSInteger)row inSection:(NSInteger)section;
 - (void)deselectPlayerAtRow:(NSInteger)row inSection:(NSInteger)section;
+
+- (NewPlayerViewModel *)viewModelForNewPlayer;
 
 @end

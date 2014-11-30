@@ -7,6 +7,9 @@
 //
 
 #import "NewPlayerViewController.h"
+#import "NewPlayerViewModel.h"
+#import <libextobjc/EXTScope.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @implementation NewPlayerViewController
 
@@ -22,15 +25,19 @@
     [super viewDidLoad];
 
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
-    UIAlertAction *saveAction = [UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        // Save
-    }];
+    UIAlertAction *saveAction = [UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:nil];
+    RAC(saveAction, enabled) = self.viewModel.validInputSignal;
 
     [self addAction:cancelAction];
     [self addAction:saveAction];
 
+    @weakify(self);
+
     [self addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         textField.placeholder = @"Player name";
+
+        @strongify(self);
+        RAC(self.viewModel, inputText) = textField.rac_textSignal;
     }];
 }
 

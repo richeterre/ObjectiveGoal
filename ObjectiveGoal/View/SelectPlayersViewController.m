@@ -59,6 +59,7 @@ static NSString * const PlayerCellIdentifier = @"PlayerCell";
 
 - (IBAction)addPlayerButtonTapped:(id)sender {
     NewPlayerViewController *newPlayerViewController = [NewPlayerViewController instance];
+    newPlayerViewController.viewModel = [self.viewModel viewModelForNewPlayer];
     [self presentViewController:newPlayerViewController animated:YES completion:nil];
 }
 
