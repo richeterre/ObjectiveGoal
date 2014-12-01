@@ -11,7 +11,6 @@
 		0F05D80B1A1FE1D700083EC6 /* MatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F05D80A1A1FE1D700083EC6 /* MatchesViewController.m */; };
 		0F05D80E1A1FECFA00083EC6 /* MatchesViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F05D80D1A1FECFA00083EC6 /* MatchesViewModel.m */; };
 		0F5D10D01A2BC78B00D95DE0 /* NewPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D10CF1A2BC78B00D95DE0 /* NewPlayerViewController.m */; };
-		0F5D10D31A2BCA0900D95DE0 /* NewPlayerViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D10D21A2BCA0900D95DE0 /* NewPlayerViewModel.m */; };
 		0FA2ADE01A1FFEC7002801D2 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADDF1A1FFEC7002801D2 /* APIClient.m */; };
 		0FA2ADE31A21317C002801D2 /* EditMatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADE21A21317C002801D2 /* EditMatchViewController.m */; };
 		0FA2ADE61A2131FC002801D2 /* EditMatchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADE51A2131FC002801D2 /* EditMatchViewModel.m */; };
@@ -54,8 +53,6 @@
 		0F05D80D1A1FECFA00083EC6 /* MatchesViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MatchesViewModel.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		0F5D10CE1A2BC78B00D95DE0 /* NewPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPlayerViewController.h; sourceTree = "<group>"; };
 		0F5D10CF1A2BC78B00D95DE0 /* NewPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPlayerViewController.m; sourceTree = "<group>"; };
-		0F5D10D11A2BCA0900D95DE0 /* NewPlayerViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPlayerViewModel.h; sourceTree = "<group>"; };
-		0F5D10D21A2BCA0900D95DE0 /* NewPlayerViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPlayerViewModel.m; sourceTree = "<group>"; };
 		0FA2ADDE1A1FFEC7002801D2 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = APIClient.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		0FA2ADDF1A1FFEC7002801D2 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = APIClient.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		0FA2ADE11A21317C002801D2 /* EditMatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = EditMatchViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -250,8 +247,6 @@
 				0FA2ADE51A2131FC002801D2 /* EditMatchViewModel.m */,
 				0FA2ADED1A22202B002801D2 /* SelectPlayersViewModel.h */,
 				0FA2ADEE1A22202B002801D2 /* SelectPlayersViewModel.m */,
-				0F5D10D11A2BCA0900D95DE0 /* NewPlayerViewModel.h */,
-				0F5D10D21A2BCA0900D95DE0 /* NewPlayerViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -448,7 +443,6 @@
 			files = (
 				0FDCB2A11A1FF44D00656AF2 /* MatchCell.m in Sources */,
 				0FC0BFE71A229D45006A6695 /* PlayerCell.m in Sources */,
-				0F5D10D31A2BCA0900D95DE0 /* NewPlayerViewModel.m in Sources */,
 				0FA2ADE01A1FFEC7002801D2 /* APIClient.m in Sources */,
 				0FDBE0421A1FD9F5001CA0ED /* AppDelegate.m in Sources */,
 				0FA2ADEC1A22191C002801D2 /* SelectPlayersViewController.m in Sources */,

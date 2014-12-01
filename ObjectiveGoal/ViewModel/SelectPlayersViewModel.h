@@ -8,13 +8,18 @@
 
 #import "RVMViewModel.h"
 
-@class APIClient, NewPlayerViewModel;
+@class APIClient, RACCommand;
 
 @interface SelectPlayersViewModel : RVMViewModel
 
 @property (nonatomic, strong, readonly) RACSignal *selectedPlayersSignal;
 @property (nonatomic, strong, readonly) RACSignal *progressIndicatorVisibleSignal;
 @property (nonatomic, strong, readonly) RACSignal *updatedContentSignal;
+
+@property (nonatomic, strong, readonly) RACSignal *validPlayerInputSignal;
+@property (nonatomic, strong, readonly) RACCommand *savePlayerCommand;
+
+@property (nonatomic, copy) NSString *playerInputName;
 
 - (instancetype)initWithAPIClient:(APIClient *)apiClient initialPlayers:(NSSet *)initialPlayers disabledPlayers:(NSSet *)disabledPlayers;
 
@@ -26,7 +31,5 @@
 
 - (void)selectPlayerAtRow:(NSInteger)row inSection:(NSInteger)section;
 - (void)deselectPlayerAtRow:(NSInteger)row inSection:(NSInteger)section;
-
-- (NewPlayerViewModel *)viewModelForNewPlayer;
 
 @end

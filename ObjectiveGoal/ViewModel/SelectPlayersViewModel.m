@@ -8,7 +8,6 @@
 
 #import "SelectPlayersViewModel.h"
 #import "Player.h"
-#import "NewPlayerViewModel.h"
 #import "APIClient.h"
 #import <libextobjc/EXTScope.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
@@ -32,26 +31,47 @@
     if (!self) return nil;
 
     _apiClient = apiClient;
-
     _selectedPlayers = [initialPlayers copy];
     _selectedPlayersSignal = RACObserve(self, selectedPlayers);
-
     _disabledPlayers = [disabledPlayers copy];
 
-    RACSignal *refreshSignal = self.didBecomeActiveSignal;
+    _validPlayerInputSignal = [RACObserve(self, playerInputName) map:^(NSString *name) {
+        return @(name.length > 0);
+    }];
+
     _updatedContentSignal = [[RACObserve(self, players) ignore:nil] mapReplace:@(YES)];
 
-    _progressIndicatorVisibleSignal = [RACSignal
+    @weakify(self);
+
+    _savePlayerCommand = [[RACCommand alloc] initWithEnabled:_validPlayerInputSignal signalBlock:^RACSignal *(id _) {
+        @strongify(self);
+        return [self.apiClient createPlayerWithName:self.playerInputName];
+    }];
+
+    RACSignal *playerAddedSignal = [_savePlayerCommand.executionSignals flatten];
+
+    RACSignal *refreshSignal = [RACSignal
+        merge:@[
+            self.didBecomeActiveSignal,
+            playerAddedSignal
+        ]];
+
+    [refreshSignal subscribeNext:^(id _) {
+        @strongify(self);
+        RAC(self, players) = [apiClient fetchPlayers];
+    }];
+
+    RACSignal *isRefreshingSignal = [RACSignal
         merge:@[
             [refreshSignal mapReplace:@(YES)],
             [_updatedContentSignal mapReplace:@(NO)]
         ]];
 
-    @weakify(self);
-    [refreshSignal subscribeNext:^(id _) {
-        @strongify(self);
-        RAC(self, players) = [apiClient fetchPlayers];
-    }];
+    RACSignal *isSavingSignal = _savePlayerCommand.executing;
+
+    _progressIndicatorVisibleSignal = [[RACSignal
+        combineLatest:@[isRefreshingSignal, isSavingSignal]]
+        or];
 
     return self;
 }
@@ -95,12 +115,6 @@
 - (void)deselectPlayerAtRow:(NSInteger)row inSection:(NSInteger)section {
     Player *player = [self playerAtRow:row inSection:section];
     [self deselectPlayer:player];
-}
-
-#pragma mark - View Models
-
-- (NewPlayerViewModel *)viewModelForNewPlayer {
-    return [[NewPlayerViewModel alloc] initWithAPIClient:self.apiClient];
 }
 
 #pragma mark - Internal Helpers

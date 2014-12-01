@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class NewPlayerViewModel;
+@class SelectPlayersViewModel;
 
 @interface NewPlayerViewController : UIAlertController
 
-@property (nonatomic, strong) NewPlayerViewModel *viewModel;
+@property (nonatomic, strong) SelectPlayersViewModel *viewModel;
 
 + (instancetype)instance;
 

@@ -55,6 +55,13 @@ static NSTimeInterval const APIClientFakeLatency = 0.5;
     return [[RACSignal return:self.players] delay:APIClientFakeLatency];
 }
 
+- (RACSignal *)createPlayerWithName:(NSString *)name {
+    Player *newPlayer = [[Player alloc] initWithIdentifier:[NSUUID UUID].UUIDString name:name];
+
+    self.players = [self.players arrayByAddingObject:newPlayer];
+    return [[RACSignal return:@(YES)] delay:APIClientFakeLatency];
+}
+
 #pragma mark - Persistence
 
 - (void)persist {

@@ -7,7 +7,7 @@
 //
 
 #import "NewPlayerViewController.h"
-#import "NewPlayerViewModel.h"
+#import "SelectPlayersViewModel.h"
 #import <libextobjc/EXTScope.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
@@ -24,21 +24,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
-    UIAlertAction *saveAction = [UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:nil];
-    RAC(saveAction, enabled) = self.viewModel.validInputSignal;
-
-    [self addAction:cancelAction];
-    [self addAction:saveAction];
+    [self addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
 
     @weakify(self);
 
+    UIAlertAction *saveAction = [UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        @strongify(self);
+        [self.viewModel.savePlayerCommand execute:action];
+    }];
+    RAC(saveAction, enabled) = self.viewModel.validPlayerInputSignal;
+    [self addAction:saveAction];
+
     [self addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         textField.placeholder = @"Player name";
-
-        @strongify(self);
-        RAC(self.viewModel, inputText) = textField.rac_textSignal;
     }];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    RACSignal *viewWillDisappear = [self rac_signalForSelector:@selector(viewWillDisappear:)];
+
+    // Unbind when view disappears, as the text field (for some reason) lives beyond self
+    UITextField *playerNameField = self.textFields.firstObject;
+    RAC(self.viewModel, playerInputName) = [playerNameField.rac_textSignal takeUntil:viewWillDisappear];
 }
 
 @end
