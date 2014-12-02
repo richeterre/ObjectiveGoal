@@ -8,9 +8,11 @@
 
 #import "RVMViewModel.h"
 
-@class APIClient;
+@class APIClient, RACSignal;
 
 @interface RankedPlayersViewModel : RVMViewModel
+
+@property (nonatomic, strong, readonly) RACSignal *updatedContentSignal;
 
 - (instancetype)initWithAPIClient:(APIClient *)apiClient;
 

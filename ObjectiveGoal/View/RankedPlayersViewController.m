@@ -10,6 +10,7 @@
 #import "PlayerCell.h"
 #import "RankedPlayersViewModel.h"
 #import "UIViewController+Active.h"
+#import <libextobjc/EXTScope.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 static NSString * const PlayerCellIdentifier = @"PlayerCell";
@@ -20,6 +21,15 @@ static NSString * const PlayerCellIdentifier = @"PlayerCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.tableView.tableFooterView = [UIView new];
+
+    @weakify(self);
+
+    [self.viewModel.updatedContentSignal subscribeNext:^(id _) {
+        @strongify(self);
+        [self.tableView reloadData];
+    }];
 
     RAC(self.viewModel, active) = self.activeSignal;
 }

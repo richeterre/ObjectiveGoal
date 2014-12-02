@@ -58,4 +58,23 @@
     XCTAssertEqual([self.sut numberOfItemsInSection:0], 1);
 }
 
+- (void)testThatUpdatedContentSignalSendsNext {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"updatedContentSignal should fire"];
+
+    id mockAPIClient = [TestHelper mockAPIClientReturningPlayers:@[[NSObject new]]];
+    self.sut = [[RankedPlayersViewModel alloc] initWithAPIClient:mockAPIClient];
+
+    RACDisposable *disposable = [self.sut.updatedContentSignal subscribeNext:^(id x) {
+        [expectation fulfill];
+
+        XCTAssertEqual(x, @(YES));
+    }];
+
+    self.sut.active = YES;
+
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        [disposable dispose];
+    }];
+}
+
 @end
