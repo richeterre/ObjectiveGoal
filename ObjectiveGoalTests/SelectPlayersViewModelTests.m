@@ -126,6 +126,24 @@
     XCTAssertTrue([self.sut isPlayerSelectedAtRow:1 inSection:0]);
 }
 
+- (void)testPlayerInputValidation {
+    XCTestExpectation *emptyInvalidExpectation = [self expectationWithDescription:@"Empty player name should be invalid"];
+
+    // Skip first value to monitor signal changes after providing first input
+    RACDisposable *disposable = [[self.sut.validPlayerInputSignal skip:1] subscribeNext:^(NSNumber *valid) {
+        XCTAssertTrue([valid isKindOfClass:NSNumber.class]);
+        if (!valid.boolValue) {
+            [emptyInvalidExpectation fulfill];
+        }
+    }];
+
+    self.sut.playerInputName = @"";
+
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        [disposable dispose];
+    }];
+}
+
 #pragma mark - Internal Helpers
 
 - (NSArray *)samplePlayers {
