@@ -30,6 +30,11 @@
 
     RACSignal *refreshSignal = self.didBecomeActiveSignal;
 
+    _progressIndicatorVisibleSignal = [RACSignal merge:@[
+        [refreshSignal mapReplace:@(YES)],
+        [_updatedContentSignal mapReplace:@(NO)]
+    ]];
+
     @weakify(self);
     [refreshSignal subscribeNext:^(id _) {
         @strongify(self);

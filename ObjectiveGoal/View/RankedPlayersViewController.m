@@ -10,6 +10,8 @@
 #import "PlayerCell.h"
 #import "RankedPlayersViewModel.h"
 #import "UIViewController+Active.h"
+#import <JGProgressHUD/JGProgressHUD.h>
+#import <JGProgressHUD/JGProgressHUDFadeZoomAnimation.h>
 #import <libextobjc/EXTScope.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
@@ -30,6 +32,18 @@ static NSString * const PlayerCellIdentifier = @"PlayerCell";
     [self.viewModel.updatedContentSignal subscribeNext:^(id _) {
         @strongify(self);
         [self.tableView reloadData];
+    }];
+
+    JGProgressHUD *progressHUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
+    progressHUD.animation = [JGProgressHUDFadeZoomAnimation animation];
+
+    [self.viewModel.progressIndicatorVisibleSignal subscribeNext:^(NSNumber *visible) {
+        @strongify(self);
+        if (visible.boolValue && progressHUD.targetView == nil) {
+            [progressHUD showInView:self.navigationController.view];
+        } else if (!visible.boolValue && progressHUD.targetView != nil) {
+            [progressHUD dismiss];
+        }
     }];
 
     RAC(self.viewModel, active) = self.activeSignal;

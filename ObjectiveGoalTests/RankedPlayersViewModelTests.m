@@ -51,6 +51,29 @@
     [mockAPIClient verify];
 }
 
+- (void)testProgressIndicatorVisibleSignal {
+    XCTestExpectation *visibleExpectation = [self expectationWithDescription:@"Progress indicator should be visible"];
+    XCTestExpectation *hiddenExpectation = [self expectationWithDescription:@"Progress indicator should be hidden"];
+
+    id mockAPIClient = [TestHelper mockAPIClientReturningPlayers:@[[NSObject new]]];
+    self.sut = [[RankedPlayersViewModel alloc] initWithAPIClient:mockAPIClient];
+
+    RACDisposable *disposable = [self.sut.progressIndicatorVisibleSignal subscribeNext:^(NSNumber *visible) {
+        XCTAssertTrue([visible isKindOfClass:NSNumber.class]);
+        if (visible.boolValue) {
+            [visibleExpectation fulfill];
+        } else {
+            [hiddenExpectation fulfill];
+        }
+    }];
+
+    self.sut.active = YES;
+
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        [disposable dispose];
+    }];
+}
+
 - (void)testNumberOfItemsAfterFetching {
     id mockAPIClient = [TestHelper mockAPIClientReturningPlayers:@[[NSObject new]]];
 
