@@ -32,6 +32,7 @@ static NSString * const PlayerCellIdentifier = @"PlayerCell";
     [super viewDidLoad];
 
     self.tableView.tableFooterView = [UIView new];
+    [self.tableView registerNib:[UINib nibWithNibName:@"PlayerCell" bundle:nil] forCellReuseIdentifier:PlayerCellIdentifier];
 
     @weakify(self);
 

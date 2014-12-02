@@ -23,6 +23,7 @@ static NSString * const PlayerCellIdentifier = @"PlayerCell";
     [super viewDidLoad];
 
     self.tableView.tableFooterView = [UIView new];
+    [self.tableView registerNib:[UINib nibWithNibName:@"PlayerCell" bundle:nil] forCellReuseIdentifier:PlayerCellIdentifier];
 
     @weakify(self);
 
@@ -46,6 +47,8 @@ static NSString * const PlayerCellIdentifier = @"PlayerCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PlayerCell *cell = [tableView dequeueReusableCellWithIdentifier:PlayerCellIdentifier forIndexPath:indexPath];
+
+    cell.nameLabel.text = [self.viewModel playerNameAtRow:indexPath.row inSection:indexPath.section];
 
     return cell;
 }

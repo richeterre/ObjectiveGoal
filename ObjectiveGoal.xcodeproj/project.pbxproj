@@ -14,6 +14,7 @@
 		0F9E473C1A2E68F30022AA38 /* RankedPlayersViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9E473B1A2E68F30022AA38 /* RankedPlayersViewModel.m */; };
 		0F9E473F1A2E69090022AA38 /* RankedPlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9E473E1A2E69090022AA38 /* RankedPlayersViewController.m */; };
 		0F9E47411A2E6A880022AA38 /* RankedPlayersViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9E47401A2E6A880022AA38 /* RankedPlayersViewModelTests.m */; };
+		0F9E47451A2E7F780022AA38 /* PlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F9E47441A2E7F780022AA38 /* PlayerCell.xib */; };
 		0FA2ADE01A1FFEC7002801D2 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADDF1A1FFEC7002801D2 /* APIClient.m */; };
 		0FA2ADE31A21317C002801D2 /* EditMatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADE21A21317C002801D2 /* EditMatchViewController.m */; };
 		0FA2ADE61A2131FC002801D2 /* EditMatchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADE51A2131FC002801D2 /* EditMatchViewModel.m */; };
@@ -61,6 +62,7 @@
 		0F9E473D1A2E69090022AA38 /* RankedPlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankedPlayersViewController.h; sourceTree = "<group>"; };
 		0F9E473E1A2E69090022AA38 /* RankedPlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankedPlayersViewController.m; sourceTree = "<group>"; };
 		0F9E47401A2E6A880022AA38 /* RankedPlayersViewModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankedPlayersViewModelTests.m; sourceTree = "<group>"; };
+		0F9E47441A2E7F780022AA38 /* PlayerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerCell.xib; sourceTree = "<group>"; };
 		0FA2ADDE1A1FFEC7002801D2 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = APIClient.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		0FA2ADDF1A1FFEC7002801D2 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = APIClient.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		0FA2ADE11A21317C002801D2 /* EditMatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = EditMatchViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -235,6 +237,7 @@
 				0FDCB2A01A1FF44D00656AF2 /* MatchCell.m */,
 				0FC0BFE51A229D45006A6695 /* PlayerCell.h */,
 				0FC0BFE61A229D45006A6695 /* PlayerCell.m */,
+				0F9E47441A2E7F780022AA38 /* PlayerCell.xib */,
 				0F05D8091A1FE1D700083EC6 /* MatchesViewController.h */,
 				0F05D80A1A1FE1D700083EC6 /* MatchesViewController.m */,
 				0FA2ADE11A21317C002801D2 /* EditMatchViewController.h */,
@@ -371,6 +374,7 @@
 				0FA2AE041A228F79002801D2 /* OpenSans-Semibold.ttf in Resources */,
 				0FA2AE031A228F79002801D2 /* OpenSans-Regular.ttf in Resources */,
 				0FDBE0481A1FD9F5001CA0ED /* Main.storyboard in Resources */,
+				0F9E47451A2E7F780022AA38 /* PlayerCell.xib in Resources */,
 				0FDBE04D1A1FD9F5001CA0ED /* LaunchScreen.xib in Resources */,
 				0FA2AE021A228F79002801D2 /* OpenSans-Light.ttf in Resources */,
 				0FDBE04A1A1FD9F5001CA0ED /* Images.xcassets in Resources */,
