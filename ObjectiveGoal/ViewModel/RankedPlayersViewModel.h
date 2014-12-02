@@ -18,5 +18,6 @@
 
 - (NSInteger)numberOfSections;
 - (NSInteger)numberOfItemsInSection:(NSInteger)section;
+- (NSString *)playerNameAtRow:(NSInteger)row inSection:(NSInteger)section;
 
 @end

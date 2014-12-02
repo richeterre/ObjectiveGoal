@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "RankedPlayersViewModel.h"
+#import "Player.h"
 #import "APIClient.h"
 #import "TestHelper.h"
 #import <OCMock/OCMock.h>
@@ -75,6 +76,15 @@
     [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
         [disposable dispose];
     }];
+}
+
+- (void)testPlayerName {
+    Player *samplePlayer = [[Player alloc] initWithIdentifier:[NSUUID UUID].UUIDString name:@"A"];
+
+    id mockAPIClient = [TestHelper mockAPIClientReturningPlayers:@[samplePlayer]];
+    self.sut = [[RankedPlayersViewModel alloc] initWithAPIClient:mockAPIClient];
+    self.sut.active = YES;
+    XCTAssertEqualObjects([self.sut playerNameAtRow:0 inSection:0], @"A");
 }
 
 @end

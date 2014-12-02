@@ -7,6 +7,7 @@
 //
 
 #import "RankedPlayersViewModel.h"
+#import "Player.h"
 #import "APIClient.h"
 #import <libextobjc/EXTScope.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
@@ -46,6 +47,17 @@
 
 - (NSInteger)numberOfItemsInSection:(NSInteger)section {
     return self.players.count;
+}
+
+- (NSString *)playerNameAtRow:(NSInteger)row inSection:(NSInteger)section {
+    Player *player = [self playerAtRow:row inSection:section];
+    return player.name;
+}
+
+#pragma mark - Internal Helpers
+
+- (Player *)playerAtRow:(NSInteger)row inSection:(NSInteger)section {
+    return self.players[row];
 }
 
 @end
