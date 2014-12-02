@@ -65,7 +65,7 @@
 // * Save button disabled when away team is empty
 // * Save button enabled when neither team is empty
 
-- (void)testTappingSaveButtonCreatesMatch {
+- (void)testSaveCommandCreatesMatch {
     NSSet *homePlayers = [NSSet setWithArray:@[
         [[Player alloc] initWithIdentifier:nil name:@"A"],
         [[Player alloc] initWithIdentifier:nil name:@"B"]
@@ -77,7 +77,7 @@
     NSUInteger homeGoals = 1;
     NSUInteger awayGoals = 0;
 
-    XCTestExpectation *expectation = [self expectationWithDescription:@"createMatchExpectation"];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"saveCommand should forward match creation success to subscribers"];
 
     id mockAPIClient = [OCMockObject mockForClass:APIClient.class];
     [[[mockAPIClient expect] andReturn:[RACSignal return:@(YES)]] createMatchWithHomePlayers:homePlayers awayPlayers:awayPlayers homeGoals:homeGoals awayGoals:awayGoals];

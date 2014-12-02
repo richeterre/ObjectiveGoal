@@ -110,7 +110,7 @@
 }
 
 - (void)testThatUpdatedContentSignalSendsNext {
-    XCTestExpectation *expectation = [self expectationWithDescription:@"updatedContentSignalExpectation"];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"updatedContentSignal should fire"];
 
     id mockAPIClient = [TestHelper mockAPIClientReturningMatches:@[[NSObject new]]];
     self.sut = [[MatchesViewModel alloc] initWithAPIClient:mockAPIClient];
@@ -129,8 +129,8 @@
 }
 
 - (void)testProgressIndicatorVisibleSignal {
-    XCTestExpectation *visibleExpectation = [self expectationWithDescription:@"progressIndicatorVisibleExpectation"];
-    XCTestExpectation *hiddenExpectation = [self expectationWithDescription:@"progressIndicatorHiddenExpectation"];
+    XCTestExpectation *visibleExpectation = [self expectationWithDescription:@"Progress indicator should be visible"];
+    XCTestExpectation *hiddenExpectation = [self expectationWithDescription:@"Progress indicator should be hidden"];
 
     id mockAPIClient = [TestHelper mockAPIClientReturningMatches:@[[NSObject new]]];
     self.sut = [[MatchesViewModel alloc] initWithAPIClient:mockAPIClient];

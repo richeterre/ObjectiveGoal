@@ -58,8 +58,8 @@
 }
 
 - (void)testProgressIndicatorVisibleSignal {
-    XCTestExpectation *visibleExpectation = [self expectationWithDescription:@"progressIndicatorVisibleExpectation"];
-    XCTestExpectation *hiddenExpectation = [self expectationWithDescription:@"progressIndicatorHiddenExpectation"];
+    XCTestExpectation *visibleExpectation = [self expectationWithDescription:@"Progress indicator should be visible"];
+    XCTestExpectation *hiddenExpectation = [self expectationWithDescription:@"Progress indicator should be hidden"];
 
     id mockAPIClient = [TestHelper mockAPIClientReturningPlayers:@[[NSObject new]]];
     self.sut = [[SelectPlayersViewModel alloc] initWithAPIClient:mockAPIClient initialPlayers:nil disabledPlayers:nil];
