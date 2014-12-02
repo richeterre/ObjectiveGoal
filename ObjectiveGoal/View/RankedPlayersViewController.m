@@ -9,10 +9,20 @@
 #import "RankedPlayersViewController.h"
 #import "PlayerCell.h"
 #import "RankedPlayersViewModel.h"
+#import "UIViewController+Active.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 static NSString * const PlayerCellIdentifier = @"PlayerCell";
 
 @implementation RankedPlayersViewController
+
+#pragma mark - View Lifecycle
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    RAC(self.viewModel, active) = self.activeSignal;
+}
 
 #pragma mark - UITableViewDataSource
 

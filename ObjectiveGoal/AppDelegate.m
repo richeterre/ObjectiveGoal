@@ -8,7 +8,9 @@
 
 #import "AppDelegate.h"
 #import "MatchesViewController.h"
+#import "RankedPlayersViewController.h"
 #import "MatchesViewModel.h"
+#import "RankedPlayersViewModel.h"
 #import "APIClient.h"
 
 @interface AppDelegate ()
@@ -45,11 +47,16 @@
     self.apiClient = [[APIClient alloc] init];
 
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-    UINavigationController *logNavigationController = (UINavigationController *)tabBarController.viewControllers.firstObject;
-    MatchesViewController *matchesViewController = (MatchesViewController *)logNavigationController.topViewController;
 
+    UINavigationController *historyNavigationController = (UINavigationController *)tabBarController.viewControllers[0];
+    MatchesViewController *matchesViewController = (MatchesViewController *)historyNavigationController.topViewController;
     MatchesViewModel *matchesViewModel = [[MatchesViewModel alloc] initWithAPIClient:self.apiClient];
     matchesViewController.viewModel = matchesViewModel;
+
+    UINavigationController *rankingsNavigationController = (UINavigationController *)tabBarController.viewControllers[1];
+    RankedPlayersViewController *rankedPlayersViewController = (RankedPlayersViewController *)rankingsNavigationController.topViewController;
+    RankedPlayersViewModel *rankedPlayersViewModel = [[RankedPlayersViewModel alloc] initWithAPIClient:self.apiClient];
+    rankedPlayersViewController.viewModel = rankedPlayersViewModel;
 
     return YES;
 }
