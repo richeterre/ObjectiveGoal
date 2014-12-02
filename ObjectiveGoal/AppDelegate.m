@@ -44,8 +44,9 @@
 
     self.apiClient = [[APIClient alloc] init];
 
-    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-    MatchesViewController *matchesViewController = (MatchesViewController *)navigationController.topViewController;
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    UINavigationController *logNavigationController = (UINavigationController *)tabBarController.viewControllers.firstObject;
+    MatchesViewController *matchesViewController = (MatchesViewController *)logNavigationController.topViewController;
 
     MatchesViewModel *matchesViewModel = [[MatchesViewModel alloc] initWithAPIClient:self.apiClient];
     matchesViewController.viewModel = matchesViewModel;
