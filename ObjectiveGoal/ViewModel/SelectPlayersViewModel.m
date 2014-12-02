@@ -31,9 +31,9 @@
     if (!self) return nil;
 
     _apiClient = apiClient;
-    _selectedPlayers = [initialPlayers copy];
+    _selectedPlayers = [initialPlayers copy] ?: [NSSet set];
     _selectedPlayersSignal = RACObserve(self, selectedPlayers);
-    _disabledPlayers = [disabledPlayers copy];
+    _disabledPlayers = [disabledPlayers copy] ?: [NSSet set];
 
     _validPlayerInputSignal = [RACObserve(self, playerInputName) map:^(NSString *name) {
         return @(name.length > 0);

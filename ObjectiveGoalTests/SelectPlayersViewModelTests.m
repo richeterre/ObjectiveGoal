@@ -81,13 +81,9 @@
 }
 
 - (void)testInitialPlayersAreSelected {
-    NSArray *allPlayers = @[
-        [[Player alloc] initWithIdentifier:@"a" name:@"A"],
-        [[Player alloc] initWithIdentifier:@"b" name:@"B"]
-    ];
-    NSSet *initialPlayers = [NSSet setWithObject:[[Player alloc] initWithIdentifier:@"a" name:@"A"]];
+    NSSet *initialPlayers = [NSSet setWithObject:[self samplePlayers].firstObject];
 
-    id mockAPIClient = [TestHelper mockAPIClientReturningPlayers:allPlayers];
+    id mockAPIClient = [TestHelper mockAPIClientReturningPlayers:[self samplePlayers]];
     self.sut = [[SelectPlayersViewModel alloc] initWithAPIClient:mockAPIClient initialPlayers:initialPlayers disabledPlayers:nil];
     self.sut.active = YES;
 
@@ -96,18 +92,47 @@
 }
 
 - (void)testDisabledPlayersCannotBeSelected {
-    NSArray *allPlayers = @[
-        [[Player alloc] initWithIdentifier:@"a" name:@"A"],
-        [[Player alloc] initWithIdentifier:@"b" name:@"B"]
-    ];
-    NSSet *disabledPlayers = [NSSet setWithObject:[[Player alloc] initWithIdentifier:@"a" name:@"A"]];
+    NSSet *disabledPlayers = [NSSet setWithObject:[self samplePlayers].firstObject];
 
-    id mockAPIClient = [TestHelper mockAPIClientReturningPlayers:allPlayers];
+    id mockAPIClient = [TestHelper mockAPIClientReturningPlayers:[self samplePlayers]];
     self.sut = [[SelectPlayersViewModel alloc] initWithAPIClient:mockAPIClient initialPlayers:nil disabledPlayers:disabledPlayers];
     self.sut.active = YES;
 
     XCTAssertFalse([self.sut canSelectPlayerAtRow:0 inSection:0]);
     XCTAssertTrue([self.sut canSelectPlayerAtRow:1 inSection:0]);
+}
+
+- (void)testSelectPlayer {
+    id mockAPIClient = [TestHelper mockAPIClientReturningPlayers:[self samplePlayers]];
+    self.sut = [[SelectPlayersViewModel alloc] initWithAPIClient:mockAPIClient initialPlayers:nil disabledPlayers:nil];
+    self.sut.active = YES;
+
+    [self.sut selectPlayerAtRow:0 inSection:0];
+
+    XCTAssertTrue([self.sut isPlayerSelectedAtRow:0 inSection:0]);
+    XCTAssertFalse([self.sut isPlayerSelectedAtRow:1 inSection:0]);
+}
+
+- (void)testDeselectPlayer {
+    NSSet *initialPlayers = [NSSet setWithArray:[self samplePlayers]];
+
+    id mockAPIClient = [TestHelper mockAPIClientReturningPlayers:[self samplePlayers]];
+    self.sut = [[SelectPlayersViewModel alloc] initWithAPIClient:mockAPIClient initialPlayers:initialPlayers disabledPlayers:nil];
+    self.sut.active = YES;
+
+    [self.sut deselectPlayerAtRow:0 inSection:0];
+
+    XCTAssertFalse([self.sut isPlayerSelectedAtRow:0 inSection:0]);
+    XCTAssertTrue([self.sut isPlayerSelectedAtRow:1 inSection:0]);
+}
+
+#pragma mark - Internal Helpers
+
+- (NSArray *)samplePlayers {
+    return @[
+        [[Player alloc] initWithIdentifier:@"a" name:@"A"],
+        [[Player alloc] initWithIdentifier:@"b" name:@"B"]
+    ];
 }
 
 @end
