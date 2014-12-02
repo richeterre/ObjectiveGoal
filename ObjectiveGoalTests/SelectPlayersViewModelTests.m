@@ -49,7 +49,7 @@
     [mockAPIClient verify];
 }
 
-- (void)testNumberOfRowsAfterFetching {
+- (void)testNumberOfItemsAfterFetching {
     id mockAPIClient = [TestHelper mockAPIClientReturningPlayers:@[[NSObject new]]];
 
     self.sut = [[SelectPlayersViewModel alloc] initWithAPIClient:mockAPIClient initialPlayers:nil disabledPlayers:nil];

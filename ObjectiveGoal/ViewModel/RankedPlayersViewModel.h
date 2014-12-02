@@ -8,7 +8,11 @@
 
 #import "RVMViewModel.h"
 
+@class APIClient;
+
 @interface RankedPlayersViewModel : RVMViewModel
+
+- (instancetype)initWithAPIClient:(APIClient *)apiClient;
 
 - (NSInteger)numberOfSections;
 - (NSInteger)numberOfItemsInSection:(NSInteger)section;

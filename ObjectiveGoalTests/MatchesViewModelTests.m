@@ -52,7 +52,7 @@
     [mockAPIClient verify];
 }
 
-- (void)testNumberOfRowsAfterFetching {
+- (void)testNumberOfItemsAfterFetching {
     id mockAPIClient = [TestHelper mockAPIClientReturningMatches:@[[NSObject new]]];
 
     self.sut = [[MatchesViewModel alloc] initWithAPIClient:mockAPIClient];
