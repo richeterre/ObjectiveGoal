@@ -38,7 +38,7 @@
     XCTAssertEqual([self.sut numberOfSections], 1);
 }
 
-- (void)testThatNumberOfRowsIsInitiallyZero {
+- (void)testThatNumberOfItemsIsInitiallyZero {
     XCTAssertEqual([self.sut numberOfItemsInSection:0], 0);
 }
 
