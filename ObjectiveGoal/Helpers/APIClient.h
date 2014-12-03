@@ -18,6 +18,7 @@
                                 awayGoals:(NSUInteger)awayGoals;
 
 - (RACSignal *)fetchPlayers;
+- (RACSignal *)fetchRankedPlayers;
 - (RACSignal *)createPlayerWithName:(NSString *)name;
 
 - (void)persist;

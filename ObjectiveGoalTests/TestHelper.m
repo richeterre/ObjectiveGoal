@@ -27,4 +27,11 @@
     return mockAPIClient;
 }
 
++ (OCMockObject *)mockAPIClientReturningRankedPlayers:(NSArray *)players {
+    id mockAPIClient = [OCMockObject mockForClass:APIClient.class];
+    RACSignal *instantResponse = [RACSignal return:players];
+    [[[mockAPIClient stub] andReturn:instantResponse] fetchRankedPlayers];
+    return mockAPIClient;
+}
+
 @end

@@ -9,6 +9,7 @@
 #import "APIClient.h"
 #import "Match.h"
 #import "Player.h"
+#import "RankingEngine.h"
 
 static NSString * const APIClientUserDefaultsKeyMatches = @"Matches";
 static NSString * const APIClientUserDefaultsKeyPlayers = @"Players";
@@ -53,6 +54,16 @@ static NSTimeInterval const APIClientFakeLatency = 0.5;
 
 - (RACSignal *)fetchPlayers {
     return [[RACSignal return:self.players] delay:APIClientFakeLatency];
+}
+
+- (RACSignal *)fetchRankedPlayers {
+    return [[[RACSignal
+        combineLatest:@[self.fetchPlayers, self.fetchMatches]]
+        map:^(RACTuple *tuple) {
+            RACTupleUnpack(NSArray *players, NSArray *matches) = tuple;
+            return [RankingEngine rankedPlayersFromPlayers:players basedOnMatches:matches];
+        }]
+        switchToLatest];
 }
 
 - (RACSignal *)createPlayerWithName:(NSString *)name {

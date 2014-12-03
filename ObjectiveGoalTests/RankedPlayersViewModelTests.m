@@ -41,9 +41,9 @@
     XCTAssertEqual([self.sut numberOfItemsInSection:0], 0);
 }
 
-- (void)testThatPlayersAreFetchedWhenActive {
+- (void)testThatPlayersAreFetchedInRankedOrderWhenActive {
     id mockAPIClient = [OCMockObject mockForClass:APIClient.class];
-    [[mockAPIClient expect] fetchPlayers];
+    [[mockAPIClient expect] fetchRankedPlayers];
 
     self.sut = [[RankedPlayersViewModel alloc] initWithAPIClient:mockAPIClient];
     self.sut.active = YES;
@@ -55,7 +55,7 @@
     XCTestExpectation *visibleExpectation = [self expectationWithDescription:@"Progress indicator should be visible"];
     XCTestExpectation *hiddenExpectation = [self expectationWithDescription:@"Progress indicator should be hidden"];
 
-    id mockAPIClient = [TestHelper mockAPIClientReturningPlayers:@[[NSObject new]]];
+    id mockAPIClient = [TestHelper mockAPIClientReturningRankedPlayers:@[[NSObject new]]];
     self.sut = [[RankedPlayersViewModel alloc] initWithAPIClient:mockAPIClient];
 
     RACDisposable *disposable = [self.sut.progressIndicatorVisibleSignal subscribeNext:^(NSNumber *visible) {
@@ -75,7 +75,7 @@
 }
 
 - (void)testNumberOfItemsAfterFetching {
-    id mockAPIClient = [TestHelper mockAPIClientReturningPlayers:@[[NSObject new]]];
+    id mockAPIClient = [TestHelper mockAPIClientReturningRankedPlayers:@[[NSObject new]]];
 
     self.sut = [[RankedPlayersViewModel alloc] initWithAPIClient:mockAPIClient];
     self.sut.active = YES;
@@ -85,7 +85,7 @@
 - (void)testThatUpdatedContentSignalSendsNext {
     XCTestExpectation *expectation = [self expectationWithDescription:@"updatedContentSignal should fire"];
 
-    id mockAPIClient = [TestHelper mockAPIClientReturningPlayers:@[[NSObject new]]];
+    id mockAPIClient = [TestHelper mockAPIClientReturningRankedPlayers:@[[NSObject new]]];
     self.sut = [[RankedPlayersViewModel alloc] initWithAPIClient:mockAPIClient];
 
     RACDisposable *disposable = [self.sut.updatedContentSignal subscribeNext:^(id x) {
@@ -104,7 +104,7 @@
 - (void)testPlayerName {
     Player *samplePlayer = [[Player alloc] initWithIdentifier:[NSUUID UUID].UUIDString name:@"A"];
 
-    id mockAPIClient = [TestHelper mockAPIClientReturningPlayers:@[samplePlayer]];
+    id mockAPIClient = [TestHelper mockAPIClientReturningRankedPlayers:@[samplePlayer]];
     self.sut = [[RankedPlayersViewModel alloc] initWithAPIClient:mockAPIClient];
     self.sut.active = YES;
     XCTAssertEqualObjects([self.sut playerNameAtRow:0 inSection:0], @"A");

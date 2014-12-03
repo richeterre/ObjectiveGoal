@@ -38,7 +38,7 @@
     @weakify(self);
     [refreshSignal subscribeNext:^(id _) {
         @strongify(self);
-        RAC(self, players) = [apiClient fetchPlayers];
+        RAC(self, players) = [apiClient fetchRankedPlayers];
     }];
 
     return self;

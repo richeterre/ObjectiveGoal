@@ -15,6 +15,7 @@
 		0F9E473F1A2E69090022AA38 /* RankedPlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9E473E1A2E69090022AA38 /* RankedPlayersViewController.m */; };
 		0F9E47411A2E6A880022AA38 /* RankedPlayersViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9E47401A2E6A880022AA38 /* RankedPlayersViewModelTests.m */; };
 		0F9E47451A2E7F780022AA38 /* PlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F9E47441A2E7F780022AA38 /* PlayerCell.xib */; };
+		0F9E47481A2E85F90022AA38 /* RankingEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9E47471A2E85F90022AA38 /* RankingEngine.m */; };
 		0FA2ADE01A1FFEC7002801D2 /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADDF1A1FFEC7002801D2 /* APIClient.m */; };
 		0FA2ADE31A21317C002801D2 /* EditMatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADE21A21317C002801D2 /* EditMatchViewController.m */; };
 		0FA2ADE61A2131FC002801D2 /* EditMatchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADE51A2131FC002801D2 /* EditMatchViewModel.m */; };
@@ -63,6 +64,8 @@
 		0F9E473E1A2E69090022AA38 /* RankedPlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankedPlayersViewController.m; sourceTree = "<group>"; };
 		0F9E47401A2E6A880022AA38 /* RankedPlayersViewModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankedPlayersViewModelTests.m; sourceTree = "<group>"; };
 		0F9E47441A2E7F780022AA38 /* PlayerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerCell.xib; sourceTree = "<group>"; };
+		0F9E47461A2E85F90022AA38 /* RankingEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingEngine.h; sourceTree = "<group>"; };
+		0F9E47471A2E85F90022AA38 /* RankingEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingEngine.m; sourceTree = "<group>"; };
 		0FA2ADDE1A1FFEC7002801D2 /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = APIClient.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		0FA2ADDF1A1FFEC7002801D2 /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = APIClient.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		0FA2ADE11A21317C002801D2 /* EditMatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = EditMatchViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -134,6 +137,8 @@
 			children = (
 				0FA2ADDE1A1FFEC7002801D2 /* APIClient.h */,
 				0FA2ADDF1A1FFEC7002801D2 /* APIClient.m */,
+				0F9E47461A2E85F90022AA38 /* RankingEngine.h */,
+				0F9E47471A2E85F90022AA38 /* RankingEngine.m */,
 				0FA2ADF61A222ADE002801D2 /* UIViewController+Active.h */,
 				0FA2ADF71A222ADE002801D2 /* UIViewController+Active.m */,
 			);
@@ -464,6 +469,7 @@
 				0FDBE0421A1FD9F5001CA0ED /* AppDelegate.m in Sources */,
 				0F9E473C1A2E68F30022AA38 /* RankedPlayersViewModel.m in Sources */,
 				0FA2ADEC1A22191C002801D2 /* SelectPlayersViewController.m in Sources */,
+				0F9E47481A2E85F90022AA38 /* RankingEngine.m in Sources */,
 				0FA2ADF81A222ADE002801D2 /* UIViewController+Active.m in Sources */,
 				0F5D10D01A2BC78B00D95DE0 /* NewPlayerViewController.m in Sources */,
 				0FA2ADE61A2131FC002801D2 /* EditMatchViewModel.m in Sources */,

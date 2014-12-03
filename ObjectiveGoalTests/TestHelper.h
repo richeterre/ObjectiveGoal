@@ -14,5 +14,6 @@
 
 + (OCMockObject *)mockAPIClientReturningMatches:(NSArray *)matches;
 + (OCMockObject *)mockAPIClientReturningPlayers:(NSArray *)players;
++ (OCMockObject *)mockAPIClientReturningRankedPlayers:(NSArray *)players;
 
 @end
