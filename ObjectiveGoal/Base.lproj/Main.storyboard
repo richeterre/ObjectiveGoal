@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Cw2-b2-gll">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Cw2-b2-gll">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -118,7 +118,7 @@
             </objects>
             <point key="canvasLocation" x="443" y="62"/>
         </scene>
-        <!--Player Ratings-->
+        <!--Player Ranking-->
         <scene sceneID="n1V-Yp-N5k">
             <objects>
                 <tableViewController id="zR0-Vu-xA8" customClass="RankedPlayersViewController" sceneMemberID="viewController">
@@ -131,7 +131,7 @@
                             <outlet property="delegate" destination="zR0-Vu-xA8" id="OoX-ta-vif"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Player Ratings" id="vGm-Ey-1c8"/>
+                    <navigationItem key="navigationItem" title="Player Ranking" id="vGm-Ey-1c8"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pjs-dT-pez" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
