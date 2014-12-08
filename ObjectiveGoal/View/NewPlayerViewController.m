@@ -7,7 +7,7 @@
 //
 
 #import "NewPlayerViewController.h"
-#import "SelectPlayersViewModel.h"
+#import "ManagePlayersViewModel.h"
 #import <libextobjc/EXTScope.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 

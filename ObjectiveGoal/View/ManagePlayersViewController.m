@@ -1,15 +1,15 @@
 //
-//  SelectPlayersViewController.m
+//  ManagePlayersViewController.m
 //  ObjectiveGoal
 //
 //  Created by Martin Richter on 23/11/14.
 //  Copyright (c) 2014 Martin Richter. All rights reserved.
 //
 
-#import "SelectPlayersViewController.h"
+#import "ManagePlayersViewController.h"
 #import "PlayerCell.h"
 #import "NewPlayerViewController.h"
-#import "SelectPlayersViewModel.h"
+#import "ManagePlayersViewModel.h"
 #import "UIViewController+Active.h"
 #import <JGProgressHUD/JGProgressHUD.h>
 #import <JGProgressHUD/JGProgressHUDFadeZoomAnimation.h>
@@ -18,13 +18,13 @@
 
 static NSString * const PlayerCellIdentifier = @"PlayerCell";
 
-@interface SelectPlayersViewController ()
+@interface ManagePlayersViewController ()
 
 - (IBAction)addPlayerButtonTapped:(id)sender;
 
 @end
 
-@implementation SelectPlayersViewController
+@implementation ManagePlayersViewController
 
 #pragma mark - View Lifecycle
 

@@ -206,7 +206,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="0X9-Iv-GKe" kind="show" identifier="SelectHomePlayers" id="B4C-xa-mfP"/>
+                                    <segue destination="0X9-Iv-GKe" kind="show" identifier="ManageHomePlayers" id="B4C-xa-mfP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iYX-TE-Mzn">
@@ -216,7 +216,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="0X9-Iv-GKe" kind="show" identifier="SelectAwayPlayers" id="b2f-f7-gSr"/>
+                                    <segue destination="0X9-Iv-GKe" kind="show" identifier="ManageAwayPlayers" id="b2f-f7-gSr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -266,7 +266,7 @@
         <!--Players-->
         <scene sceneID="O1r-sJ-wKu">
             <objects>
-                <tableViewController id="0X9-Iv-GKe" customClass="SelectPlayersViewController" sceneMemberID="viewController">
+                <tableViewController id="0X9-Iv-GKe" customClass="ManagePlayersViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="dfu-lD-zdl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -328,6 +328,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="B4C-xa-mfP"/>
+        <segue reference="b2f-f7-gSr"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -1,5 +1,5 @@
 //
-//  SelectPlayersViewModel.h
+//  ManagePlayersViewModel.h
 //  ObjectiveGoal
 //
 //  Created by Martin Richter on 23/11/14.
@@ -10,7 +10,7 @@
 
 @class APIClient, RACCommand;
 
-@interface SelectPlayersViewModel : RVMViewModel
+@interface ManagePlayersViewModel : RVMViewModel
 
 @property (nonatomic, strong, readonly) RACSignal *selectedPlayersSignal;
 @property (nonatomic, strong, readonly) RACSignal *progressIndicatorVisibleSignal;

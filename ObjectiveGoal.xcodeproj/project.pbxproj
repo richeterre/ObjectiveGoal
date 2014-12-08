@@ -20,10 +20,10 @@
 		0FA2ADE31A21317C002801D2 /* EditMatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADE21A21317C002801D2 /* EditMatchViewController.m */; };
 		0FA2ADE61A2131FC002801D2 /* EditMatchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADE51A2131FC002801D2 /* EditMatchViewModel.m */; };
 		0FA2ADE81A2139C8002801D2 /* EditMatchViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADE71A2139C8002801D2 /* EditMatchViewModelTests.m */; };
-		0FA2ADEC1A22191C002801D2 /* SelectPlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADEB1A22191C002801D2 /* SelectPlayersViewController.m */; };
-		0FA2ADEF1A22202B002801D2 /* SelectPlayersViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADEE1A22202B002801D2 /* SelectPlayersViewModel.m */; };
+		0FA2ADEC1A22191C002801D2 /* ManagePlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADEB1A22191C002801D2 /* ManagePlayersViewController.m */; };
+		0FA2ADEF1A22202B002801D2 /* ManagePlayersViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADEE1A22202B002801D2 /* ManagePlayersViewModel.m */; };
 		0FA2ADF81A222ADE002801D2 /* UIViewController+Active.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADF71A222ADE002801D2 /* UIViewController+Active.m */; };
-		0FA2ADFA1A224631002801D2 /* SelectPlayersViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADF91A224631002801D2 /* SelectPlayersViewModelTests.m */; };
+		0FA2ADFA1A224631002801D2 /* ManagePlayersViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADF91A224631002801D2 /* ManagePlayersViewModelTests.m */; };
 		0FA2ADFC1A22475F002801D2 /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2ADFB1A22475F002801D2 /* TestHelper.m */; };
 		0FA2AE021A228F79002801D2 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FA2ADFF1A228F79002801D2 /* OpenSans-Light.ttf */; };
 		0FA2AE031A228F79002801D2 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FA2AE001A228F79002801D2 /* OpenSans-Regular.ttf */; };
@@ -73,13 +73,13 @@
 		0FA2ADE41A2131FC002801D2 /* EditMatchViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = EditMatchViewModel.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		0FA2ADE51A2131FC002801D2 /* EditMatchViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EditMatchViewModel.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		0FA2ADE71A2139C8002801D2 /* EditMatchViewModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EditMatchViewModelTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		0FA2ADEA1A22191C002801D2 /* SelectPlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SelectPlayersViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		0FA2ADEB1A22191C002801D2 /* SelectPlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SelectPlayersViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		0FA2ADED1A22202B002801D2 /* SelectPlayersViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SelectPlayersViewModel.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		0FA2ADEE1A22202B002801D2 /* SelectPlayersViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SelectPlayersViewModel.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		0FA2ADEA1A22191C002801D2 /* ManagePlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ManagePlayersViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		0FA2ADEB1A22191C002801D2 /* ManagePlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ManagePlayersViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		0FA2ADED1A22202B002801D2 /* ManagePlayersViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ManagePlayersViewModel.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		0FA2ADEE1A22202B002801D2 /* ManagePlayersViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ManagePlayersViewModel.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		0FA2ADF61A222ADE002801D2 /* UIViewController+Active.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Active.h"; sourceTree = "<group>"; };
 		0FA2ADF71A222ADE002801D2 /* UIViewController+Active.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Active.m"; sourceTree = "<group>"; };
-		0FA2ADF91A224631002801D2 /* SelectPlayersViewModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SelectPlayersViewModelTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		0FA2ADF91A224631002801D2 /* ManagePlayersViewModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ManagePlayersViewModelTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		0FA2ADFB1A22475F002801D2 /* TestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TestHelper.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		0FA2ADFD1A224772002801D2 /* TestHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = TestHelper.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		0FA2ADFF1A228F79002801D2 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
@@ -209,7 +209,7 @@
 				0FA2ADFB1A22475F002801D2 /* TestHelper.m */,
 				0FDCB2A51A1FFC0900656AF2 /* MatchesViewModelTests.m */,
 				0FA2ADE71A2139C8002801D2 /* EditMatchViewModelTests.m */,
-				0FA2ADF91A224631002801D2 /* SelectPlayersViewModelTests.m */,
+				0FA2ADF91A224631002801D2 /* ManagePlayersViewModelTests.m */,
 				0F9E47401A2E6A880022AA38 /* RankedPlayersViewModelTests.m */,
 				0FDBE0561A1FD9F5001CA0ED /* Supporting Files */,
 			);
@@ -247,8 +247,8 @@
 				0F05D80A1A1FE1D700083EC6 /* MatchesViewController.m */,
 				0FA2ADE11A21317C002801D2 /* EditMatchViewController.h */,
 				0FA2ADE21A21317C002801D2 /* EditMatchViewController.m */,
-				0FA2ADEA1A22191C002801D2 /* SelectPlayersViewController.h */,
-				0FA2ADEB1A22191C002801D2 /* SelectPlayersViewController.m */,
+				0FA2ADEA1A22191C002801D2 /* ManagePlayersViewController.h */,
+				0FA2ADEB1A22191C002801D2 /* ManagePlayersViewController.m */,
 				0F5D10CE1A2BC78B00D95DE0 /* NewPlayerViewController.h */,
 				0F5D10CF1A2BC78B00D95DE0 /* NewPlayerViewController.m */,
 				0F9E473D1A2E69090022AA38 /* RankedPlayersViewController.h */,
@@ -264,8 +264,8 @@
 				0F05D80D1A1FECFA00083EC6 /* MatchesViewModel.m */,
 				0FA2ADE41A2131FC002801D2 /* EditMatchViewModel.h */,
 				0FA2ADE51A2131FC002801D2 /* EditMatchViewModel.m */,
-				0FA2ADED1A22202B002801D2 /* SelectPlayersViewModel.h */,
-				0FA2ADEE1A22202B002801D2 /* SelectPlayersViewModel.m */,
+				0FA2ADED1A22202B002801D2 /* ManagePlayersViewModel.h */,
+				0FA2ADEE1A22202B002801D2 /* ManagePlayersViewModel.m */,
 				0F9E473A1A2E68F30022AA38 /* RankedPlayersViewModel.h */,
 				0F9E473B1A2E68F30022AA38 /* RankedPlayersViewModel.m */,
 			);
@@ -468,7 +468,7 @@
 				0FA2ADE01A1FFEC7002801D2 /* APIClient.m in Sources */,
 				0FDBE0421A1FD9F5001CA0ED /* AppDelegate.m in Sources */,
 				0F9E473C1A2E68F30022AA38 /* RankedPlayersViewModel.m in Sources */,
-				0FA2ADEC1A22191C002801D2 /* SelectPlayersViewController.m in Sources */,
+				0FA2ADEC1A22191C002801D2 /* ManagePlayersViewController.m in Sources */,
 				0F9E47481A2E85F90022AA38 /* RankingEngine.m in Sources */,
 				0FA2ADF81A222ADE002801D2 /* UIViewController+Active.m in Sources */,
 				0F5D10D01A2BC78B00D95DE0 /* NewPlayerViewController.m in Sources */,
@@ -480,7 +480,7 @@
 				0F05D80B1A1FE1D700083EC6 /* MatchesViewController.m in Sources */,
 				0F9E473F1A2E69090022AA38 /* RankedPlayersViewController.m in Sources */,
 				0FC0BFEA1A22A25C006A6695 /* Player.m in Sources */,
-				0FA2ADEF1A22202B002801D2 /* SelectPlayersViewModel.m in Sources */,
+				0FA2ADEF1A22202B002801D2 /* ManagePlayersViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,7 +490,7 @@
 			files = (
 				0FA2ADE81A2139C8002801D2 /* EditMatchViewModelTests.m in Sources */,
 				0F9E47411A2E6A880022AA38 /* RankedPlayersViewModelTests.m in Sources */,
-				0FA2ADFA1A224631002801D2 /* SelectPlayersViewModelTests.m in Sources */,
+				0FA2ADFA1A224631002801D2 /* ManagePlayersViewModelTests.m in Sources */,
 				0FDCB2A61A1FFC0900656AF2 /* MatchesViewModelTests.m in Sources */,
 				0FA2ADFC1A22475F002801D2 /* TestHelper.m in Sources */,
 			);

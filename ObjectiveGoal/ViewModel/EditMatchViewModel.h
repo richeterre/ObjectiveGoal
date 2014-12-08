@@ -8,7 +8,7 @@
 
 #import "RVMViewModel.h"
 
-@class APIClient, SelectPlayersViewModel, RACCommand;
+@class APIClient, ManagePlayersViewModel, RACCommand;
 
 @interface EditMatchViewModel : RVMViewModel
 
@@ -29,7 +29,7 @@
 @property (nonatomic, strong) NSSet *homePlayers;
 @property (nonatomic, strong) NSSet *awayPlayers;
 
-- (SelectPlayersViewModel *)selectHomePlayersViewModel;
-- (SelectPlayersViewModel *)selectAwayPlayersViewModel;
+- (ManagePlayersViewModel *)manageHomePlayersViewModel;
+- (ManagePlayersViewModel *)manageAwayPlayersViewModel;
 
 @end

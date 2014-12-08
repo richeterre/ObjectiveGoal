@@ -7,7 +7,7 @@
 //
 
 #import "EditMatchViewController.h"
-#import "SelectPlayersViewController.h"
+#import "ManagePlayersViewController.h"
 #import "EditMatchViewModel.h"
 #import <JGProgressHUD/JGProgressHUD.h>
 #import <JGProgressHUD/JGProgressHUDFadeZoomAnimation.h>
@@ -15,8 +15,8 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 static NSString * const UnwindToMatchesSegueIdentifier = @"UnwindToMatches";
-static NSString * const SelectHomePlayersSegueIdentifier = @"SelectHomePlayers";
-static NSString * const SelectAwayPlayersSegueIdentifier = @"SelectAwayPlayers";
+static NSString * const ManageHomePlayersSegueIdentifier = @"ManageHomePlayers";
+static NSString * const ManageAwayPlayersSegueIdentifier = @"ManageAwayPlayers";
 
 @interface EditMatchViewController ()
 
@@ -89,13 +89,13 @@ static NSString * const SelectAwayPlayersSegueIdentifier = @"SelectAwayPlayers";
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:SelectHomePlayersSegueIdentifier]) {
-        SelectPlayersViewController *selectPlayersViewController = segue.destinationViewController;
-        selectPlayersViewController.viewModel = [self.viewModel selectHomePlayersViewModel];
+    if ([segue.identifier isEqualToString:ManageHomePlayersSegueIdentifier]) {
+        ManagePlayersViewController *managePlayersViewController = segue.destinationViewController;
+        managePlayersViewController.viewModel = [self.viewModel manageHomePlayersViewModel];
     }
-    else if ([segue.identifier isEqualToString:SelectAwayPlayersSegueIdentifier]) {
-        SelectPlayersViewController *selectPlayersViewController = segue.destinationViewController;
-        selectPlayersViewController.viewModel = [self.viewModel selectAwayPlayersViewModel];
+    else if ([segue.identifier isEqualToString:ManageAwayPlayersSegueIdentifier]) {
+        ManagePlayersViewController *managePlayersViewController = segue.destinationViewController;
+        managePlayersViewController.viewModel = [self.viewModel manageAwayPlayersViewModel];
     }
 }
 

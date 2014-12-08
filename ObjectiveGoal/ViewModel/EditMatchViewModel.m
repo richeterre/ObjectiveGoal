@@ -8,7 +8,7 @@
 
 #import "EditMatchViewModel.h"
 #import "Player.h"
-#import "SelectPlayersViewModel.h"
+#import "ManagePlayersViewModel.h"
 #import "APIClient.h"
 #import <libextobjc/EXTScope.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
@@ -80,16 +80,16 @@
 
 #pragma mark - View Models
 
-- (SelectPlayersViewModel *)selectHomePlayersViewModel {
-    SelectPlayersViewModel *selectHomePlayersViewModel = [[SelectPlayersViewModel alloc] initWithAPIClient:self.apiClient initialPlayers:self.homePlayers disabledPlayers:self.awayPlayers];
-    RAC(self, homePlayers) = selectHomePlayersViewModel.selectedPlayersSignal;
-    return selectHomePlayersViewModel;
+- (ManagePlayersViewModel *)manageHomePlayersViewModel {
+    ManagePlayersViewModel *manageHomePlayersViewModel = [[ManagePlayersViewModel alloc] initWithAPIClient:self.apiClient initialPlayers:self.homePlayers disabledPlayers:self.awayPlayers];
+    RAC(self, homePlayers) = manageHomePlayersViewModel.selectedPlayersSignal;
+    return manageHomePlayersViewModel;
 }
 
-- (SelectPlayersViewModel *)selectAwayPlayersViewModel {
-    SelectPlayersViewModel *selectAwayPlayersViewModel = [[SelectPlayersViewModel alloc] initWithAPIClient:self.apiClient initialPlayers:self.awayPlayers disabledPlayers:self.homePlayers];
-    RAC(self, awayPlayers) = selectAwayPlayersViewModel.selectedPlayersSignal;
-    return selectAwayPlayersViewModel;
+- (ManagePlayersViewModel *)manageAwayPlayersViewModel {
+    ManagePlayersViewModel *manageAwayPlayersViewModel = [[ManagePlayersViewModel alloc] initWithAPIClient:self.apiClient initialPlayers:self.awayPlayers disabledPlayers:self.homePlayers];
+    RAC(self, awayPlayers) = manageAwayPlayersViewModel.selectedPlayersSignal;
+    return manageAwayPlayersViewModel;
 }
 
 @end

@@ -1,18 +1,18 @@
 //
-//  SelectPlayersViewModel.m
+//  ManagePlayersViewModel.m
 //  ObjectiveGoal
 //
 //  Created by Martin Richter on 23/11/14.
 //  Copyright (c) 2014 Martin Richter. All rights reserved.
 //
 
-#import "SelectPlayersViewModel.h"
+#import "ManagePlayersViewModel.h"
 #import "Player.h"
 #import "APIClient.h"
 #import <libextobjc/EXTScope.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
-@interface SelectPlayersViewModel ()
+@interface ManagePlayersViewModel ()
 
 @property (nonatomic, strong) APIClient *apiClient;
 
@@ -22,7 +22,7 @@
 
 @end
 
-@implementation SelectPlayersViewModel
+@implementation ManagePlayersViewModel
 
 #pragma mark - Lifecycle
 

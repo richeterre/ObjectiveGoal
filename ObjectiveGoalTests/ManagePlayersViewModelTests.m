@@ -1,5 +1,5 @@
 //
-//  SelectPlayersViewModelTests.m
+//  ManagePlayersViewModelTests.m
 //  ObjectiveGoal
 //
 //  Created by Martin Richter on 23/11/14.
@@ -7,23 +7,23 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "SelectPlayersViewModel.h"
+#import "ManagePlayersViewModel.h"
 #import "Player.h"
 #import "APIClient.h"
 #import "TestHelper.h"
 #import <OCMock/OCMock.h>
 
-@interface SelectPlayersViewModelTests : XCTestCase
+@interface ManagePlayersViewModelTests : XCTestCase
 
-@property (nonatomic, strong) SelectPlayersViewModel *sut;
+@property (nonatomic, strong) ManagePlayersViewModel *sut;
 
 @end
 
-@implementation SelectPlayersViewModelTests
+@implementation ManagePlayersViewModelTests
 
 - (void)setUp {
     [super setUp];
-    self.sut = [[SelectPlayersViewModel alloc] init];
+    self.sut = [[ManagePlayersViewModel alloc] init];
 }
 
 - (void)tearDown {
@@ -43,7 +43,7 @@
     id mockAPIClient = [OCMockObject mockForClass:APIClient.class];
     [[mockAPIClient expect] fetchPlayers];
 
-    self.sut = [[SelectPlayersViewModel alloc] initWithAPIClient:mockAPIClient initialPlayers:nil disabledPlayers:nil];
+    self.sut = [[ManagePlayersViewModel alloc] initWithAPIClient:mockAPIClient initialPlayers:nil disabledPlayers:nil];
     self.sut.active = YES;
 
     [mockAPIClient verify];
@@ -52,7 +52,7 @@
 - (void)testNumberOfItemsAfterFetching {
     id mockAPIClient = [TestHelper mockAPIClientReturningPlayers:@[[NSObject new]]];
 
-    self.sut = [[SelectPlayersViewModel alloc] initWithAPIClient:mockAPIClient initialPlayers:nil disabledPlayers:nil];
+    self.sut = [[ManagePlayersViewModel alloc] initWithAPIClient:mockAPIClient initialPlayers:nil disabledPlayers:nil];
     self.sut.active = YES;
     XCTAssertEqual([self.sut numberOfItemsInSection:0], 1);
 }
@@ -62,7 +62,7 @@
     XCTestExpectation *hiddenExpectation = [self expectationWithDescription:@"Progress indicator should be hidden"];
 
     id mockAPIClient = [TestHelper mockAPIClientReturningPlayers:@[[NSObject new]]];
-    self.sut = [[SelectPlayersViewModel alloc] initWithAPIClient:mockAPIClient initialPlayers:nil disabledPlayers:nil];
+    self.sut = [[ManagePlayersViewModel alloc] initWithAPIClient:mockAPIClient initialPlayers:nil disabledPlayers:nil];
 
     RACDisposable *disposable = [self.sut.progressIndicatorVisibleSignal subscribeNext:^(NSNumber *visible) {
         XCTAssertTrue([visible isKindOfClass:NSNumber.class]);
@@ -84,7 +84,7 @@
     NSSet *initialPlayers = [NSSet setWithObject:[self samplePlayers].firstObject];
 
     id mockAPIClient = [TestHelper mockAPIClientReturningPlayers:[self samplePlayers]];
-    self.sut = [[SelectPlayersViewModel alloc] initWithAPIClient:mockAPIClient initialPlayers:initialPlayers disabledPlayers:nil];
+    self.sut = [[ManagePlayersViewModel alloc] initWithAPIClient:mockAPIClient initialPlayers:initialPlayers disabledPlayers:nil];
     self.sut.active = YES;
 
     XCTAssertTrue([self.sut isPlayerSelectedAtRow:0 inSection:0]);
@@ -95,7 +95,7 @@
     NSSet *disabledPlayers = [NSSet setWithObject:[self samplePlayers].firstObject];
 
     id mockAPIClient = [TestHelper mockAPIClientReturningPlayers:[self samplePlayers]];
-    self.sut = [[SelectPlayersViewModel alloc] initWithAPIClient:mockAPIClient initialPlayers:nil disabledPlayers:disabledPlayers];
+    self.sut = [[ManagePlayersViewModel alloc] initWithAPIClient:mockAPIClient initialPlayers:nil disabledPlayers:disabledPlayers];
     self.sut.active = YES;
 
     XCTAssertFalse([self.sut canSelectPlayerAtRow:0 inSection:0]);
@@ -104,7 +104,7 @@
 
 - (void)testSelectPlayer {
     id mockAPIClient = [TestHelper mockAPIClientReturningPlayers:[self samplePlayers]];
-    self.sut = [[SelectPlayersViewModel alloc] initWithAPIClient:mockAPIClient initialPlayers:nil disabledPlayers:nil];
+    self.sut = [[ManagePlayersViewModel alloc] initWithAPIClient:mockAPIClient initialPlayers:nil disabledPlayers:nil];
     self.sut.active = YES;
 
     [self.sut selectPlayerAtRow:0 inSection:0];
@@ -117,7 +117,7 @@
     NSSet *initialPlayers = [NSSet setWithArray:[self samplePlayers]];
 
     id mockAPIClient = [TestHelper mockAPIClientReturningPlayers:[self samplePlayers]];
-    self.sut = [[SelectPlayersViewModel alloc] initWithAPIClient:mockAPIClient initialPlayers:initialPlayers disabledPlayers:nil];
+    self.sut = [[ManagePlayersViewModel alloc] initWithAPIClient:mockAPIClient initialPlayers:initialPlayers disabledPlayers:nil];
     self.sut.active = YES;
 
     [self.sut deselectPlayerAtRow:0 inSection:0];
