@@ -10,6 +10,7 @@
 #import "Match.h"
 #import "Player.h"
 #import <BlocksKit/NSArray+BlocksKit.h>
+#import <libextobjc/EXTKeyPathCoding.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 static NSUInteger const RankingEnginePointsWin = 3;
@@ -22,28 +23,30 @@ static NSUInteger const RankingEnginePointsLoss = 0;
 
 + (RACSignal *)rankedPlayersFromPlayers:(NSArray *)players basedOnMatches:(NSArray *)matches {
 
-    // Define block that compares two players
-    NSComparisonResult (^comparePlayersBlock)(Player *, Player *) = ^(Player *first, Player *second) {
-        NSInteger firstPoints = [matches
-            bk_reduceInteger:0 withBlock:^NSInteger(NSInteger points, Match *match) {
-                return points + [RankingEngine pointsForPlayer:first fromMatch:match];
-            }];
-        NSInteger secondPoints = [matches
-            bk_reduceInteger:0 withBlock:^NSInteger(NSInteger points, Match *match) {
-                return points + [RankingEngine pointsForPlayer:second fromMatch:match];
-            }];
-
-        if (firstPoints > secondPoints) {
-            return NSOrderedAscending;
-        } else if (firstPoints < secondPoints) {
-            return NSOrderedDescending;
-        }
-        return NSOrderedSame;
-    };
-
     // Sort players on background thread
     return [RACSignal startLazilyWithScheduler:[RACScheduler schedulerWithPriority:RACSchedulerPriorityDefault] block:^(id<RACSubscriber> subscriber) {
-        NSArray *rankedPlayers = [players sortedArrayUsingComparator:comparePlayersBlock];
+
+        // Map unrated to rated players
+        NSArray *ratedPlayers = [players bk_map:^(Player *player) {
+            NSArray *relevantMatches = [matches bk_select:^BOOL(Match *match) {
+                return ([match.homePlayers containsObject:player]
+                        || [match.awayPlayers containsObject:player]);
+            }];
+
+            // Accumulate points from player's own matches
+            NSInteger points = [relevantMatches bk_reduceInteger:0 withBlock:^NSInteger(NSInteger points, Match *match) {
+                return points + [RankingEngine pointsForPlayer:player fromMatch:match];
+            }];
+
+            // Return new rated player
+            CGFloat rating = [RankingEngine ratingForPoints:points fromNumberOfMatches:relevantMatches.count];
+            return [[Player alloc] initWithIdentifier:player.identifier name:player.name rating:rating];
+        }];
+
+        NSSortDescriptor *ratingDescriptor = [NSSortDescriptor sortDescriptorWithKey:@keypath(Player.new, rating) ascending:NO];
+        NSSortDescriptor *nameDescriptor = [NSSortDescriptor sortDescriptorWithKey:@keypath(Player.new, name) ascending:YES];
+
+        NSArray *rankedPlayers = [ratedPlayers sortedArrayUsingDescriptors:@[ratingDescriptor, nameDescriptor]];
 
         [subscriber sendNext:rankedPlayers];
         [subscriber sendCompleted];
@@ -65,6 +68,13 @@ static NSUInteger const RankingEnginePointsLoss = 0;
     } else {
         return RankingEnginePointsTie;
     }
+}
+
++ (CGFloat)ratingForPoints:(NSUInteger)points fromNumberOfMatches:(NSUInteger)numberOfMatches {
+    if (numberOfMatches > 0) {
+        return (CGFloat)points / (RankingEnginePointsWin * numberOfMatches) * 10;
+    }
+    return PlayerDefaultRating;
 }
 
 @end

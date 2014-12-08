@@ -9,18 +9,25 @@
 #import "Player.h"
 #import <BlocksKit/NSSet+BlocksKit.h>
 
+CGFloat const PlayerDefaultRating = 5;
+
 @implementation Player
 
 #pragma mark - Lifecycle
 
-- (instancetype)initWithIdentifier:(NSString *)identifier name:(NSString *)name {
+- (instancetype)initWithIdentifier:(NSString *)identifier name:(NSString *)name rating:(CGFloat)rating {
     self = [super init];
     if (!self) return nil;
 
     _identifier = [identifier copy];
     _name = [name copy];
+    _rating = rating;
 
     return self;
+}
+
+- (instancetype)initWithIdentifier:(NSString *)identifier name:(NSString *)name {
+    return [self initWithIdentifier:identifier name:name rating:PlayerDefaultRating];
 }
 
 #pragma mark - NSObject

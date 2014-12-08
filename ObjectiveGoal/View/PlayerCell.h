@@ -11,5 +11,6 @@
 @interface PlayerCell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel *nameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *ratingLabel;
 
 @end

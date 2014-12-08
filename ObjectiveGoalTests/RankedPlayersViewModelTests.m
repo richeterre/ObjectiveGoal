@@ -110,4 +110,19 @@
     XCTAssertEqualObjects([self.sut playerNameAtRow:0 inSection:0], @"A");
 }
 
+- (void)testPlayerPoints {
+    NSArray *samplePlayers = @[
+        [[Player alloc] initWithIdentifier:[NSUUID UUID].UUIDString name:@"A" rating:5],
+        [[Player alloc] initWithIdentifier:[NSUUID UUID].UUIDString name:@"B" rating:4.95],
+        [[Player alloc] initWithIdentifier:[NSUUID UUID].UUIDString name:@"B" rating:5.04]
+    ];
+
+    id mockAPIClient = [TestHelper mockAPIClientReturningRankedPlayers:samplePlayers];
+    self.sut = [[RankedPlayersViewModel alloc] initWithAPIClient:mockAPIClient];
+    self.sut.active = YES;
+    XCTAssertEqualObjects([self.sut playerRatingAtRow:0 inSection:0], @"5.0");
+    XCTAssertEqualObjects([self.sut playerRatingAtRow:1 inSection:0], @"5.0");
+    XCTAssertEqualObjects([self.sut playerRatingAtRow:2 inSection:0], @"5.0");
+}
+
 @end

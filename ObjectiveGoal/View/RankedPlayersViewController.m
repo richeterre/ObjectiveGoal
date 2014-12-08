@@ -63,6 +63,7 @@ static NSString * const PlayerCellIdentifier = @"PlayerCell";
     PlayerCell *cell = [tableView dequeueReusableCellWithIdentifier:PlayerCellIdentifier forIndexPath:indexPath];
 
     cell.nameLabel.text = [self.viewModel playerNameAtRow:indexPath.row inSection:indexPath.section];
+    cell.ratingLabel.text = [self.viewModel playerRatingAtRow:indexPath.row inSection:indexPath.section];
 
     return cell;
 }

@@ -7,13 +7,18 @@
 //
 
 #import "MTLModel.h"
+#import <CoreGraphics/CGBase.h>
+
+extern CGFloat const PlayerDefaultRating;
 
 @interface Player : MTLModel
 
 @property (nonatomic, copy, readonly) NSString *identifier;
 @property (nonatomic, copy, readonly) NSString *name;
+@property (nonatomic, assign, readonly) CGFloat rating;
 
 - (instancetype)initWithIdentifier:(NSString *)identifier name:(NSString *)name;
+- (instancetype)initWithIdentifier:(NSString *)identifier name:(NSString *)name rating:(CGFloat)rating;
 
 + (NSArray *)sortedPlayerNamesFromPlayers:(NSSet *)players;
 
