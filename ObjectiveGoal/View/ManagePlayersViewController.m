@@ -100,12 +100,15 @@ static NSString * const PlayerCellIdentifier = @"PlayerCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
+    NSInteger row = indexPath.row;
+    NSInteger section = indexPath.section;
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
-        [self.viewModel deselectPlayerAtRow:indexPath.row inSection:indexPath.section];
+
+    if ([self.viewModel isPlayerSelectedAtRow:row inSection:section]) {
+        [self.viewModel deselectPlayerAtRow:row inSection:section];
         cell.accessoryType = UITableViewCellAccessoryNone;
     } else {
-        [self.viewModel selectPlayerAtRow:indexPath.row inSection:indexPath.section];
+        [self.viewModel selectPlayerAtRow:row inSection:section];
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
 }
