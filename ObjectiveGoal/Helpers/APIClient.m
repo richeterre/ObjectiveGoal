@@ -10,6 +10,7 @@
 #import "Match.h"
 #import "Player.h"
 #import "RankingEngine.h"
+#import <NSArray+BlocksKit.h>
 
 static NSString * const APIClientUserDefaultsKeyMatches = @"Matches";
 static NSString * const APIClientUserDefaultsKeyPlayers = @"Players";
@@ -48,6 +49,24 @@ static NSTimeInterval const APIClientFakeLatency = 0.5;
 
     self.matches = [self.matches arrayByAddingObject:newMatch];
     return [[RACSignal return:@(YES)] delay:APIClientFakeLatency];
+}
+
+- (RACSignal *)updateMatch:(Match *)match withHomePlayers:(NSSet *)homePlayers awayPlayers:(NSSet *)awayPlayers homeGoals:(NSUInteger)homeGoals awayGoals:(NSUInteger)awayGoals {
+    if (![self.matches containsObject:match]) {
+        // No match found => Failure
+        return [[RACSignal return:@(NO)] delay:APIClientFakeLatency];
+    } else {
+        self.matches = [self.matches bk_map:^(Match *existingMatch) {
+            if ([existingMatch isEqual:match]) {
+                // Replace with updated match
+                return [[Match alloc] initWithHomePlayers:homePlayers awayPlayers:awayPlayers homeGoals:homeGoals awayGoals:awayGoals];
+            }
+            return existingMatch;
+        }];
+
+        // Match updated => Success
+        return [[RACSignal return:@(YES)] delay:APIClientFakeLatency];
+    }
 }
 
 #pragma mark - Players

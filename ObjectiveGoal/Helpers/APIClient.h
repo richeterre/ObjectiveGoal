@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
+@class Match;
+
 @interface APIClient : NSObject
 
 - (RACSignal *)fetchMatches;
@@ -16,6 +18,11 @@
                               awayPlayers:(NSSet *)awayPlayers
                                 homeGoals:(NSUInteger)homeGoals
                                 awayGoals:(NSUInteger)awayGoals;
+- (RACSignal *)updateMatch:(Match *)match
+           withHomePlayers:(NSSet *)homePlayers
+               awayPlayers:(NSSet *)awayPlayers
+                 homeGoals:(NSUInteger)homeGoals
+                 awayGoals:(NSUInteger)awayGoals;
 
 - (RACSignal *)fetchPlayers;
 - (RACSignal *)fetchRankedPlayers;
