@@ -25,5 +25,6 @@
 - (NSString *)resultAtRow:(NSInteger)row inSection:(NSInteger)section;
 
 - (EditMatchViewModel *)editViewModelForNewMatch;
+- (EditMatchViewModel *)editViewModelForMatchAtRow:(NSInteger)row inSection:(NSInteger)section;
 
 @end

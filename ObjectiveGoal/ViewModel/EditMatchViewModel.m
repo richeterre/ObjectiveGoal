@@ -7,6 +7,7 @@
 //
 
 #import "EditMatchViewModel.h"
+#import "Match.h"
 #import "Player.h"
 #import "ManagePlayersViewModel.h"
 #import "APIClient.h"
@@ -23,18 +24,28 @@
 
 #pragma mark - Lifecycle
 
-- (instancetype)initWithAPIClient:(APIClient *)apiClient
+- (instancetype)initWithAPIClient:(APIClient *)apiClient match:(Match *)match
 {
     self = [super init];
     if (!self) return nil;
 
     _apiClient = apiClient;
 
-    _name = @"New Match";
-    _homeGoals = 0;
-    _awayGoals = 0;
-    _homePlayers = [NSSet set];
-    _awayPlayers = [NSSet set];
+    BOOL isEditing = match != nil;
+
+    if (isEditing) {
+        _name = @"Edit Match";
+        _homeGoals = match.homeGoals;
+        _awayGoals = match.awayGoals;
+        _homePlayers = match.homePlayers;
+        _awayPlayers = match.awayPlayers;
+    } else {
+        _name = @"New Match";
+        _homeGoals = 0;
+        _awayGoals = 0;
+        _homePlayers = [NSSet set];
+        _awayPlayers = [NSSet set];
+    }
 
     RACSignal *validInputSignal = [RACSignal
         combineLatest:@[RACObserve(self, homePlayers), RACObserve(self, awayPlayers)]
@@ -44,12 +55,12 @@
 
     @weakify(self);
 
-    _saveCommand = [[RACCommand alloc]
-        initWithEnabled:validInputSignal
-        signalBlock:^RACSignal *(id _) {
-            @strongify(self);
-            return [self.apiClient createMatchWithHomePlayers:self.homePlayers awayPlayers:self.awayPlayers homeGoals:self.homeGoals awayGoals:self.awayGoals];
-        }];
+    RACSignal *(^saveBlock)(id) = ^(id _){
+        @strongify(self);
+        return [self saveSignalForMatch:match];
+    };
+
+    _saveCommand = [[RACCommand alloc] initWithEnabled:validInputSignal signalBlock:saveBlock];
 
     _progressIndicatorVisibleSignal = _saveCommand.executing;
 
@@ -74,6 +85,10 @@
     return self;
 }
 
+- (instancetype)initWithAPIClient:(APIClient *)apiClient {
+    return [self initWithAPIClient:apiClient match:nil];
+}
+
 - (instancetype)init {
     return [self initWithAPIClient:nil];
 }
@@ -90,6 +105,16 @@
     ManagePlayersViewModel *manageAwayPlayersViewModel = [[ManagePlayersViewModel alloc] initWithAPIClient:self.apiClient initialPlayers:self.awayPlayers disabledPlayers:self.homePlayers];
     RAC(self, awayPlayers) = manageAwayPlayersViewModel.selectedPlayersSignal;
     return manageAwayPlayersViewModel;
+}
+
+#pragma mark - Internal Helpers
+
+- (RACSignal *)saveSignalForMatch:(Match *)match {
+    if (match) {
+        return [self.apiClient updateMatch:match withHomePlayers:self.homePlayers awayPlayers:self.awayPlayers homeGoals:self.homeGoals awayGoals:self.awayGoals];
+    } else {
+        return [self.apiClient createMatchWithHomePlayers:self.homePlayers awayPlayers:self.awayPlayers homeGoals:self.homeGoals awayGoals:self.awayGoals];
+    }
 }
 
 @end

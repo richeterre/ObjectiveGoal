@@ -156,4 +156,14 @@
     XCTAssertTrue([editViewModel isKindOfClass:EditMatchViewModel.class]);
 }
 
+- (void)testEditViewModelForExistingMatch {
+    id mockAPIClient = [TestHelper mockAPIClientReturningMatches:@[[NSObject new]]];
+    self.sut = [[MatchesViewModel alloc] initWithAPIClient:mockAPIClient];
+
+    id editViewModel = [self.sut editViewModelForMatchAtRow:0 inSection:0];
+    XCTAssertTrue([editViewModel isKindOfClass:EditMatchViewModel.class]);
+
+    // TODO: Test that [[EditMatchViewModel alloc] initWithAPIClient:match:] is called correctly
+}
+
 @end

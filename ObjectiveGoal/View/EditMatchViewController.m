@@ -37,6 +37,11 @@ static NSString * const ManageAwayPlayersSegueIdentifier = @"ManageAwayPlayers";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    // Initial values
+    self.homeGoalsStepper.value = self.viewModel.homeGoals;
+    self.awayGoalsStepper.value = self.viewModel.awayGoals;
+
+    // View <- ViewModel bindings
     RAC(self, title) = RACObserve(self.viewModel, name);
     RAC(self.homeGoalsLabel, text) = RACObserve(self.viewModel, homeGoalsString);
     RAC(self.awayGoalsLabel, text) = RACObserve(self.viewModel, awayGoalsString);
@@ -74,16 +79,9 @@ static NSString * const ManageAwayPlayersSegueIdentifier = @"ManageAwayPlayers";
         }
     }];
 
-    NSNumber *(^stepperValueBlock)(UIStepper *) = ^(UIStepper *stepper){
-        return @(stepper.value);
-    };
-
-    RAC(self.viewModel, homeGoals) = [[self.homeGoalsStepper
-        rac_signalForControlEvents:UIControlEventValueChanged]
-        map:stepperValueBlock];
-    RAC(self.viewModel, awayGoals) = [[self.awayGoalsStepper
-        rac_signalForControlEvents:UIControlEventValueChanged]
-        map:stepperValueBlock];
+    // ViewModel <- View bindings
+    RACChannelTo(self.viewModel, homeGoals) = [self.homeGoalsStepper rac_newValueChannelWithNilValue:@0];
+    RACChannelTo(self.viewModel, awayGoals) = [self.awayGoalsStepper rac_newValueChannelWithNilValue:@0];
 }
 
 #pragma mark - Segues

@@ -8,11 +8,12 @@
 
 #import "RVMViewModel.h"
 
-@class APIClient, ManagePlayersViewModel, RACCommand;
+@class APIClient, ManagePlayersViewModel, Match, RACCommand;
 
 @interface EditMatchViewModel : RVMViewModel
 
 - (instancetype)initWithAPIClient:(APIClient *)apiClient;
+- (instancetype)initWithAPIClient:(APIClient *)apiClient match:(Match *)match;
 
 @property (nonatomic, strong, readonly) RACSignal *progressIndicatorVisibleSignal;
 

@@ -23,7 +23,7 @@
         <scene sceneID="cxy-Go-KWb">
             <objects>
                 <tableViewController id="gbI-qv-vet" customClass="MatchesViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="oeB-aX-rQl">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="oeB-aX-rQl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -79,6 +79,7 @@
                                     <outlet property="awayPlayersLabel" destination="hdL-eO-Qn2" id="8DO-qx-mbZ"/>
                                     <outlet property="homePlayersLabel" destination="CC2-R6-5Qb" id="w2b-Pz-iDZ"/>
                                     <outlet property="resultLabel" destination="nPf-h6-hsp" id="UkR-ol-jyA"/>
+                                    <segue destination="WUo-XS-Xxh" kind="presentation" identifier="EditMatch" id="ZCh-K7-Ttt"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -90,7 +91,7 @@
                     <navigationItem key="navigationItem" title="Matches" id="vJb-hb-WgN">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="lHe-km-Rt0">
                             <connections>
-                                <segue destination="WUo-XS-Xxh" kind="presentation" identifier="EditMatch" id="GMA-7H-Wbq"/>
+                                <segue destination="WUo-XS-Xxh" kind="presentation" identifier="AddMatch" id="GMA-7H-Wbq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -329,5 +330,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="b2f-f7-gSr"/>
+        <segue reference="ZCh-K7-Ttt"/>
     </inferredMetricsTieBreakers>
 </document>

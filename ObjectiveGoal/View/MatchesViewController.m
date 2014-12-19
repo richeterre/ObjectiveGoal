@@ -18,6 +18,7 @@
 #import <libextobjc/EXTScope.h>
 
 static NSString * const MatchCellIdentifier = @"MatchCell";
+static NSString * const AddMatchSegueIdentifier = @"AddMatch";
 static NSString * const EditMatchSegueIdentifier = @"EditMatch";
 
 @interface MatchesViewController () <DZNEmptyDataSetSource>
@@ -102,10 +103,17 @@ static NSString * const EditMatchSegueIdentifier = @"EditMatch";
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:EditMatchSegueIdentifier]) {
-        EditMatchViewController *editMatchViewController = (EditMatchViewController *)[segue.destinationViewController topViewController];
-        editMatchViewController.viewModel = [self.viewModel editViewModelForNewMatch];
+    EditMatchViewModel *viewModel;
+
+    if ([segue.identifier isEqualToString:AddMatchSegueIdentifier]) {
+        viewModel = [self.viewModel editViewModelForNewMatch];
+    } else if ([segue.identifier isEqualToString:EditMatchSegueIdentifier]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:(UITableViewCell *)sender];
+        viewModel = [self.viewModel editViewModelForMatchAtRow:indexPath.row inSection:indexPath.section];
     }
+
+    EditMatchViewController *editMatchViewController = (EditMatchViewController *)[segue.destinationViewController topViewController];
+    editMatchViewController.viewModel = viewModel;
 }
 
 - (IBAction)unwindToMatches:(UIStoryboardSegue *)unwindSegue {}

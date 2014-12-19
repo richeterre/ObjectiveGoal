@@ -85,6 +85,11 @@
     return [[EditMatchViewModel alloc] initWithAPIClient:self.apiClient];
 }
 
+- (EditMatchViewModel *)editViewModelForMatchAtRow:(NSInteger)row inSection:(NSInteger)section {
+    Match *match = [self matchAtRow:row inSection:section];
+    return [[EditMatchViewModel alloc] initWithAPIClient:self.apiClient match:match];
+}
+
 #pragma mark - Internal Helpers
 
 - (Match *)matchAtRow:(NSInteger)row inSection:(NSInteger)section {
