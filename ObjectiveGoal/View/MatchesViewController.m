@@ -44,16 +44,21 @@ static NSString * const EditMatchSegueIdentifier = @"EditMatch";
         [self.tableView reloadData];
     }];
 
-    JGProgressHUD *progressHUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
-    progressHUD.animation = [JGProgressHUDFadeZoomAnimation animation];
+    JGProgressHUD *refreshHUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
+    refreshHUD.animation = [JGProgressHUDFadeZoomAnimation animation];
 
-    [self.viewModel.progressIndicatorVisibleSignal subscribeNext:^(NSNumber *visible) {
+    [self.viewModel.refreshIndicatorVisibleSignal subscribeNext:^(NSNumber *visible) {
         @strongify(self);
-        if (visible.boolValue && progressHUD.targetView == nil) {
-            [progressHUD showInView:self.navigationController.view];
-        } else if (!visible.boolValue && progressHUD.targetView != nil) {
-            [progressHUD dismiss];
-        }
+        [self makeHUD:refreshHUD visible:visible.boolValue];
+    }];
+
+    JGProgressHUD *deletionHUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
+    deletionHUD.animation = [JGProgressHUDFadeZoomAnimation animation];
+    deletionHUD.textLabel.text = @"Deleting Match…";
+
+    [self.viewModel.deletionIndicatorVisibleSignal subscribeNext:^(NSNumber *visible) {
+        @strongify(self);
+        [self makeHUD:deletionHUD visible:visible.boolValue];
     }];
 
     RAC(self.viewModel, active) = self.activeSignal;
@@ -125,5 +130,15 @@ static NSString * const EditMatchSegueIdentifier = @"EditMatch";
 }
 
 - (IBAction)unwindToMatches:(UIStoryboardSegue *)unwindSegue {}
+
+#pragma mark - Internal Helpers
+
+- (void)makeHUD:(JGProgressHUD *)hud visible:(BOOL)visible {
+    if (visible && hud.targetView == nil) {
+        [hud showInView:self.navigationController.view];
+    } else if (!visible && hud.targetView != nil) {
+        [hud dismiss];
+    }
+}
 
 @end

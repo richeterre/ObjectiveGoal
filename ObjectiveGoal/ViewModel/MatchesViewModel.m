@@ -49,11 +49,12 @@
 
     _updatedContentSignal = [[RACObserve(self, matches) ignore:nil] mapReplace:@(YES)];
 
-    _progressIndicatorVisibleSignal = [RACSignal
-        merge:@[
-            [refreshSignal mapReplace:@(YES)],
-            [_updatedContentSignal mapReplace:@(NO)]
-        ]];
+    _refreshIndicatorVisibleSignal = [RACSignal merge:@[
+        [refreshSignal mapReplace:@(YES)],
+        [_updatedContentSignal mapReplace:@(NO)]
+    ]];
+
+    _deletionIndicatorVisibleSignal = _deleteMatchCommand.executing;
 
     [refreshSignal subscribeNext:^(id _) {
         @strongify(self);

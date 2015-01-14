@@ -128,14 +128,14 @@
     }];
 }
 
-- (void)testProgressIndicatorVisibleSignal {
-    XCTestExpectation *visibleExpectation = [self expectationWithDescription:@"Progress indicator should be visible"];
-    XCTestExpectation *hiddenExpectation = [self expectationWithDescription:@"Progress indicator should be hidden"];
+- (void)testRefreshIndicatorVisibleSignal {
+    XCTestExpectation *visibleExpectation = [self expectationWithDescription:@"Refresh indicator should be visible"];
+    XCTestExpectation *hiddenExpectation = [self expectationWithDescription:@"Refresh indicator should be hidden"];
 
     id mockAPIClient = [TestHelper mockAPIClientReturningMatches:@[[NSObject new]]];
     self.sut = [[MatchesViewModel alloc] initWithAPIClient:mockAPIClient];
 
-    RACDisposable *disposable = [self.sut.progressIndicatorVisibleSignal subscribeNext:^(NSNumber *visible) {
+    RACDisposable *disposable = [self.sut.refreshIndicatorVisibleSignal subscribeNext:^(NSNumber *visible) {
         XCTAssertTrue([visible isKindOfClass:NSNumber.class]);
         if (visible.boolValue) {
             [visibleExpectation fulfill];
@@ -205,5 +205,31 @@
 }
 
 // TODO: Test that matches are fetched again after deleting a match
+
+- (void)testDeletionIndicatorVisibleSignal {
+    XCTestExpectation *visibleExpectation = [self expectationWithDescription:@"Deletion indicator should be visible"];
+    XCTestExpectation *hiddenExpectation = [self expectationWithDescription:@"Deletion indicator should be hidden"];
+
+    id mockAPIClient = [TestHelper mockAPIClientReturningMatches:@[[NSObject new]]];
+    [[[mockAPIClient stub] andReturn:[RACSignal return:@(YES)]] deleteMatch:OCMOCK_ANY];
+    self.sut = [[MatchesViewModel alloc] initWithAPIClient:mockAPIClient];
+    self.sut.active = YES;
+
+    // Skip initial value to avoid multiple -fulfill calls
+    RACDisposable *disposable = [[self.sut.deletionIndicatorVisibleSignal skip:1] subscribeNext:^(NSNumber *visible) {
+        XCTAssertTrue([visible isKindOfClass:NSNumber.class]);
+        if (visible.boolValue) {
+            [visibleExpectation fulfill];
+        } else {
+            [hiddenExpectation fulfill];
+        }
+    }];
+
+    [self.sut.deleteMatchCommand execute:[NSIndexPath indexPathForRow:0 inSection:0]];
+
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        [disposable dispose];
+    }];
+}
 
 @end

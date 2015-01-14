@@ -13,7 +13,8 @@
 
 @interface MatchesViewModel : RVMViewModel
 
-@property (nonatomic, strong, readonly) RACSignal *progressIndicatorVisibleSignal;
+@property (nonatomic, strong, readonly) RACSignal *refreshIndicatorVisibleSignal;
+@property (nonatomic, strong, readonly) RACSignal *deletionIndicatorVisibleSignal;
 @property (nonatomic, strong, readonly) RACSignal *updatedContentSignal;
 @property (nonatomic, strong, readonly) RACCommand *deleteMatchCommand;
 
