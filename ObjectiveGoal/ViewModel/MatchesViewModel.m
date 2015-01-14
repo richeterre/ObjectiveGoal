@@ -31,7 +31,21 @@
 
     _apiClient = apiClient;
 
-    RACSignal *refreshSignal = self.didBecomeActiveSignal;
+    @weakify(self);
+
+    _deleteMatchCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(NSIndexPath *indexPath) {
+        NSParameterAssert([indexPath isKindOfClass:NSIndexPath.class]);
+
+        // Return signal for delete operation of match at given index path
+        @strongify(self);
+        Match *match = [self matchAtRow:indexPath.row inSection:indexPath.section];
+        return [self.apiClient deleteMatch:match];
+    }];
+
+    // Force refresh after every delete operation, whether successful or not
+    RACSignal *forcedRefreshSignal = [_deleteMatchCommand.executionSignals flatten];
+
+    RACSignal *refreshSignal = [self.didBecomeActiveSignal merge:forcedRefreshSignal];
 
     _updatedContentSignal = [[RACObserve(self, matches) ignore:nil] mapReplace:@(YES)];
 
@@ -41,7 +55,6 @@
             [_updatedContentSignal mapReplace:@(NO)]
         ]];
 
-    @weakify(self);
     [refreshSignal subscribeNext:^(id _) {
         @strongify(self);
         RAC(self, matches) = [apiClient fetchMatches];

@@ -166,4 +166,44 @@
     // TODO: Test that [[EditMatchViewModel alloc] initWithAPIClient:match:] is called correctly
 }
 
+- (void)testDeleteMatchCommandDeletesMatch {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"deleteMatchCommand should forward match deletion success to subscribers"];
+
+    Match *match = [[Match alloc] init];
+    id mockAPIClient = [TestHelper mockAPIClientReturningMatches:@[match]];
+    [[[mockAPIClient expect] andReturn:[RACSignal return:@(YES)]] deleteMatch:match];
+
+    self.sut = [[MatchesViewModel alloc] initWithAPIClient:mockAPIClient];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+
+    self.sut.active = YES; // Required to load matches
+
+    RACDisposable *disposable = [[self.sut.deleteMatchCommand execute:indexPath] subscribeNext:^(id x) {
+        XCTAssertEqual(x, @(YES));
+        [expectation fulfill];
+    }];
+
+    [mockAPIClient verify];
+
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *error) {
+        [disposable dispose];
+    }];
+}
+
+- (void)testDeleteMatchCommandRequiresIndexPath {
+    XCTAssertThrowsSpecificNamed([self.sut.deleteMatchCommand execute:nil],
+                                 NSException,
+                                 NSInternalInconsistencyException);
+
+    XCTAssertThrowsSpecificNamed([self.sut.deleteMatchCommand execute:@0],
+                                 NSException,
+                                 NSInternalInconsistencyException);
+
+    XCTAssertThrowsSpecificNamed([self.sut.deleteMatchCommand execute:[[Match alloc] init]],
+                                 NSException,
+                                 NSInternalInconsistencyException);
+}
+
+// TODO: Test that matches are fetched again after deleting a match
+
 @end

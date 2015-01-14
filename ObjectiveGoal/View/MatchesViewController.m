@@ -32,6 +32,8 @@ static NSString * const EditMatchSegueIdentifier = @"EditMatch";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+
     self.tableView.emptyDataSetSource = self;
     self.tableView.tableFooterView = [UIView new];
 
@@ -98,6 +100,12 @@ static NSString * const EditMatchSegueIdentifier = @"EditMatch";
     cell.resultLabel.text = [self.viewModel resultAtRow:row inSection:section];
 
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSParameterAssert(editingStyle == UITableViewCellEditingStyleDelete);
+
+    [self.viewModel.deleteMatchCommand execute:indexPath];
 }
 
 #pragma mark - Navigation

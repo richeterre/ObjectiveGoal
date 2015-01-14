@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong, readonly) RACSignal *progressIndicatorVisibleSignal;
 @property (nonatomic, strong, readonly) RACSignal *updatedContentSignal;
+@property (nonatomic, strong, readonly) RACCommand *deleteMatchCommand;
 
 - (instancetype)initWithAPIClient:(APIClient *)apiClient;
 
