@@ -69,6 +69,20 @@ static NSTimeInterval const APIClientFakeLatency = 0.5;
     }
 }
 
+- (RACSignal *)deleteMatch:(Match *)match {
+    if (![self.matches containsObject:match]) {
+        // No match found => Failure
+        return [[RACSignal return:@(NO)] delay:APIClientFakeLatency];
+    } else {
+        self.matches = [self.matches bk_reject:^(Match *existingMatch) {
+            return [existingMatch isEqual:match];
+        }];
+
+        // Match deleted => Success
+        return [[RACSignal return:@(YES)] delay:APIClientFakeLatency];
+    }
+}
+
 #pragma mark - Players
 
 - (RACSignal *)fetchPlayers {

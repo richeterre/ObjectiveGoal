@@ -23,6 +23,7 @@
                awayPlayers:(NSSet *)awayPlayers
                  homeGoals:(NSUInteger)homeGoals
                  awayGoals:(NSUInteger)awayGoals;
+- (RACSignal *)deleteMatch:(Match *)match;
 
 - (RACSignal *)fetchPlayers;
 - (RACSignal *)fetchRankedPlayers;
