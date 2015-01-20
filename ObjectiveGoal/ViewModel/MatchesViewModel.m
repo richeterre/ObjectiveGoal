@@ -56,10 +56,10 @@
 
     _deletionIndicatorVisibleSignal = _deleteMatchCommand.executing;
 
-    [refreshSignal subscribeNext:^(id _) {
+    RAC(self, matches) = [[refreshSignal map:^(id _) {
         @strongify(self);
-        RAC(self, matches) = [apiClient fetchMatches];
-    }];
+        return [self.apiClient fetchMatches];
+    }] switchToLatest];
 
     return self;
 }
