@@ -7,6 +7,7 @@
 //
 
 #import "MatchesViewController.h"
+#import "Changeset.h"
 #import "MatchCell.h"
 #import "EditMatchViewController.h"
 #import "MatchesViewModel.h"
@@ -39,9 +40,13 @@ static NSString * const EditMatchSegueIdentifier = @"EditMatch";
 
     @weakify(self);
 
-    [self.viewModel.updatedContentSignal subscribeNext:^(id _) {
+    [self.viewModel.contentChangesSignal subscribeNext:^(Changeset *changeset) {
         @strongify(self);
-        [self.tableView reloadData];
+
+        [self.tableView beginUpdates];
+        [self.tableView deleteRowsAtIndexPaths:changeset.deletions withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView insertRowsAtIndexPaths:changeset.insertions withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView endUpdates];
     }];
 
     JGProgressHUD *refreshHUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];

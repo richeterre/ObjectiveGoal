@@ -11,6 +11,7 @@
 		0F05D80B1A1FE1D700083EC6 /* MatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F05D80A1A1FE1D700083EC6 /* MatchesViewController.m */; };
 		0F05D80E1A1FECFA00083EC6 /* MatchesViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F05D80D1A1FECFA00083EC6 /* MatchesViewModel.m */; };
 		0F5D10D01A2BC78B00D95DE0 /* NewPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D10CF1A2BC78B00D95DE0 /* NewPlayerViewController.m */; };
+		0F956FB71A6F0D270063E6AA /* Changeset.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F956FB61A6F0D270063E6AA /* Changeset.m */; };
 		0F9E473C1A2E68F30022AA38 /* RankedPlayersViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9E473B1A2E68F30022AA38 /* RankedPlayersViewModel.m */; };
 		0F9E473F1A2E69090022AA38 /* RankedPlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9E473E1A2E69090022AA38 /* RankedPlayersViewController.m */; };
 		0F9E47411A2E6A880022AA38 /* RankedPlayersViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9E47401A2E6A880022AA38 /* RankedPlayersViewModelTests.m */; };
@@ -58,6 +59,8 @@
 		0F05D80D1A1FECFA00083EC6 /* MatchesViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MatchesViewModel.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		0F5D10CE1A2BC78B00D95DE0 /* NewPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPlayerViewController.h; sourceTree = "<group>"; };
 		0F5D10CF1A2BC78B00D95DE0 /* NewPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPlayerViewController.m; sourceTree = "<group>"; };
+		0F956FB51A6F0D270063E6AA /* Changeset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Changeset.h; sourceTree = "<group>"; };
+		0F956FB61A6F0D270063E6AA /* Changeset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Changeset.m; sourceTree = "<group>"; };
 		0F9E473A1A2E68F30022AA38 /* RankedPlayersViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankedPlayersViewModel.h; sourceTree = "<group>"; };
 		0F9E473B1A2E68F30022AA38 /* RankedPlayersViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankedPlayersViewModel.m; sourceTree = "<group>"; };
 		0F9E473D1A2E69090022AA38 /* RankedPlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankedPlayersViewController.h; sourceTree = "<group>"; };
@@ -227,6 +230,8 @@
 		0FDBE0621A1FDA14001CA0ED /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0F956FB51A6F0D270063E6AA /* Changeset.h */,
+				0F956FB61A6F0D270063E6AA /* Changeset.m */,
 				0FDCB2A21A1FF58400656AF2 /* Match.h */,
 				0FDCB2A31A1FF58400656AF2 /* Match.m */,
 				0FC0BFE81A22A25C006A6695 /* Player.h */,
@@ -470,6 +475,7 @@
 				0F9E473C1A2E68F30022AA38 /* RankedPlayersViewModel.m in Sources */,
 				0FA2ADEC1A22191C002801D2 /* ManagePlayersViewController.m in Sources */,
 				0F9E47481A2E85F90022AA38 /* RankingEngine.m in Sources */,
+				0F956FB71A6F0D270063E6AA /* Changeset.m in Sources */,
 				0FA2ADF81A222ADE002801D2 /* UIViewController+Active.m in Sources */,
 				0F5D10D01A2BC78B00D95DE0 /* NewPlayerViewController.m in Sources */,
 				0FA2ADE61A2131FC002801D2 /* EditMatchViewModel.m in Sources */,

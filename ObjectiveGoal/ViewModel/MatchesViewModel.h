@@ -15,7 +15,7 @@
 
 @property (nonatomic, strong, readonly) RACSignal *refreshIndicatorVisibleSignal;
 @property (nonatomic, strong, readonly) RACSignal *deletionIndicatorVisibleSignal;
-@property (nonatomic, strong, readonly) RACSignal *updatedContentSignal;
+@property (nonatomic, strong, readonly) RACSignal *contentChangesSignal; // sends Changeset instances
 @property (nonatomic, strong, readonly) RACCommand *deleteMatchCommand;
 
 - (instancetype)initWithAPIClient:(APIClient *)apiClient;

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MatchesViewModel.h"
+#import "Changeset.h"
 #import "Match.h"
 #import "Player.h"
 #import "EditMatchViewModel.h"
@@ -47,11 +48,16 @@
 
     RACSignal *refreshSignal = [self.didBecomeActiveSignal merge:forcedRefreshSignal];
 
-    _updatedContentSignal = [[RACObserve(self, matches) ignore:nil] mapReplace:@(YES)];
+    RACSignal *updatedContentSignal = [RACObserve(self, matches) ignore:nil];
+
+    _contentChangesSignal = [updatedContentSignal
+        combinePreviousWithStart:@[] reduce:^(NSArray *previousMatches, NSArray *currentMatches) {
+            return [Changeset changesetFromMatches:previousMatches toMatches:currentMatches];
+        }];
 
     _refreshIndicatorVisibleSignal = [RACSignal merge:@[
         [refreshSignal mapReplace:@(YES)],
-        [_updatedContentSignal mapReplace:@(NO)]
+        [updatedContentSignal mapReplace:@(NO)]
     ]];
 
     _deletionIndicatorVisibleSignal = _deleteMatchCommand.executing;

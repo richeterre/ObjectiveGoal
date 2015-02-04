@@ -106,7 +106,7 @@
 }
 
 - (void)testThatUpdatedContentSignalIsSetUp {
-    XCTAssertNotNil(self.sut.updatedContentSignal);
+    XCTAssertNotNil(self.sut.contentChangesSignal);
 }
 
 - (void)testThatUpdatedContentSignalSendsNext {
@@ -115,7 +115,7 @@
     id mockAPIClient = [TestHelper mockAPIClientReturningMatches:@[[NSObject new]]];
     self.sut = [[MatchesViewModel alloc] initWithAPIClient:mockAPIClient];
 
-    RACDisposable *disposable = [self.sut.updatedContentSignal subscribeNext:^(id x) {
+    RACDisposable *disposable = [self.sut.contentChangesSignal subscribeNext:^(id x) {
         [expectation fulfill];
 
         XCTAssertEqual(x, @(YES));
