@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "Changeset.h"
 #import "Match.h"
 #import "Player.h"
 #import "MatchesViewModel.h"
@@ -118,7 +119,7 @@
     RACDisposable *disposable = [self.sut.contentChangesSignal subscribeNext:^(id x) {
         [expectation fulfill];
 
-        XCTAssertEqual(x, @(YES));
+        XCTAssert([x isKindOfClass:Changeset.class]);
     }];
 
     self.sut.active = YES;
