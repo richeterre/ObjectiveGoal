@@ -52,7 +52,7 @@
 
     _contentChangesSignal = [updatedContentSignal
         combinePreviousWithStart:@[] reduce:^(NSArray *previousMatches, NSArray *currentMatches) {
-            return [Changeset changesetFromMatches:previousMatches toMatches:currentMatches];
+            return [Changeset changesetOfIndexPathsFromItems:previousMatches toItems:currentMatches];
         }];
 
     _refreshIndicatorVisibleSignal = [RACSignal merge:@[

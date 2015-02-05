@@ -29,18 +29,19 @@
 
 #pragma mark - Match Changesets
 
-+ (Changeset *)changesetFromMatches:(NSArray *)oldMatches toMatches:(NSArray *)newMatches {
++ (Changeset *)changesetOfIndexPathsFromItems:(NSArray *)oldItems toItems:(NSArray *)newItems
+{
     NSMutableArray *mutableDeletions = [NSMutableArray array];
     NSMutableArray *mutableInsertions = [NSMutableArray array];
 
-    [oldMatches enumerateObjectsUsingBlock:^(NSObject *match, NSUInteger index, BOOL *stop) {
-        if (![newMatches containsObject:match]) {
+    [oldItems enumerateObjectsUsingBlock:^(NSObject *item, NSUInteger index, BOOL *stop) {
+        if (![newItems containsObject:item]) {
             [mutableDeletions addObject:[NSIndexPath indexPathForRow:index inSection:0]];
         }
     }];
 
-    [newMatches enumerateObjectsUsingBlock:^(NSObject *match, NSUInteger index, BOOL *stop) {
-        if (![oldMatches containsObject:match]) {
+    [newItems enumerateObjectsUsingBlock:^(NSObject *item, NSUInteger index, BOOL *stop) {
+        if (![oldItems containsObject:item]) {
             [mutableInsertions addObject:[NSIndexPath indexPathForRow:index inSection:0]];
         }
     }];

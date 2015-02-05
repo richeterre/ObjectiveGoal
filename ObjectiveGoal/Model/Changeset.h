@@ -13,6 +13,6 @@
 @property (nonatomic, copy, readonly) NSArray *deletions;
 @property (nonatomic, copy, readonly) NSArray *insertions;
 
-+ (Changeset *)changesetFromMatches:(NSArray *)oldMatches toMatches:(NSArray *)newMatches;
++ (Changeset *)changesetOfIndexPathsFromItems:(NSArray *)oldItems toItems:(NSArray *)newItems;
 
 @end
