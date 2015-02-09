@@ -38,10 +38,10 @@
     ]];
 
     @weakify(self);
-    [refreshSignal subscribeNext:^(id _) {
+    RAC(self, players) = [[refreshSignal map:^(id _) {
         @strongify(self);
-        RAC(self, players) = [apiClient fetchRankedPlayers];
-    }];
+        return [apiClient fetchRankedPlayers];
+    }] switchToLatest];
 
     return self;
 }
