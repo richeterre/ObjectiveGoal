@@ -3,6 +3,7 @@ platform :ios, '8.0'
 
 target 'ObjectiveGoal' do
   pod 'AFNetworking'
+  pod 'AFNetworking-RACExtensions', git: 'https://github.com/CodaFi/AFNetworking-RACExtensions.git'
   pod 'BlocksKit'
   pod 'DZNEmptyDataSet'
   pod 'JGProgressHUD'

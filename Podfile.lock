@@ -6,6 +6,9 @@ PODS:
     - AFNetworking/Security (= 2.5.2)
     - AFNetworking/Serialization (= 2.5.2)
     - AFNetworking/UIKit (= 2.5.2)
+  - AFNetworking-RACExtensions (0.1.8):
+    - AFNetworking (~> 2.0)
+    - ReactiveCocoa (~> 2.0)
   - AFNetworking/NSURLConnection (2.5.2):
     - AFNetworking/Reachability
     - AFNetworking/Security
@@ -88,6 +91,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - AFNetworking-RACExtensions (from `https://github.com/CodaFi/AFNetworking-RACExtensions.git`)
   - BlocksKit
   - DZNEmptyDataSet
   - JGProgressHUD
@@ -97,8 +101,18 @@ DEPENDENCIES:
   - ReactiveCocoa
   - ReactiveViewModel
 
+EXTERNAL SOURCES:
+  AFNetworking-RACExtensions:
+    :git: https://github.com/CodaFi/AFNetworking-RACExtensions.git
+
+CHECKOUT OPTIONS:
+  AFNetworking-RACExtensions:
+    :commit: 108d9bdf08a644c754e48f4a4896f7a23841dce7
+    :git: https://github.com/CodaFi/AFNetworking-RACExtensions.git
+
 SPEC CHECKSUMS:
   AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
+  AFNetworking-RACExtensions: 17e77b5bd812b4c60d38680529ec22a5643d827b
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   DZNEmptyDataSet: b6d8ef0e69a4347b70c642148453174dbf8817f1
   JGProgressHUD: 7860357e1185cb665b92d5145f3dbbd1cd1db9db

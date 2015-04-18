@@ -12,6 +12,12 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking 5
 #define COCOAPODS_VERSION_PATCH_AFNetworking 2
 
+// AFNetworking-RACExtensions
+#define COCOAPODS_POD_AVAILABLE_AFNetworking_RACExtensions
+#define COCOAPODS_VERSION_MAJOR_AFNetworking_RACExtensions 0
+#define COCOAPODS_VERSION_MINOR_AFNetworking_RACExtensions 1
+#define COCOAPODS_VERSION_PATCH_AFNetworking_RACExtensions 8
+
 // AFNetworking/NSURLConnection
 #define COCOAPODS_POD_AVAILABLE_AFNetworking_NSURLConnection
 #define COCOAPODS_VERSION_MAJOR_AFNetworking_NSURLConnection 2
