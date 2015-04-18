@@ -10,6 +10,8 @@
 #import "Match.h"
 #import "Player.h"
 #import "RankingEngine.h"
+#import "APISessionManager.h"
+#import <AFNetworking-RACExtensions/AFHTTPSessionManager+RACSupport.h>
 #import <NSArray+BlocksKit.h>
 
 static NSString * const APIClientUserDefaultsKeyMatches = @"Matches";
@@ -18,6 +20,7 @@ static NSTimeInterval const APIClientFakeLatency = 0.5;
 
 @interface APIClient ()
 
+@property (nonatomic, strong, readonly) APISessionManager *apiSessionManager;
 @property (nonatomic, copy) NSArray *matches;
 @property (nonatomic, copy) NSArray *players;
 
@@ -32,6 +35,7 @@ static NSTimeInterval const APIClientFakeLatency = 0.5;
     self = [super init];
     if (!self) return nil;
 
+    _apiSessionManager = [[APISessionManager alloc] init];
     _matches = [self persistedMatches];
     _players = [self persistedPlayers];
 
