@@ -29,6 +29,7 @@
 		0FA2AE021A228F79002801D2 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FA2ADFF1A228F79002801D2 /* OpenSans-Light.ttf */; };
 		0FA2AE031A228F79002801D2 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FA2AE001A228F79002801D2 /* OpenSans-Regular.ttf */; };
 		0FA2AE041A228F79002801D2 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FA2AE011A228F79002801D2 /* OpenSans-Semibold.ttf */; };
+		0FACCB5E1AE2F1B9001F7F14 /* APISessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FACCB5D1AE2F1B9001F7F14 /* APISessionManager.m */; };
 		0FBA66641A835BDB0089A3E8 /* ChangesetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBA66631A835BDB0089A3E8 /* ChangesetTests.m */; };
 		0FC0BFE71A229D45006A6695 /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC0BFE61A229D45006A6695 /* PlayerCell.m */; };
 		0FC0BFEA1A22A25C006A6695 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC0BFE91A22A25C006A6695 /* Player.m */; };
@@ -89,6 +90,8 @@
 		0FA2ADFF1A228F79002801D2 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
 		0FA2AE001A228F79002801D2 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		0FA2AE011A228F79002801D2 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		0FACCB5C1AE2F1B9001F7F14 /* APISessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APISessionManager.h; sourceTree = "<group>"; };
+		0FACCB5D1AE2F1B9001F7F14 /* APISessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APISessionManager.m; sourceTree = "<group>"; };
 		0FBA66631A835BDB0089A3E8 /* ChangesetTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangesetTests.m; sourceTree = "<group>"; };
 		0FC0BFE51A229D45006A6695 /* PlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PlayerCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		0FC0BFE61A229D45006A6695 /* PlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PlayerCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -146,6 +149,8 @@
 				0F9E47471A2E85F90022AA38 /* RankingEngine.m */,
 				0FA2ADF61A222ADE002801D2 /* UIViewController+Active.h */,
 				0FA2ADF71A222ADE002801D2 /* UIViewController+Active.m */,
+				0FACCB5C1AE2F1B9001F7F14 /* APISessionManager.h */,
+				0FACCB5D1AE2F1B9001F7F14 /* APISessionManager.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -482,6 +487,7 @@
 				0FA2ADF81A222ADE002801D2 /* UIViewController+Active.m in Sources */,
 				0F5D10D01A2BC78B00D95DE0 /* NewPlayerViewController.m in Sources */,
 				0FA2ADE61A2131FC002801D2 /* EditMatchViewModel.m in Sources */,
+				0FACCB5E1AE2F1B9001F7F14 /* APISessionManager.m in Sources */,
 				0FDBE03F1A1FD9F5001CA0ED /* main.m in Sources */,
 				0FDCB2A41A1FF58400656AF2 /* Match.m in Sources */,
 				0F05D80E1A1FECFA00083EC6 /* MatchesViewModel.m in Sources */,
