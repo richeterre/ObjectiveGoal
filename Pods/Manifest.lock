@@ -1,4 +1,25 @@
 PODS:
+  - AFNetworking (2.5.2):
+    - AFNetworking/NSURLConnection (= 2.5.2)
+    - AFNetworking/NSURLSession (= 2.5.2)
+    - AFNetworking/Reachability (= 2.5.2)
+    - AFNetworking/Security (= 2.5.2)
+    - AFNetworking/Serialization (= 2.5.2)
+    - AFNetworking/UIKit (= 2.5.2)
+  - AFNetworking/NSURLConnection (2.5.2):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.2):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.2)
+  - AFNetworking/Security (2.5.2)
+  - AFNetworking/Serialization (2.5.2)
+  - AFNetworking/UIKit (2.5.2):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
   - BlocksKit (2.2.5):
     - BlocksKit/All (= 2.2.5)
   - BlocksKit/All (2.2.5):
@@ -66,6 +87,7 @@ PODS:
     - ReactiveCocoa (~> 2.1)
 
 DEPENDENCIES:
+  - AFNetworking
   - BlocksKit
   - DZNEmptyDataSet
   - JGProgressHUD
@@ -76,13 +98,14 @@ DEPENDENCIES:
   - ReactiveViewModel
 
 SPEC CHECKSUMS:
-  BlocksKit: 4439e7f30a9f90743462ca63545a15c1f4304cef
-  DZNEmptyDataSet: 381e880cb3bb2d33885cb0325218443df265bc98
-  JGProgressHUD: a7c58f711eec0b67f257a0821c0bac9194c72398
-  libextobjc: d6146fce3ebea986b7f75fcb4c967639200b88b0
-  Mantle: d7c5ac734579ec751c58fecbf56189853056c58c
-  OCMock: f6cb8c162ab9d5620dddf411282c7b2c0ee78854
-  ReactiveCocoa: dca75777b9d18990c8714a3a6f2149f29b4d1462
-  ReactiveViewModel: 78387196df2e7535bb2776c41df15dbb17300f8a
+  AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
+  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  DZNEmptyDataSet: b6d8ef0e69a4347b70c642148453174dbf8817f1
+  JGProgressHUD: 7860357e1185cb665b92d5145f3dbbd1cd1db9db
+  libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
+  Mantle: 1ec9076f091f3a2f95cb2c94939e92dba35c97e1
+  OCMock: a73f69963a8a542b0b343e2617650e4dca0cbbc2
+  ReactiveCocoa: 334468a83b2c5f669f7cfb9a084415ee23219b4f
+  ReactiveViewModel: 3b25ab68711944b1706b9dd6d1b37f37cbe6b094
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.36.3

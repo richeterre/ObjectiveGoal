@@ -2,6 +2,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
 target 'ObjectiveGoal' do
+  pod 'AFNetworking'
   pod 'BlocksKit'
   pod 'DZNEmptyDataSet'
   pod 'JGProgressHUD'
