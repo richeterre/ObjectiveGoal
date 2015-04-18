@@ -37,9 +37,7 @@
         [_updatedContentSignal mapReplace:@(NO)]
     ]];
 
-    @weakify(self);
     RAC(self, players) = [[refreshSignal map:^(id _) {
-        @strongify(self);
         return [apiClient fetchRankedPlayers];
     }] switchToLatest];
 
