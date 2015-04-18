@@ -29,6 +29,4 @@
 - (RACSignal *)fetchRankedPlayers;
 - (RACSignal *)createPlayerWithName:(NSString *)name;
 
-- (void)persist;
-
 @end

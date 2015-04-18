@@ -57,13 +57,19 @@ CGFloat const PlayerDefaultRating = 5;
     return [self.identifier isEqualToString:other.identifier]; // nil identifiers make non-equal players
 }
 
-#pragma mark - Sorting
+#pragma mark - Helpers
 
 + (NSArray *)sortedPlayerNamesFromPlayers:(NSSet *)players {
     NSSet *playerNames = [players bk_map:^(Player *player) {
         return player.name;
     }];
     return [[playerNames allObjects] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+}
+
++ (NSSet *)identifiersForPlayers:(NSSet *)players {
+    return [players bk_map:^(Player *player) {
+        return player.identifier;
+    }];
 }
 
 @end

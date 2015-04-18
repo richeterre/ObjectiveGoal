@@ -21,5 +21,6 @@ extern CGFloat const PlayerDefaultRating;
 - (instancetype)initWithIdentifier:(NSString *)identifier name:(NSString *)name rating:(CGFloat)rating;
 
 + (NSArray *)sortedPlayerNamesFromPlayers:(NSSet *)players;
++ (NSSet *)identifiersForPlayers:(NSSet *)players;
 
 @end

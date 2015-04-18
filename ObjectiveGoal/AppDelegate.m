@@ -61,8 +61,4 @@
     return YES;
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    [self.apiClient persist];
-}
-
 @end
