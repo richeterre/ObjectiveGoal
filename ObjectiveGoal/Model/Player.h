@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 Martin Richter. All rights reserved.
 //
 
-#import "MTLModel.h"
 #import <CoreGraphics/CGBase.h>
+#import <Mantle/Mantle.h>
 
 extern CGFloat const PlayerDefaultRating;
 
-@interface Player : MTLModel
+@interface Player : MTLModel <MTLJSONSerializing>
 
 @property (nonatomic, copy, readonly) NSString *identifier;
 @property (nonatomic, copy, readonly) NSString *name;

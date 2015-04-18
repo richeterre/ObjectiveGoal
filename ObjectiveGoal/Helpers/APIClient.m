@@ -15,14 +15,12 @@
 #import <NSArray+BlocksKit.h>
 
 static NSString * const APIClientUserDefaultsKeyMatches = @"Matches";
-static NSString * const APIClientUserDefaultsKeyPlayers = @"Players";
 static NSTimeInterval const APIClientFakeLatency = 0.5;
 
 @interface APIClient ()
 
 @property (nonatomic, strong, readonly) APISessionManager *apiSessionManager;
 @property (nonatomic, copy) NSArray *matches;
-@property (nonatomic, copy) NSArray *players;
 
 @end
 
@@ -30,14 +28,12 @@ static NSTimeInterval const APIClientFakeLatency = 0.5;
 
 #pragma mark - Lifecycle
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (!self) return nil;
 
     _apiSessionManager = [[APISessionManager alloc] init];
     _matches = [self persistedMatches];
-    _players = [self persistedPlayers];
 
     return self;
 }
@@ -90,7 +86,12 @@ static NSTimeInterval const APIClientFakeLatency = 0.5;
 #pragma mark - Players
 
 - (RACSignal *)fetchPlayers {
-    return [[RACSignal return:self.players] delay:APIClientFakeLatency];
+    return [[[self.apiSessionManager rac_GET:@"players" parameters:nil]
+        map:^(RACTuple *tuple) {
+            NSArray *playersJSONArray = tuple.first;
+            return [MTLJSONAdapter modelsOfClass:Player.class fromJSONArray:playersJSONArray error:NULL];
+        }]
+        catchTo:[RACSignal return:@[]]];
 }
 
 - (RACSignal *)fetchRankedPlayers {
@@ -104,10 +105,12 @@ static NSTimeInterval const APIClientFakeLatency = 0.5;
 }
 
 - (RACSignal *)createPlayerWithName:(NSString *)name {
-    Player *newPlayer = [[Player alloc] initWithIdentifier:[NSUUID UUID].UUIDString name:name];
-
-    self.players = [self.players arrayByAddingObject:newPlayer];
-    return [[RACSignal return:@(YES)] delay:APIClientFakeLatency];
+    NSDictionary *parameters = @{ @"name": name };
+    return [[self.apiSessionManager rac_POST:@"players" parameters:parameters]
+        map:^(RACTuple *tuple) {
+            NSHTTPURLResponse *response = tuple.second;
+            return response.statusCode == 200 ? @(YES) : @(NO);
+        }];
 }
 
 #pragma mark - Persistence
@@ -117,9 +120,6 @@ static NSTimeInterval const APIClientFakeLatency = 0.5;
 
     NSData *archivedMatches = [NSKeyedArchiver archivedDataWithRootObject:self.matches];
     [userDefaults setObject:archivedMatches forKey:APIClientUserDefaultsKeyMatches];
-
-    NSData *archivedPlayers = [NSKeyedArchiver archivedDataWithRootObject:self.players];
-    [userDefaults setObject:archivedPlayers forKey:APIClientUserDefaultsKeyPlayers];
 
     [userDefaults synchronize];
 }
@@ -131,22 +131,6 @@ static NSTimeInterval const APIClientFakeLatency = 0.5;
     return (archivedMatches
             ? [NSKeyedUnarchiver unarchiveObjectWithData:archivedMatches]
             : @[]);
-}
-
-- (NSArray *)persistedPlayers {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSData *archivedPlayers = [userDefaults objectForKey:APIClientUserDefaultsKeyPlayers];
-
-    if (archivedPlayers) {
-        return [NSKeyedUnarchiver unarchiveObjectWithData:archivedPlayers];
-    } else {
-        return @[
-            [[Player alloc] initWithIdentifier:[NSUUID UUID].UUIDString name:@"Alice"],
-            [[Player alloc] initWithIdentifier:[NSUUID UUID].UUIDString name:@"Bob"],
-            [[Player alloc] initWithIdentifier:[NSUUID UUID].UUIDString name:@"Charlie"],
-            [[Player alloc] initWithIdentifier:[NSUUID UUID].UUIDString name:@"Dora"]
-        ];
-    }
 }
 
 @end

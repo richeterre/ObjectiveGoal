@@ -13,8 +13,7 @@ static NSUInteger const APIVersion = 1;
 
 @implementation APISessionManager
 
-- (instancetype)init
-{
+- (instancetype)init {
     NSString *baseURLString = [NSString stringWithFormat:@"%@%lu", APIBaseString, (unsigned long)APIVersion];
     NSURL *baseURL = [NSURL URLWithString:baseURLString];
 

@@ -8,10 +8,20 @@
 
 #import "Player.h"
 #import <BlocksKit/NSSet+BlocksKit.h>
+#import <libextobjc/EXTKeyPathCoding.h>
 
 CGFloat const PlayerDefaultRating = 5;
 
 @implementation Player
+
+#pragma mark - Mantle
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+    return @{
+        @keypath(Player.new, identifier): @"uuid",
+        @keypath(Player.new, name): @"name"
+    };
+}
 
 #pragma mark - Lifecycle
 
