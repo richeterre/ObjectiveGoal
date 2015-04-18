@@ -6,10 +6,9 @@
 //  Copyright (c) 2014 Martin Richter. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <Mantle/Mantle.h>
 
-@interface Match : MTLModel
+@interface Match : MTLModel <MTLJSONSerializing>
 
 @property (nonatomic, copy, readonly) NSSet *homePlayers;
 @property (nonatomic, copy, readonly) NSSet *awayPlayers;

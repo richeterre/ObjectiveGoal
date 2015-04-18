@@ -7,8 +7,36 @@
 //
 
 #import "Match.h"
+#import "Player.h"
+#import <libextobjc/EXTKeyPathCoding.h>
+
+@interface Match ()
+
+@property (nonatomic, copy, readonly) NSArray *homePlayersArray;
+@property (nonatomic, copy, readonly) NSArray *awayPlayersArray;
+
+@end
 
 @implementation Match
+
+#pragma mark - Mantle
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+    return @{
+        @keypath(Match.new, homePlayersArray): @"home_players",
+        @keypath(Match.new, awayPlayersArray): @"away_players",
+        @keypath(Match.new, homeGoals): @"home_goals",
+        @keypath(Match.new, awayGoals): @"away_goals"
+    };
+}
+
++ (NSValueTransformer *)homePlayersArrayJSONTransformer {
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:Player.class];
+}
+
++ (NSValueTransformer *)awayPlayersArrayJSONTransformer {
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:Player.class];
+}
 
 #pragma mark - Lifecycle
 
@@ -16,11 +44,22 @@
     self = [super init];
     if (!self) return nil;
 
-    _homePlayers = [homePlayers copy];
-    _awayPlayers = [awayPlayers copy];
+    _homePlayersArray = [homePlayers allObjects];
+    _awayPlayersArray = [awayPlayers allObjects];
     _homeGoals = homeGoals;
     _awayGoals = awayGoals;
 
     return self;
 }
+
+#pragma mark - Custom Accessors
+
+- (NSSet *)homePlayers {
+    return [NSSet setWithArray:_homePlayersArray];
+}
+
+- (NSSet *)awayPlayers {
+    return [NSSet setWithArray:_awayPlayersArray];
+}
+
 @end
