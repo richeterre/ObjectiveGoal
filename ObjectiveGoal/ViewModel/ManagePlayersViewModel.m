@@ -14,7 +14,7 @@
 
 @interface ManagePlayersViewModel ()
 
-@property (nonatomic, strong) APIClient *apiClient;
+@property (nonatomic, strong, readonly) APIClient *apiClient;
 
 @property (nonatomic, strong) NSArray *players;
 @property (nonatomic, copy) NSSet *selectedPlayers;

@@ -16,7 +16,7 @@
 
 @interface EditMatchViewModel ()
 
-@property (nonatomic, strong) APIClient *apiClient;
+@property (nonatomic, strong, readonly) APIClient *apiClient;
 
 @end
 

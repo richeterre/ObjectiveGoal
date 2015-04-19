@@ -17,7 +17,7 @@
 
 @interface MatchesViewModel ()
 
-@property (nonatomic, strong) APIClient *apiClient;
+@property (nonatomic, strong, readonly) APIClient *apiClient;
 @property (nonatomic, strong) NSArray *matches;
 
 @end
