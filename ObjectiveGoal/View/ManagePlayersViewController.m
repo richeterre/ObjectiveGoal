@@ -36,22 +36,26 @@ static NSString * const PlayerCellIdentifier = @"PlayerCell";
 
     @weakify(self);
 
-    [self.viewModel.updatedContentSignal subscribeNext:^(id _) {
-        @strongify(self);
-        [self.tableView reloadData];
-    }];
+    [[self.viewModel.updatedContentSignal
+        deliverOnMainThread]
+        subscribeNext:^(id _) {
+            @strongify(self);
+            [self.tableView reloadData];
+        }];
 
     JGProgressHUD *progressHUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
     progressHUD.animation = [JGProgressHUDFadeZoomAnimation animation];
 
-    [self.viewModel.progressIndicatorVisibleSignal subscribeNext:^(NSNumber *visible) {
-        @strongify(self);
-        if (visible.boolValue && progressHUD.targetView == nil) {
-            [progressHUD showInView:self.navigationController.view];
-        } else if (!visible.boolValue && progressHUD.targetView != nil) {
-            [progressHUD dismiss];
-        }
-    }];
+    [[self.viewModel.progressIndicatorVisibleSignal
+        deliverOnMainThread]
+        subscribeNext:^(NSNumber *visible) {
+            @strongify(self);
+            if (visible.boolValue && progressHUD.targetView == nil) {
+                [progressHUD showInView:self.navigationController.view];
+            } else if (!visible.boolValue && progressHUD.targetView != nil) {
+                [progressHUD dismiss];
+            }
+        }];
 
     RAC(self.viewModel, active) = self.activeSignal;
 }

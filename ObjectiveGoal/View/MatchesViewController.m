@@ -40,31 +40,37 @@ static NSString * const EditMatchSegueIdentifier = @"EditMatch";
 
     @weakify(self);
 
-    [self.viewModel.contentChangesSignal subscribeNext:^(Changeset *changeset) {
-        @strongify(self);
+    [[[self.viewModel.contentChangesSignal deliverOnMainThread]
+        deliverOnMainThread]
+        subscribeNext:^(Changeset *changeset) {
+            @strongify(self);
 
-        [self.tableView beginUpdates];
-        [self.tableView deleteRowsAtIndexPaths:changeset.deletions withRowAnimation:UITableViewRowAnimationAutomatic];
-        [self.tableView insertRowsAtIndexPaths:changeset.insertions withRowAnimation:UITableViewRowAnimationAutomatic];
-        [self.tableView endUpdates];
-    }];
+            [self.tableView beginUpdates];
+            [self.tableView deleteRowsAtIndexPaths:changeset.deletions withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.tableView insertRowsAtIndexPaths:changeset.insertions withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.tableView endUpdates];
+        }];
 
     JGProgressHUD *refreshHUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
     refreshHUD.animation = [JGProgressHUDFadeZoomAnimation animation];
 
-    [self.viewModel.refreshIndicatorVisibleSignal subscribeNext:^(NSNumber *visible) {
-        @strongify(self);
-        [self makeHUD:refreshHUD visible:visible.boolValue];
-    }];
+    [[self.viewModel.refreshIndicatorVisibleSignal
+        deliverOnMainThread]
+        subscribeNext:^(NSNumber *visible) {
+            @strongify(self);
+            [self makeHUD:refreshHUD visible:visible.boolValue];
+        }];
 
     JGProgressHUD *deletionHUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
     deletionHUD.animation = [JGProgressHUDFadeZoomAnimation animation];
     deletionHUD.textLabel.text = @"Deleting Match…";
 
-    [self.viewModel.deletionIndicatorVisibleSignal subscribeNext:^(NSNumber *visible) {
-        @strongify(self);
-        [self makeHUD:deletionHUD visible:visible.boolValue];
-    }];
+    [[self.viewModel.deletionIndicatorVisibleSignal
+        deliverOnMainThread]
+        subscribeNext:^(NSNumber *visible) {
+            @strongify(self);
+            [self makeHUD:deletionHUD visible:visible.boolValue];
+        }];
 
     RAC(self.viewModel, active) = self.activeSignal;
 }

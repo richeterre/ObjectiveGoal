@@ -61,23 +61,26 @@ static NSString * const ManageAwayPlayersSegueIdentifier = @"ManageAwayPlayers";
 
     @weakify(self);
 
-    [[self.viewModel.saveCommand.executionSignals flatten] subscribeNext:^(id _) {
-        @strongify(self);
-        [self performSegueWithIdentifier:UnwindToMatchesSegueIdentifier sender:self];
-    }];
+    [[self.viewModel.saveCommand.executionSignals flatten]
+        subscribeNext:^(id _) {
+            @strongify(self);
+            [self performSegueWithIdentifier:UnwindToMatchesSegueIdentifier sender:self];
+        }];
 
     JGProgressHUD *progressHUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
     progressHUD.animation = [JGProgressHUDFadeZoomAnimation animation];
     progressHUD.textLabel.text = @"Saving Match…";
 
-    [self.viewModel.progressIndicatorVisibleSignal subscribeNext:^(NSNumber *visible) {
-        @strongify(self);
-        if (visible.boolValue && progressHUD.targetView == nil) {
-            [progressHUD showInView:self.navigationController.view];
-        } else if (!visible.boolValue && progressHUD.targetView != nil) {
-            [progressHUD dismiss];
-        }
-    }];
+    [[self.viewModel.progressIndicatorVisibleSignal
+        deliverOnMainThread]
+        subscribeNext:^(NSNumber *visible) {
+            @strongify(self);
+            if (visible.boolValue && progressHUD.targetView == nil) {
+                [progressHUD showInView:self.navigationController.view];
+            } else if (!visible.boolValue && progressHUD.targetView != nil) {
+                [progressHUD dismiss];
+            }
+        }];
 
     // ViewModel <- View bindings
     RACChannelTo(self.viewModel, homeGoals) = [self.homeGoalsStepper rac_newValueChannelWithNilValue:@0];

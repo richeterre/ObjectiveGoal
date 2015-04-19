@@ -26,9 +26,7 @@
     self = [super init];
     if (!self) return nil;
 
-    _updatedContentSignal = [[[RACObserve(self, players) ignore:nil]
-        mapReplace:@(YES)]
-        deliverOn:RACScheduler.mainThreadScheduler];
+    _updatedContentSignal = [[RACObserve(self, players) ignore:nil] mapReplace:@(YES)];
 
     RACSignal *refreshSignal = self.didBecomeActiveSignal;
 
