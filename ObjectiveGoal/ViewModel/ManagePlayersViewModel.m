@@ -58,7 +58,7 @@
 
     [refreshSignal subscribeNext:^(id _) {
         @strongify(self);
-        RAC(self, players) = [apiClient fetchPlayers];
+        RAC(self, players) = [[apiClient fetchPlayers] catchTo:[RACSignal return:@[]]];
     }];
 
     RACSignal *isRefreshingSignal = [RACSignal

@@ -64,7 +64,7 @@
 
     RAC(self, matches) = [[refreshSignal map:^(id _) {
         @strongify(self);
-        return [self.apiClient fetchMatches];
+        return [[self.apiClient fetchMatches] catchTo:[RACSignal return:@[]]];
     }] switchToLatest];
 
     return self;

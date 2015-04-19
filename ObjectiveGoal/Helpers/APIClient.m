@@ -87,12 +87,11 @@
 #pragma mark - Players
 
 - (RACSignal *)fetchPlayers {
-    return [[[self.apiSessionManager rac_GET:@"players" parameters:nil]
+    return [[self.apiSessionManager rac_GET:@"players" parameters:nil]
         map:^(RACTuple *tuple) {
             NSArray *playersJSONArray = tuple.first;
             return [MTLJSONAdapter modelsOfClass:Player.class fromJSONArray:playersJSONArray error:NULL];
-        }]
-        catchTo:[RACSignal return:@[]]];
+        }];
 }
 
 - (RACSignal *)fetchRankedPlayers {
