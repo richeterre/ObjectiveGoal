@@ -49,8 +49,8 @@ static NSTimeInterval const APIClientFakeLatency = 0.5;
     NSArray *awayPlayerIdentifiers = [Player identifiersForPlayers:awayPlayers].allObjects;
 
     NSDictionary *parameters = @{
-        @"home_player_uuids": homePlayerIdentifiers,
-        @"away_player_uuids": awayPlayerIdentifiers,
+        @"home_player_ids": homePlayerIdentifiers,
+        @"away_player_ids": awayPlayerIdentifiers,
         @"home_goals": @(homeGoals),
         @"away_goals": @(awayGoals)
     };

@@ -18,7 +18,7 @@ CGFloat const PlayerDefaultRating = 5;
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
-        @keypath(Player.new, identifier): @"uuid",
+        @keypath(Player.new, identifier): @"id",
         @keypath(Player.new, name): @"name"
     };
 }
