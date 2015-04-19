@@ -66,7 +66,12 @@ static NSTimeInterval const APIClientFakeLatency = 0.5;
 }
 
 - (RACSignal *)deleteMatch:(Match *)match {
-    return [[RACSignal return:@(NO)] delay:APIClientFakeLatency];
+    NSString *path = [NSString stringWithFormat:@"matches/%@", match.identifier];
+    return [[self.apiSessionManager rac_DELETE:path parameters:nil]
+        map:^(RACTuple *tuple) {
+            NSHTTPURLResponse *response = tuple.second;
+            return response.statusCode == 200 ? @(YES) : @(NO);
+        }];
 }
 
 #pragma mark - Players
