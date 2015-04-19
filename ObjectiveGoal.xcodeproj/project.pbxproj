@@ -30,6 +30,7 @@
 		0FA2AE031A228F79002801D2 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FA2AE001A228F79002801D2 /* OpenSans-Regular.ttf */; };
 		0FA2AE041A228F79002801D2 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FA2AE011A228F79002801D2 /* OpenSans-Semibold.ttf */; };
 		0FACCB5E1AE2F1B9001F7F14 /* APISessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FACCB5D1AE2F1B9001F7F14 /* APISessionManager.m */; };
+		0FAEBCEA1AE408500030AC17 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAEBCE91AE408500030AC17 /* ProgressHUD.m */; };
 		0FBA66641A835BDB0089A3E8 /* ChangesetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBA66631A835BDB0089A3E8 /* ChangesetTests.m */; };
 		0FC0BFE71A229D45006A6695 /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC0BFE61A229D45006A6695 /* PlayerCell.m */; };
 		0FC0BFEA1A22A25C006A6695 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC0BFE91A22A25C006A6695 /* Player.m */; };
@@ -92,6 +93,8 @@
 		0FA2AE011A228F79002801D2 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		0FACCB5C1AE2F1B9001F7F14 /* APISessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APISessionManager.h; sourceTree = "<group>"; };
 		0FACCB5D1AE2F1B9001F7F14 /* APISessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APISessionManager.m; sourceTree = "<group>"; };
+		0FAEBCE81AE408500030AC17 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		0FAEBCE91AE408500030AC17 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		0FBA66631A835BDB0089A3E8 /* ChangesetTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangesetTests.m; sourceTree = "<group>"; };
 		0FC0BFE51A229D45006A6695 /* PlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PlayerCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		0FC0BFE61A229D45006A6695 /* PlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PlayerCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -256,6 +259,8 @@
 				0FC0BFE51A229D45006A6695 /* PlayerCell.h */,
 				0FC0BFE61A229D45006A6695 /* PlayerCell.m */,
 				0F9E47441A2E7F780022AA38 /* PlayerCell.xib */,
+				0FAEBCE81AE408500030AC17 /* ProgressHUD.h */,
+				0FAEBCE91AE408500030AC17 /* ProgressHUD.m */,
 				0F05D8091A1FE1D700083EC6 /* MatchesViewController.h */,
 				0F05D80A1A1FE1D700083EC6 /* MatchesViewController.m */,
 				0FA2ADE11A21317C002801D2 /* EditMatchViewController.h */,
@@ -479,6 +484,7 @@
 				0FDCB2A11A1FF44D00656AF2 /* MatchCell.m in Sources */,
 				0FC0BFE71A229D45006A6695 /* PlayerCell.m in Sources */,
 				0FA2ADE01A1FFEC7002801D2 /* APIClient.m in Sources */,
+				0FAEBCEA1AE408500030AC17 /* ProgressHUD.m in Sources */,
 				0FDBE0421A1FD9F5001CA0ED /* AppDelegate.m in Sources */,
 				0F9E473C1A2E68F30022AA38 /* RankedPlayersViewModel.m in Sources */,
 				0FA2ADEC1A22191C002801D2 /* ManagePlayersViewController.m in Sources */,

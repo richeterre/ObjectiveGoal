@@ -6,8 +6,11 @@
 //  Copyright (c) 2015 Martin Richter. All rights reserved.
 //
 
-#import "JGProgressHUD.h"
+#import <JGProgressHUD/JGProgressHUD.h>
 
 @interface ProgressHUD : JGProgressHUD
+
+// Returns a standard progress HUD with the given text (can be nil)
++ (instancetype)progressHUDWithText:(NSString *)text;
 
 @end

@@ -7,10 +7,9 @@
 //
 
 #import "EditMatchViewController.h"
+#import "ProgressHUD.h"
 #import "ManagePlayersViewController.h"
 #import "EditMatchViewModel.h"
-#import <JGProgressHUD/JGProgressHUD.h>
-#import <JGProgressHUD/JGProgressHUDFadeZoomAnimation.h>
 #import <libextobjc/EXTScope.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
@@ -67,9 +66,7 @@ static NSString * const ManageAwayPlayersSegueIdentifier = @"ManageAwayPlayers";
             [self performSegueWithIdentifier:UnwindToMatchesSegueIdentifier sender:self];
         }];
 
-    JGProgressHUD *progressHUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
-    progressHUD.animation = [JGProgressHUDFadeZoomAnimation animation];
-    progressHUD.textLabel.text = @"Saving Match…";
+    ProgressHUD *progressHUD = [ProgressHUD progressHUDWithText:@"Saving Match…"];
 
     [[self.viewModel.progressIndicatorVisibleSignal
         deliverOnMainThread]

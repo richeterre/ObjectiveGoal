@@ -8,10 +8,9 @@
 
 #import "RankedPlayersViewController.h"
 #import "PlayerCell.h"
+#import "ProgressHUD.h"
 #import "RankedPlayersViewModel.h"
 #import "UIViewController+Active.h"
-#import <JGProgressHUD/JGProgressHUD.h>
-#import <JGProgressHUD/JGProgressHUDFadeZoomAnimation.h>
 #import <libextobjc/EXTScope.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
@@ -36,8 +35,7 @@ static NSString * const PlayerCellIdentifier = @"PlayerCell";
             [self.tableView reloadData];
         }];
 
-    JGProgressHUD *progressHUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
-    progressHUD.animation = [JGProgressHUDFadeZoomAnimation animation];
+    ProgressHUD *progressHUD = [ProgressHUD progressHUDWithText:nil];
 
     [[self.viewModel.progressIndicatorVisibleSignal
         deliverOnMainThread]

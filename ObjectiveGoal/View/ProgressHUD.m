@@ -7,7 +7,16 @@
 //
 
 #import "ProgressHUD.h"
+#import <JGProgressHUD/JGProgressHUDFadeZoomAnimation.h>
 
 @implementation ProgressHUD
+
++ (instancetype)progressHUDWithText:(NSString *)text {
+    ProgressHUD *progressHUD = [super progressHUDWithStyle:JGProgressHUDStyleExtraLight];
+    progressHUD.animation = [JGProgressHUDFadeZoomAnimation animation];
+    progressHUD.minimumDisplayTime = 0.2;
+    progressHUD.textLabel.text = text;
+    return progressHUD;
+}
 
 @end

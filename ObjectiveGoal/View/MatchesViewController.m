@@ -9,13 +9,12 @@
 #import "MatchesViewController.h"
 #import "Changeset.h"
 #import "MatchCell.h"
+#import "ProgressHUD.h"
 #import "EditMatchViewController.h"
 #import "MatchesViewModel.h"
 #import "EditMatchViewModel.h"
 #import "UIViewController+Active.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
-#import <JGProgressHUD/JGProgressHUD.h>
-#import <JGProgressHUDFadeZoomAnimation.h>
 #import <libextobjc/EXTScope.h>
 
 static NSString * const MatchCellIdentifier = @"MatchCell";
@@ -51,8 +50,7 @@ static NSString * const EditMatchSegueIdentifier = @"EditMatch";
             [self.tableView endUpdates];
         }];
 
-    JGProgressHUD *refreshHUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
-    refreshHUD.animation = [JGProgressHUDFadeZoomAnimation animation];
+    ProgressHUD *refreshHUD = [ProgressHUD progressHUDWithText:nil];
 
     [[self.viewModel.refreshIndicatorVisibleSignal
         deliverOnMainThread]
@@ -61,9 +59,7 @@ static NSString * const EditMatchSegueIdentifier = @"EditMatch";
             [self makeHUD:refreshHUD visible:visible.boolValue];
         }];
 
-    JGProgressHUD *deletionHUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
-    deletionHUD.animation = [JGProgressHUDFadeZoomAnimation animation];
-    deletionHUD.textLabel.text = @"Deleting Match…";
+    ProgressHUD *deletionHUD = [ProgressHUD progressHUDWithText:@"Deleting Match…"];
 
     [[self.viewModel.deletionIndicatorVisibleSignal
         deliverOnMainThread]
