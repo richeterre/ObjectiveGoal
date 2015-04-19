@@ -1,7 +1,8 @@
 DZNEmptyDataSet
 =================
+
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dzenbot/DZNEmptyDataSet?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Pod Version](http://img.shields.io/cocoapods/v/DZNEmptyDataSet.svg)](http://cocoadocs.org/docsets/DZNEmptyDataSet/)
-[![Gittip](http://img.shields.io/gittip/dzenbot.svg)](https://www.gittip.com/dzenbot/)
 [![License](http://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
 If you are using DZNEmptyDataSet in your application, [please take a screenshot of your empty dataset render and submit it here](https://github.com/dzenbot/DZNEmptyDataSet/issues/4).
@@ -22,7 +23,7 @@ Most applications show lists of content (datasets), which many turn out to be em
 
 
 ### Features
-* Compatible with UITableView, UICollectionView, UISearchDisplayController and UIScrollView.
+* Compatible with UITableView and UICollectionView. Also compatible with UISearchDisplayController and UIScrollView.
 * Gives multiple possibilities of layout and appearance, by showing an image and/or title label and/or description label and/or button.
 * Uses NSAttributedString for easier appearance customisation.
 * Uses auto-layout to automagically center the content to the tableview, with auto-rotation support. Also accepts custom vertical and horizontal alignment.
@@ -31,7 +32,7 @@ Most applications show lists of content (datasets), which many turn out to be em
 * For more advanced customisation, it allows a custom view.
 * Compatible with Storyboard.
 * Compatible with iOS 6 or later.
-* iPhone (3.5" & 4") and iPad support.
+* iPhone and iPad support.
 * **App Store ready**
 
 This library has been designed in a way where you won't need to extend UITableView or UICollectionView class. It will still work when using UITableViewController or UICollectionViewController.
@@ -41,7 +42,7 @@ By just conforming to DZNEmptyDataSetSource & DZNEmptyDataSetDelegate, you will 
 ## Installation
 
 Available in [Cocoa Pods](http://cocoapods.org/?q=DZNEmptyDataSet)
-```
+```ruby
 pod 'DZNEmptyDataSet'
 ```
 
@@ -50,13 +51,13 @@ pod 'DZNEmptyDataSet'
 For complete documentation, [visit CocoaPods' auto-generated doc](http://cocoadocs.org/docsets/DZNEmptyDataSet/)
 
 ### Import
-```
+```objc
 #import "UIScrollView+EmptyDataSet.h"
 ```
 
 ### Protocol Conformance
 Conform to datasource and/or delegate.
-```
+```objc
 @interface MainViewController : UITableViewController <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 - (void)viewDidLoad
@@ -75,7 +76,7 @@ Conform to datasource and/or delegate.
 Return the content you want to show on the empty datasets, and take advantage of NSAttributedString features to customise the text appearance.
 
 The attributed string for the title of the empty dataset:
-```
+```objc
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
 
     NSString *text = @"Please Allow Photo Access";
@@ -88,7 +89,7 @@ The attributed string for the title of the empty dataset:
 ```
 
 The attributed string for the description of the empty dataset:
-```
+```objc
 - (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView {
 
     NSString *text = @"This allows you to share photos from your library and save photos to your camera roll.";
@@ -106,7 +107,7 @@ The attributed string for the description of the empty dataset:
 ```
 
 The attributed string to be used for the specified button state:
-```
+```objc
 - (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state {
 
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0]};
@@ -116,7 +117,7 @@ The attributed string to be used for the specified button state:
 ```
 
 The image for the empty dataset:
-```
+```objc
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
 
     return [UIImage imageNamed:@"empty_placeholder"];
@@ -124,7 +125,7 @@ The image for the empty dataset:
 ```
 
 The background color for the empty dataset:
-```
+```objc
 - (UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView {
 
     return [UIColor whiteColor];
@@ -132,7 +133,7 @@ The background color for the empty dataset:
 ```
 
 If you need a more complex layout, you can return a custom view instead:
-```
+```objc
 - (UIView *)customViewForEmptyDataSet:(UIScrollView *)scrollView {
 
     UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
@@ -142,7 +143,7 @@ If you need a more complex layout, you can return a custom view instead:
 ```
 
 Additionally, you can modify the horizontal and/or vertical alignments (as when using a tableHeaderView):
-```
+```objc
 - (CGPoint)offsetForEmptyDataSet:(UIScrollView *)scrollView {
 
     return CGPointMake(0, -self.tableView.tableHeaderView.frame.size.height/2);
@@ -154,7 +155,7 @@ Additionally, you can modify the horizontal and/or vertical alignments (as when 
 Return the behaviours you would expect from the empty datasets, and receive the user events.
 
 Asks to know if the empty dataset should be rendered and displayed (Default is YES) :
-```
+```objc
 - (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView {
 
     return YES;
@@ -162,7 +163,7 @@ Asks to know if the empty dataset should be rendered and displayed (Default is Y
 ```
 
 Asks for interaction permission (Default is YES) :
-```
+```objc
 - (BOOL)emptyDataSetShouldAllowTouch:(UIScrollView *)scrollView {
 
     return YES;
@@ -170,7 +171,7 @@ Asks for interaction permission (Default is YES) :
 ```
 
 Asks for scrolling permission (Default is NO) :
-```
+```objc
 - (BOOL)emptyDataSetShouldAllowScroll:(UIScrollView *)scrollView {
 
     return YES;
@@ -178,33 +179,33 @@ Asks for scrolling permission (Default is NO) :
 ```
 
 Notifies when the dataset view was tapped:
-```
+```objc
 - (void)emptyDataSetDidTapView:(UIScrollView *)scrollView {
     
 }
 ```
 
 Notifies when the dataset call to action button was tapped:
-```
+```objc
 - (void)emptyDataSetDidTapButton:(UIScrollView *)scrollView {
     
 }
 ```
 
 ### Refresh layout
-If you need to refresh the empty dataset layout, just call:
+If you need to refresh the empty dataset layout, simply call:
 
-```
+```objc
 [self.tableView reloadData];
 ```
 or
-```
+```objc
 [self.collectionView reloadData];
 ```
 depending of which you are using.
 
 ### Force layout update
-You may also call `[self.tableView reloadEmptyDataSet]` to invalidate the current empty dataset layout and trigger a layout update, bypassing `-reloadData`. This might be useful if you have a lot of logic on the delegates that you can avoid calling if not needed. As well, this is the only way to refresh content when using with UIScrollView.
+You can also call `[self.tableView reloadEmptyDataSet]` to invalidate the current empty dataset layout and trigger a layout update, bypassing `-reloadData`. This might be useful if you have a lot of logic on your data source that you want to avoid calling, when not needed. `[self.tableView reloadEmptyDataSet]` is the only way to refresh content when using with UIScrollView.
 
 
 ## Sample projects
