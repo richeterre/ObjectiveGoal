@@ -32,11 +32,11 @@
 }
 
 + (NSValueTransformer *)homePlayersArrayJSONTransformer {
-    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:Player.class];
+    return [MTLJSONAdapter arrayTransformerWithModelClass:Player.class];
 }
 
 + (NSValueTransformer *)awayPlayersArrayJSONTransformer {
-    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:Player.class];
+    return [MTLJSONAdapter arrayTransformerWithModelClass:Player.class];
 }
 
 #pragma mark - Lifecycle
