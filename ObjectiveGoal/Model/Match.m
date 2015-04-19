@@ -23,6 +23,7 @@
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
+        @keypath(Match.new, identifier): @"id",
         @keypath(Match.new, homePlayersArray): @"home_players",
         @keypath(Match.new, awayPlayersArray): @"away_players",
         @keypath(Match.new, homeGoals): @"home_goals",
@@ -40,10 +41,11 @@
 
 #pragma mark - Lifecycle
 
-- (instancetype)initWithHomePlayers:(NSSet *)homePlayers awayPlayers:(NSSet *)awayPlayers homeGoals:(NSUInteger)homeGoals awayGoals:(NSUInteger)awayGoals {
+- (instancetype)initWithIdentifier:(NSString *)identifier HomePlayers:(NSSet *)homePlayers awayPlayers:(NSSet *)awayPlayers homeGoals:(NSUInteger)homeGoals awayGoals:(NSUInteger)awayGoals {
     self = [super init];
     if (!self) return nil;
 
+    _identifier = [identifier copy];
     _homePlayersArray = [homePlayers allObjects];
     _awayPlayersArray = [awayPlayers allObjects];
     _homeGoals = homeGoals;

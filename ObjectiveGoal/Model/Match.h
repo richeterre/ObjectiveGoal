@@ -10,14 +10,16 @@
 
 @interface Match : MTLModel <MTLJSONSerializing>
 
+@property (nonatomic, copy, readonly) NSString *identifier;
 @property (nonatomic, copy, readonly) NSSet *homePlayers;
 @property (nonatomic, copy, readonly) NSSet *awayPlayers;
 @property (nonatomic, assign, readonly) NSUInteger homeGoals;
 @property (nonatomic, assign, readonly) NSUInteger awayGoals;
 
-- (instancetype)initWithHomePlayers:(NSSet *)homePlayers
-                        awayPlayers:(NSSet *)awayPlayers
-                          homeGoals:(NSUInteger)homeGoals
-                          awayGoals:(NSUInteger)awayGoals;
+- (instancetype)initWithIdentifier:(NSString *)identifier
+                       HomePlayers:(NSSet *)homePlayers
+                       awayPlayers:(NSSet *)awayPlayers
+                         homeGoals:(NSUInteger)homeGoals
+                         awayGoals:(NSUInteger)awayGoals;
 
 @end
