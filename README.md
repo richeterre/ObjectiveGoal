@@ -5,6 +5,13 @@ This project was inspired on a theoretical level by Justin Spahr-Summers' talk [
 
 Using Objective-C instead of Swift was a conscious decision based on own and [others'](http://artsy.github.io/blog/2014/11/13/eidolon-retrospective/) experiences, especially with tooling and general development speed. However, as the new language matures, its great suitability for functional reactive programming (for example, its emphasis on type safety) will make a Swift port a natural next step.
 
+Setup
+-----
+
+The application uses [Goalbase](https://github.com/richeterre/goalbase) as a backend to store, process and retrieve information. It assumes you have a Goalbase instance running at `http://localhost:3000`, which is the default URL of the WEBrick server that ships with Rails. Please check out the [Goalbase documentation](https://github.com/richeterre/goalbase/blob/master/README.md) for more detailed instructions.
+
+If you want to provide your own backend, simply change the base URL path in `APISessionManager.m`.
+
 Architecture
 ------------
 
@@ -30,7 +37,6 @@ __Encapsulation of state:__ As suggested by Gary Bernhardt in his famous talk [â
 Shortcomings
 ------------
 
-* The application is currently lacking a [proper backend](https://github.com/futurice/futuleague) to store, process and retrieve information. Instead it relies on serializing its data to NSUserDefaults whenever entering the background. Remote fetching delays are emulated in the `APIClient` through ReactiveCocoa's `delay` method.
 * There is a fair amount of similar-looking code across view models and view controllers, e.g. for displaying and hiding a progress HUD. Perhaps parts of this code could be moved to a common superclass.
 
 License
