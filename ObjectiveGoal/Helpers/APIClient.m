@@ -13,8 +13,6 @@
 #import "APISessionManager.h"
 #import <AFNetworking-RACExtensions/AFHTTPSessionManager+RACSupport.h>
 
-static NSTimeInterval const APIClientFakeLatency = 0.5;
-
 @interface APIClient ()
 
 @property (nonatomic, strong, readonly) APISessionManager *apiSessionManager;
@@ -62,12 +60,24 @@ static NSTimeInterval const APIClientFakeLatency = 0.5;
 }
 
 - (RACSignal *)updateMatch:(Match *)match withHomePlayers:(NSSet *)homePlayers awayPlayers:(NSSet *)awayPlayers homeGoals:(NSUInteger)homeGoals awayGoals:(NSUInteger)awayGoals {
-    return [[RACSignal return:@(NO)] delay:APIClientFakeLatency];
+    NSArray *homePlayerIdentifiers = [Player identifiersForPlayers:homePlayers].allObjects;
+    NSArray *awayPlayerIdentifiers = [Player identifiersForPlayers:awayPlayers].allObjects;
+
+    NSDictionary *parameters = @{
+        @"home_player_ids": homePlayerIdentifiers,
+        @"away_player_ids": awayPlayerIdentifiers,
+        @"home_goals": @(homeGoals),
+        @"away_goals": @(awayGoals)
+    };
+    return [[self.apiSessionManager rac_PUT:[APIClient pathForMatch:match] parameters:parameters]
+        map:^(RACTuple *tuple) {
+            NSHTTPURLResponse *response = tuple.second;
+            return response.statusCode == 200 ? @(YES) : @(NO);
+        }];
 }
 
 - (RACSignal *)deleteMatch:(Match *)match {
-    NSString *path = [NSString stringWithFormat:@"matches/%@", match.identifier];
-    return [[self.apiSessionManager rac_DELETE:path parameters:nil]
+    return [[self.apiSessionManager rac_DELETE:[APIClient pathForMatch:match] parameters:nil]
         map:^(RACTuple *tuple) {
             NSHTTPURLResponse *response = tuple.second;
             return response.statusCode == 200 ? @(YES) : @(NO);
@@ -102,6 +112,12 @@ static NSTimeInterval const APIClientFakeLatency = 0.5;
             NSHTTPURLResponse *response = tuple.second;
             return response.statusCode == 201 ? @(YES) : @(NO);
         }];
+}
+
+#pragma mark - Internal Helpers
+
++ (NSString *)pathForMatch:(Match *)match {
+    return [NSString stringWithFormat:@"matches/%@", match.identifier];
 }
 
 @end
