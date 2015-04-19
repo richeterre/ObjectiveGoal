@@ -9,21 +9,30 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@class JGProgressHUDIndicatorView;
-@class JGProgressHUDAnimation;
+#import "JGProgressHUDIndicatorView.h"
+#import "JGProgressHUDAnimation.h"
 
 /**
  Positions of the HUD.
  */
 typedef NS_ENUM(NSUInteger, JGProgressHUDPosition) {
+    /** Center position. */
     JGProgressHUDPositionCenter = 0,
+    /** Top left position. */
     JGProgressHUDPositionTopLeft,
+    /** Top center position. */
     JGProgressHUDPositionTopCenter,
+    /** Top right position. */
     JGProgressHUDPositionTopRight,
+    /** Center left position. */
     JGProgressHUDPositionCenterLeft,
+    /** Center right position. */
     JGProgressHUDPositionCenterRight,
+    /** Bottom left position. */
     JGProgressHUDPositionBottomLeft,
+    /** Bottom center position. */
     JGProgressHUDPositionBottomCenter,
+    /** Bottom right position. */
     JGProgressHUDPositionBottomRight
 };
 
@@ -31,8 +40,11 @@ typedef NS_ENUM(NSUInteger, JGProgressHUDPosition) {
  Appearance styles of the HUD.
  */
 typedef NS_ENUM(NSUInteger, JGProgressHUDStyle) {
+    /** Extra light HUD with dark elements. */
     JGProgressHUDStyleExtraLight = 0,
+    /** Light HUD with dark elemets. */
     JGProgressHUDStyleLight,
+    /** Dark HUD with light elements. */
     JGProgressHUDStyleDark
 };
 
@@ -40,8 +52,11 @@ typedef NS_ENUM(NSUInteger, JGProgressHUDStyle) {
  Interaction types.
  */
 typedef NS_ENUM(NSUInteger, JGProgressHUDInteractionType) {
+    /** Block all touches. No interaction behin the HUD is possible. */
     JGProgressHUDInteractionTypeBlockAllTouches = 0,
+    /** Block touches on the HUD view. */
     JGProgressHUDInteractionTypeBlockTouchesOnHUDView,
+    /** Block no touches. */
     JGProgressHUDInteractionTypeBlockNoTouches
 };
 
@@ -236,6 +251,16 @@ typedef NS_ENUM(NSUInteger, JGProgressHUDInteractionType) {
 - (void)setProgress:(float)progress animated:(BOOL)animated;
 
 
+/**
+ Specifies a minimum time that the HUD will be on-screen. Useful to prevent the HUD from flashing quickly on the screen when indeterminate tasks complete more quickly than expected.
+ 
+ @b Default: 0.0.
+ */
+@property (nonatomic, assign) NSTimeInterval minimumDisplayTime;
+
+
+
+
 /////////////
 // Showing //
 /////////////
@@ -275,7 +300,6 @@ typedef NS_ENUM(NSUInteger, JGProgressHUDInteractionType) {
 ////////////////
 // Dismissing //
 ////////////////
-
 
 
 /**
@@ -324,21 +348,6 @@ typedef NS_ENUM(NSUInteger, JGProgressHUDInteractionType) {
 
 @end
 
-
-
-@interface JGProgressHUD (Deprecated)
-
-/**
- @warning Deprecated. Use @c indicatorView.
- */
-@property (nonatomic, strong) JGProgressHUDIndicatorView *progressIndicatorView DEPRECATED_ATTRIBUTE;
-/**
- @warning Deprecated this no longer has any effect. To show no indicator view set @c indicatorView to @c nil, otherwise assign an indicator view to @c indicatorView (By default @c indicatorView is @c JGProgressHUDIndeterminateIndicatorView).
- @sa indicatorView.
- */
-@property (nonatomic, assign) BOOL useProgressIndicatorView DEPRECATED_ATTRIBUTE;
-
-@end
 
 
 /**
