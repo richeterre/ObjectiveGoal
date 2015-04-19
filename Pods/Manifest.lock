@@ -79,15 +79,15 @@ PODS:
     - Mantle/extobjc (= 1.5.1)
   - Mantle/extobjc (1.5.1)
   - OCMock (3.1.1)
-  - ReactiveCocoa (2.3.1):
-    - ReactiveCocoa/UI (= 2.3.1)
-  - ReactiveCocoa/Core (2.3.1):
+  - ReactiveCocoa (2.4.7):
+    - ReactiveCocoa/UI (= 2.4.7)
+  - ReactiveCocoa/Core (2.4.7):
     - ReactiveCocoa/no-arc
-  - ReactiveCocoa/no-arc (2.3.1)
-  - ReactiveCocoa/UI (2.3.1):
+  - ReactiveCocoa/no-arc (2.4.7)
+  - ReactiveCocoa/UI (2.4.7):
     - ReactiveCocoa/Core
-  - ReactiveViewModel (0.2):
-    - ReactiveCocoa (~> 2.1)
+  - ReactiveViewModel (0.3):
+    - ReactiveCocoa (~> 2.4)
 
 DEPENDENCIES:
   - AFNetworking
@@ -119,7 +119,7 @@ SPEC CHECKSUMS:
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   Mantle: 1ec9076f091f3a2f95cb2c94939e92dba35c97e1
   OCMock: a73f69963a8a542b0b343e2617650e4dca0cbbc2
-  ReactiveCocoa: 334468a83b2c5f669f7cfb9a084415ee23219b4f
-  ReactiveViewModel: 3b25ab68711944b1706b9dd6d1b37f37cbe6b094
+  ReactiveCocoa: eb38dee0a0e698f73a9b25e5c1faea2bb4c79240
+  ReactiveViewModel: 58918dcbcec2d3151195ab1ed9163c57a8163999
 
 COCOAPODS: 0.36.3
