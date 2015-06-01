@@ -39,7 +39,7 @@ static NSString * const EditMatchSegueIdentifier = @"EditMatch";
 
     @weakify(self);
 
-    [[[self.viewModel.contentChangesSignal deliverOnMainThread]
+    [[self.viewModel.contentChangesSignal
         deliverOnMainThread]
         subscribeNext:^(Changeset *changeset) {
             @strongify(self);
