@@ -2,6 +2,7 @@ ObjectiveGoal
 =============
 
 [![Sponsored](https://img.shields.io/badge/chilicorn-sponsored-brightgreen.svg)](http://spiceprogram.org/oss-sponsorship/)
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 
 This project was inspired on a theoretical level by Justin Spahr-Summers' talk [Enemy of the State](https://github.com/jspahrsummers/enemy-of-the-state), and on a more practical one by Ash Furrow's [C-41](https://github.com/ashfurrow/C-41) app. It showcases the Model-View-ViewModel (MVVM) architecture while serving as a digital logbook of football matches, both [physical](http://en.wikipedia.org/wiki/Association_football) and [virtual](http://en.wikipedia.org/wiki/FIFA_(video_game_series)).
 
